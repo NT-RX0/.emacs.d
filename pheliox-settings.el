@@ -128,6 +128,11 @@
 (setq dired-recursive-copies 'top)
 (setq dired-recursive-deletes 'top)
 
+;; Fringe
+(setq fringe-mode 'left-only)
+(setq-default right-fringe-width 0)
+(setq default-indicate-buffer-boundaries '((top . left) (t . left)))
+
 
 
 

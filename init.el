@@ -3,11 +3,11 @@
 (add-to-list 'load-path "~/.emacs.d")
 
 ;;configuration file list
-(require 'load-plugins)
-(require 'appearance)
-(require 'key-bindings)
-(require 'settings)
-(require 'functions)
+(require 'pheliox-load-plugins)
+(require 'pheliox-appearance)
+(require 'pheliox-settings)
+(require 'pheliox-key-bindings)
+(require 'pheliox-functions)
 
 
 
