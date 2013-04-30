@@ -3419,15 +3419,14 @@ accept it or skip it.
 
 ;;;### (autoloads nil nil ("apropos-fn+var/apropos-fn+var.el" "autopair/autopair-tests.el"
 ;;;;;;  "color-theme-almost-monokai/color-theme-almost-monokai.el"
-;;;;;;  "color-theme-mac-classic/color-theme-mac-classic.el" "color-theme-solarized/color-theme-solarized-pkg.el"
-;;;;;;  "color-theme-solarized/solarized-dark-theme.el" "color-theme-solarized/solarized-light-theme.el"
-;;;;;;  "color-theme-tango/color-theme-tango.el" "color-theme-twilight/color-theme-twilight.el"
-;;;;;;  "color-theme/color-theme-autoloads.el" "css-mode/css-mode-autoloads.el"
-;;;;;;  "css-mode/css-mode-pkg.el" "el-get/el-get-autoloads.el" "el-get/el-get-build.el"
-;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
-;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
-;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el" "expand-region/cc-mode-expansions.el"
+;;;;;;  "color-theme-solarized/color-theme-solarized-pkg.el" "color-theme-solarized/solarized-dark-theme.el"
+;;;;;;  "color-theme-solarized/solarized-light-theme.el" "color-theme-tango/color-theme-tango.el"
+;;;;;;  "color-theme-twilight/color-theme-twilight.el" "color-theme/color-theme-autoloads.el"
+;;;;;;  "css-mode/css-mode-autoloads.el" "css-mode/css-mode-pkg.el"
+;;;;;;  "el-get/el-get-autoloads.el" "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
+;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
+;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
+;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "expand-region/cc-mode-expansions.el"
 ;;;;;;  "expand-region/clojure-mode-expansions.el" "expand-region/cperl-mode-expansions.el"
 ;;;;;;  "expand-region/css-mode-expansions.el" "expand-region/er-basic-expansions.el"
 ;;;;;;  "expand-region/erlang-mode-expansions.el" "expand-region/expand-region-core.el"
@@ -3442,8 +3441,8 @@ accept it or skip it.
 ;;;;;;  "expand-region/web-mode-expansions.el" "helm/helm-aliases.el"
 ;;;;;;  "helm/helm-pkg.el" "helm/helm-plugin.el" "hide-region/hide-region.el"
 ;;;;;;  "mark-multiple/mark-multiple-pkg.el" "mark-multiple/mm-pabbrev-integration.el"
-;;;;;;  "nav/nav-dev.el" "point-undo/point-undo.el" "pp+/pp+.el"
-;;;;;;  "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
+;;;;;;  "monokai-theme/monokai-theme.el" "nav/nav-dev.el" "point-undo/point-undo.el"
+;;;;;;  "pp+/pp+.el" "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
 ;;;;;;  "slime/contrib/slime-asdf.el" "slime/contrib/slime-autodoc.el"
 ;;;;;;  "slime/contrib/slime-banner.el" "slime/contrib/slime-c-p-c.el"
 ;;;;;;  "slime/contrib/slime-clipboard.el" "slime/contrib/slime-compiler-notes-tree.el"
@@ -3462,8 +3461,8 @@ accept it or skip it.
 ;;;;;;  "slime/contrib/slime-tramp.el" "slime/contrib/slime-typeout-frame.el"
 ;;;;;;  "slime/contrib/slime-xref-browser.el" "slime/hyperspec.el"
 ;;;;;;  "slime/slime-autoloads.el" "slime/slime.el" "smooth-scroll/smooth-scroll.el"
-;;;;;;  "swank-js/slime-js.el" "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (20863 37133 256837))
+;;;;;;  "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el"
+;;;;;;  "yasnippet/yasnippet-tests.el") (20863 48873 29815))
 
 ;;;***
 

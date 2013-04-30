@@ -1,7 +1,6 @@
 [submodule "auto-complete"]
     path = plugins/auto-complete
     url = https://github.com/auto-complete/auto-complete
-
 [submodule "el-get/autopair"]
 	path = el-get/autopair
 	url = https://github.com/capitaomorte/autopair.git
@@ -53,3 +52,24 @@
 [submodule "el-get/mark-multiple"]
 	path = el-get/mark-multiple
 	url = http://github.com/magnars/mark-multiple.el.git
+[submodule "el-get/markdown-mode"]
+        path = el-get/markdown-mode
+        url = git://jblevins.org/git/markdown-mode.git
+[submodule "el-get/pymacs"]
+        path = el-get/pymacs
+        url = http://github.com/pinard/Pymacs.git
+[submodule "el-get/yasnippet"]
+        path = el-get/yasnippet
+        url = http://github.com/capitaomorte/yasnippet.git
+[submodule "plugins/dictionary-el"]
+        path = plugins/dictionary-el
+        url = https://github.com/myrkr/dictionary-el.git
+[submodule "plugins/icicles"]
+        path = plugins/icicles
+        url = https://github.com/emacsmirror/icicles.git
+[submodule "plugins/swank-js"]
+        path = plugins/swank-js
+        url = https://github.com/swank-js/swank-js.git
+        [submodule "plugins/weibo.emacs"]
+        path = plugins/weibo.emacs
+        url = https://github.com/austin-----/weibo.emacs.git
