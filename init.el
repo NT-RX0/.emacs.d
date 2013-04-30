@@ -1,14 +1,6 @@
 ;;set linux var by default
 (defvar home-path)
-<<<<<<< HEAD
 (setq home-path nil)
-=======
-<<<<<<< HEAD
-;;(setq home-path nil)
-=======
-(setq home-path nil)
->>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
->>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 (defvar emacs-configuration-dir)
 (setq emacs-configuration-dir ".emacs.d/")
 (if (not (string< home-path nil))
@@ -20,31 +12,20 @@
 ;;(add-to-list 'load-path "~/.emacs.d")
 
 ;;configuration file list
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 (if (eq system-type 'windows-nt)
     (progn
       (print "Windows detected")
       (require 'pheliox-settings-windows)))
 
-=======
->>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
->>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 (require 'pheliox-load-plugins)
 (require 'pheliox-appearance)
 (require 'pheliox-settings)
 (require 'pheliox-key-bindings)
 (require 'pheliox-functions)
+(require
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
-=======
->>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
->>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
