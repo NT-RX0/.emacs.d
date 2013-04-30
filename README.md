@@ -1,6 +1,7 @@
 PHELiOX's Emacs Configuration Git
 =================================
 For Emacs 24.2
+
 including plugins, configurations, customizations, themes, etc.
 
 Initialization
