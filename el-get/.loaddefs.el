@@ -3462,7 +3462,7 @@ accept it or skip it.
 ;;;;;;  "slime/contrib/slime-xref-browser.el" "slime/hyperspec.el"
 ;;;;;;  "slime/slime-autoloads.el" "slime/slime.el" "smooth-scroll/smooth-scroll.el"
 ;;;;;;  "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (20863 48873 29815))
+;;;;;;  "yasnippet/yasnippet-tests.el") (20863 55704 140569))
 
 ;;;***
 

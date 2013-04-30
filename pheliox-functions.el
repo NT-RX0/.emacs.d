@@ -102,7 +102,6 @@ buffer read-only, so I suggest setting kill-read-only-ok to t."
          (kill-line arg)))
 (global-set-key "\C-k" 'kill-and-join-forward)
 
-
 ;;real auto-save link by save-buffer
 (defun save-buffer-if-visiting-file (&optional args)
       "Save the current buffer only if it is visiting a file"

@@ -1,5 +1,5 @@
 ;; el-get Settings
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(add-to-list 'load-path (concat current-emacs-path "el-get/el-get"))
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -11,20 +11,20 @@
 (el-get 'sync)
 
 ;; colors
-(add-to-list 'load-path "~/.emacs.d/el-get/color-theme")
+(add-to-list 'load-path (concat current-emacs-path "el-get/color-theme"))
 (require 'color-theme)
 (color-theme-initialize)
 
 ;; Enable CEDET
-(add-to-list 'load-path "~/.emacs.d/plugins/cedet/common")
+(add-to-list 'load-path (concat current-emacs-path "plugins/cedet/common"))
 (require 'cedet)
 
 ;; Enable ECB
-(add-to-list 'load-path "~/.emacs.d/plugins/ecb")
+(add-to-list 'load-path (concat current-emacs-path "plugins/ecb"))
 (require 'ecb)
 
 ;; Org-Mode
-(add-to-list 'load-path "~/.emacs.d/plugins/org-mode")
+(add-to-list 'load-path (concat current-emacs-path "plugins/org-mode"))
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-prefix-command 'ctl-c-s-map)
@@ -36,39 +36,39 @@
 (setq org-log-done t)
 
 ;; auto complete
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete/lib/popup")
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete/lib/fuzzy")
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete/lib/ert")
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete-extension")
+(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete"))
+(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/popup"))
+(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/fuzzy"))
+(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/ert"))
+(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete-extension"))
 (require 'auto-complete-config)
 (require 'auto-complete-extension)
 (require 'auto-complete-yasnippet)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/dict")
+(add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
 (ac-config-default)
 (setq ac-fuzzy-enable t)
 (ac-set-trigger-key "TAB")
 (ac-set-trigger-key "<tab>")
 
 ;;yasnippet
-;;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+;;(add-to-list 'load-path (concat current-emacs-path "plugins/yasnippet"))
 (require 'yasnippet)
 (yas/global-mode 1)
 
 
 ;;nav
-;;(add-to-list 'load-path "~/.emacs.d/plugins/nav")
+;;(add-to-list 'load-path (concat current-emacs-path "plugins/nav"))
 ;;(require 'nav)
 ;;(nav-disable-overeager-window-splitting)
 
 ;;markdown
-;;(add-to-list 'load-path "~/.emacs.d/plugins/markdown")
+;;(add-to-list 'load-path (concat current-emacs-path "plugins/markdown"))
 ;;(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq auto-mode-alist (cons '("\\.text" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 ;;session
-(add-to-list 'load-path "~/.emacs.d/plugins/session")
+(add-to-list 'load-path (concat current-emacs-path "plugins/session"))
 (require 'session)
 (add-hook 'after-init-hook
           'session-initialize)
@@ -76,7 +76,7 @@
              'org-mark-ring)
 
 ;;cursor change
-(add-to-list 'load-path "~/.emacs.d/plugins/cursor-chg")
+(add-to-list 'load-path (concat current-emacs-path "plugins/cursor-chg"))
 (require 'cursor-chg)  ; Load the library
 ;;cursor change setting
 (setq curchg-default-cursor-color "dodger blue")
@@ -236,7 +236,7 @@
 ;; (folding-add-to-marks-list 'sh-mode "# {{{ " "# }}}" nil)
 
 ;; weibo client
-(add-to-list 'load-path "~/.emacs.d/plugins/weibo.emacs")
+(add-to-list 'load-path (concat current-emacs-path "plugins/weibo.emacs"))
 (require 'weibo)
 
 ;;autopair
@@ -264,7 +264,7 @@
 
 
 ;;dictionary settings
-(add-to-list 'load-path "~/.emacs.d/plugins/dictionary-el")
+(add-to-list 'load-path (concat current-emacs-path "plugins/dictionary-el"))
 (require 'dictionary)
 
 (autoload 'dictionary-search "dictionary"
@@ -301,13 +301,13 @@
 ;;(dictionary-tooltip-mode t)
 
 ;;page-break-lines
-(add-to-list 'load-path "~/.emacs.d/plugins/page-break-lines")
+(add-to-list 'load-path (concat current-emacs-path "plugins/page-break-lines"))
 (require 'page-break-lines)
 (global-page-break-lines-mode t)
 ;;(setq truncate-lines t)
 
 ;;icicles settings
-;; (add-to-list 'load-path "~/.emacs.d/plugins/icicles/")
+;; (add-to-list 'load-path (concat current-emacs-path "plugins/icicles/"))
 ;; (require 'icicles)
 ;; (icy-mode 1)
 
@@ -341,7 +341,7 @@
 (global-set-key (kbd "C-`") 'er/expand-region)
 
 ;;swank-js setup
-(add-to-list 'load-path "~/.emacs.d/plugins/swank-js")
+(add-to-list 'load-path (concat current-emacs-path "plugins/swank-js"))
 (global-set-key (kbd "C-x <f5>") 'slime-js-reload)
 (add-hook 'js2-mode-hook
           (lambda ()
@@ -413,7 +413,7 @@
 (global-highlight-symbol-mode t)
 
 ;;undo-tree setup
-(add-to-list 'load-path "~/.emacs.d/plugins/undo-tree/")
+(add-to-list 'load-path (concat current-emacs-path "plugins/undo-tree/"))
 (require 'undo-tree)
 (global-undo-tree-mode)
 

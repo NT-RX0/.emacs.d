@@ -5,15 +5,16 @@
 (setq user-mail-address "pheliox@live.com")
 
 ;;Screen Settings
+(setq truncate-lines t)
 (setq redisplay-dont-pause t
       scroll-margin 1
       scroll-step 1
       scroll-conservatively 10000
       scroll-preserve-screen-position 1)
 ;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse nil) ;; scroll window under mouse
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq auto-window-vscroll nil)
 ;;follow mode to sync between windows
 (follow-mode t)
@@ -64,18 +65,28 @@
 
 ;;auto-save
 (auto-save-mode 1)
-(setq auto-save-file-name-transforms 
-      '(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" "/tmp/\\2" t) 
-        ("\\`/?\\([^/]*/\\)*\\([^/]*\\)\\'" "~/.emacs.backup/\\2" t)))
-(setq auto-save-interval 15)
+
+(setq auto-save-interval 25)
 (setq auto-save-timeout 1)
 ;; backup policies
 (setq make-backup-files t)
+(setq backup-by-copying t)
 (setq version-control t)
 (setq kept-old-versions 2)
 (setq kept-new-versions 5)
 (setq delete-old-versions t)
-(setq backup-directory-alist (quote (("." . "~/.emacs.backup"))))
+
+(defvar pheliox-backup-path)
+(setq pheliox-backup-path  (concat current-emacs-path ".backup/"))
+(setq backup-directory-alist
+      `(("." . ,pheliox-backup-path)
+        (,tramp-file-name-regexp t)))
+(setq auto-save-list-file-prefix
+      (concat pheliox-backup-path ".auto-saves-"))
+(setq auto-save-file-name-transforms
+      `((".*" ,pheliox-backup-path t)
+        (,tramp-file-name-regexp t)))
+
 
 ;;(setq default-frame-alist  '((height . 50) (width . 80) )) 
 ;;(setq default-frame-alist  nil) 

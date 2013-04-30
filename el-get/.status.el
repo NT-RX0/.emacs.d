@@ -100,8 +100,7 @@
                        :post-init
                        (add-to-list 'auto-mode-alist
                                     '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))))
- (monokai-theme status "installed" recipe
-                (:name monokai-theme :auto-generated t :type emacswiki :description "TextMate theme Monokai port for Emacs color-theme." :website "https://raw.github.com/emacsmirror/emacswiki.org/master/monokai-theme.el"))
+ (monokai-theme status "removed" recipe nil)
  (nav status "installed" recipe
       (:name nav :description "Emacs mode for filesystem navigation" :type hg :url "https://emacs-nav.googlecode.com/hg" :features nav))
  (org-mode status "removed" recipe nil)

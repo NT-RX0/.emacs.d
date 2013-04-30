@@ -9,8 +9,8 @@
 ;;在minibuffer上面可以显示列号   
 (column-number-mode t)
 ;; Set theme
-(load "~/.emacs.d/themes/color-theme-monokai/color-theme-monokai.el")
-(load "~/.emacs.d/el-get/color-theme-zenburn/zenburn-theme.el")
+(load (concat current-emacs-path "themes/color-theme-molokai/color-theme-molokai.el"))
+(load (concat current-emacs-path "el-get/color-theme-zenburn/zenburn-theme.el"))
 (color-theme-molokai)
 ;;(color-theme-almost-monokai)
 

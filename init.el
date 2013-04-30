@@ -1,6 +1,15 @@
-
+;;set linux var by default
+(defvar home-path)
+(setq home-path nil)
+(defvar emacs-configuration-dir)
+(setq emacs-configuration-dir ".emacs.d/")
+(if (not (string< home-path nil))
+  (setq home-path "~/"))
 ;;Default settings dir
-(add-to-list 'load-path "~/.emacs.d")
+(defvar current-emacs-path)
+(setq current-emacs-path (concat home-path emacs-configuration-dir))
+(add-to-list 'load-path current-emacs-path)
+;;(add-to-list 'load-path "~/.emacs.d")
 
 ;;configuration file list
 (require 'pheliox-load-plugins)
@@ -18,8 +27,8 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(size-indication-mode t)
- '(tabbar-background-color "gray20")
  '(tabbar-mode t nil (tabbar))
+ '(tabbar-background-color "gray20")
  '(tabbar-mwheel-mode t nil (tabbar))
  '(tabbar-separator (quote (" " (:type pbm :data ("20 20 20") :ascent center :mask (heuristic) :margin 1))))
  '(tool-bar-mode nil))
