@@ -7,13 +7,13 @@ including plugins, configurations, customizations, themes, etc.
 Initialization
 --------------
 
-Using .emacs.el
+Using init.el
 
-* settings.el
-* load-plugins.el
-* keybindings.el
-* functions.el
-* appearance.el
+* pheliox-settings.el
+* pheliox-load-plugins.el
+* pheliox-keybindings.el
+* pheliox-functions.el
+* pheliox-appearance.el
 
 Plugin Management
 -----------------
