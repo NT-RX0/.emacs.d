@@ -1,4 +1,23 @@
 ;; el-get Settings
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+(if (eq system-type 'linux) 
+    (progn
+      (print "Welcome back commander")
+      (add-to-list 'load-path (concat current-emacs-path "el-get/el-get"))
+      (require 'el-get)
+      (unless (require 'el-get nil 'noerror)
+	(with-current-buffer
+	    (url-retrieve-synchronously
+	     "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+	  (goto-char (point-max))
+	  (eval-print-last-sexp)))
+
+      (el-get 'sync)))
+
+=======
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 (add-to-list 'load-path (concat current-emacs-path "el-get/el-get"))
 
 (unless (require 'el-get nil 'noerror)
@@ -9,6 +28,10 @@
     (eval-print-last-sexp)))
 
 (el-get 'sync)
+<<<<<<< HEAD
+=======
+>>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 
 ;; colors
 (add-to-list 'load-path (concat current-emacs-path "el-get/color-theme"))
@@ -93,7 +116,15 @@
 (tabbar-mode t)
 (global-set-key [(meta left)] 'tabbar-backward-group)
 (global-set-key [(meta right)] 'tabbar-forward-group)
+<<<<<<< HEAD
 (global-set-key [(C-S-iso-lefttab)] 'tabbar-backward)
+=======
+<<<<<<< HEAD
+(global-set-key [(C-S-tab)] 'tabbar-backward)
+=======
+(global-set-key [(C-S-iso-lefttab)] 'tabbar-backward)
+>>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 (global-set-key [(C-tab)] 'tabbar-forward)
 ;; customize tabbar group
 (defun tabbar-buffer-groups ()
@@ -240,12 +271,26 @@
 (require 'weibo)
 
 ;;autopair
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+(require 'autopair)
+=======
+>>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 (autopair-global-mode t)
 ;;Adding Textmate like smart pair operations
 
 
 
 ;;highlight parentheses + autopair
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+(require 'highlight-parentheses)
+=======
+>>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 (setq hl-paren-colors '("deep pink" "purple" "dodger blue" "green yellow" "goldenrod"))
 (add-hook 'highlight-parentheses-mode-hook
           '(lambda ()
@@ -342,6 +387,13 @@
 
 ;;swank-js setup
 (add-to-list 'load-path (concat current-emacs-path "plugins/swank-js"))
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 (global-set-key (kbd "C-x <f5>") 'slime-js-reload)
 (add-hook 'js2-mode-hook
           (lambda ()
@@ -406,6 +458,13 @@
 
 
 ;;highlight-symbol mode
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+(require 'highlight-symbol)
+=======
+>>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 (define-globalized-minor-mode global-highlight-symbol-mode
   highlight-symbol-mode
   (lambda ()

@@ -1,6 +1,14 @@
 ;;Escape-Meta-Alt-Control-Shift Configuration
 ;;外观设置   
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> 7840b6315d10b97e0c12fd5be4724ee17b708b48
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 
 ;;去掉工具栏   
 (setq tool-bar-mode nil)   

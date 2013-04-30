@@ -2833,6 +2833,7 @@ See `linum-mode' for more information on Linum mode.
 
 ;;;***
 
+<<<<<<< HEAD
 ;;;### (autoloads (gfm-mode markdown-mode) "markdown-mode/markdown-mode"
 ;;;;;;  "markdown-mode/markdown-mode.el" (20859 24717))
 ;;; Generated autoloads from markdown-mode/markdown-mode.el
@@ -2844,11 +2845,20 @@ Major mode for editing Markdown files.
 
 (autoload 'gfm-mode "markdown-mode/markdown-mode" "\
 Major mode for editing GitHub Flavored Markdown files.
+=======
+;;;### (autoloads (inline-string-rectangle) "mark-multiple/inline-string-rectangle"
+;;;;;;  "mark-multiple/inline-string-rectangle.el" (20862 43119))
+;;; Generated autoloads from mark-multiple/inline-string-rectangle.el
+
+(autoload 'inline-string-rectangle "mark-multiple/inline-string-rectangle" "\
+
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 
 \(fn)" t nil)
 
 ;;;***
 
+<<<<<<< HEAD
 ;;;### (autoloads (mc/edit-beginnings-of-lines mc/edit-ends-of-lines
 ;;;;;;  mc/edit-lines) "multiple-cursors/mc-edit-lines" "multiple-cursors/mc-edit-lines.el"
 ;;;;;;  (20864 8157))
@@ -2886,12 +2896,22 @@ Add one cursor to the beginning of each line in the active region.
 ;;; Generated autoloads from multiple-cursors/mc-mark-more.el
 
 (autoload 'mc/mark-next-like-this "multiple-cursors/mc-mark-more" "\
+=======
+;;;### (autoloads (mark-more-like-this-extended mark-more-like-this
+;;;;;;  mark-all-like-this-in-region mark-all-like-this mark-previous-like-this
+;;;;;;  mark-next-like-this) "mark-multiple/mark-more-like-this"
+;;;;;;  "mark-multiple/mark-more-like-this.el" (20862 43119))
+;;; Generated autoloads from mark-multiple/mark-more-like-this.el
+
+(autoload 'mark-next-like-this "mark-multiple/mark-more-like-this" "\
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 Find and mark the next part of the buffer matching the currently active region
 With negative ARG, delete the last one instead.
 With zero ARG, skip the last one and mark next.
 
 \(fn ARG)" t nil)
 
+<<<<<<< HEAD
 (autoload 'mc/mark-next-word-like-this "multiple-cursors/mc-mark-more" "\
 
 
@@ -2940,10 +2960,21 @@ Deselect prev part of the buffer matching the currently active region.
 \(fn ARG)" t nil)
 
 (autoload 'mc/mark-all-like-this "multiple-cursors/mc-mark-more" "\
+=======
+(autoload 'mark-previous-like-this "mark-multiple/mark-more-like-this" "\
+Find and mark the previous part of the buffer matching the currently active region
+With negative ARG, delete the last one instead.
+With zero ARG, skip the last one and mark previous.
+
+\(fn ARG)" t nil)
+
+(autoload 'mark-all-like-this "mark-multiple/mark-more-like-this" "\
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 Find and mark all the parts of the buffer matching the currently active region
 
 \(fn)" t nil)
 
+<<<<<<< HEAD
 (autoload 'mc/mark-all-words-like-this "multiple-cursors/mc-mark-more" "\
 
 
@@ -2960,6 +2991,20 @@ Find and mark all the parts in the region matching the given search
 \(fn BEG END)" t nil)
 
 (autoload 'mc/mark-more-like-this-extended "multiple-cursors/mc-mark-more" "\
+=======
+(autoload 'mark-all-like-this-in-region "mark-multiple/mark-more-like-this" "\
+Find and mark all the parts in the region matching the given search
+
+\(fn REG-START REG-END)" t nil)
+
+(autoload 'mark-more-like-this "mark-multiple/mark-more-like-this" "\
+Marks next part of buffer that matches the currently active region ARG times.
+Given a negative ARG it searches backwards instead.
+
+\(fn ARG)" t nil)
+
+(autoload 'mark-more-like-this-extended "mark-multiple/mark-more-like-this" "\
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 Like mark-more-like-this, but then lets you adjust with arrows key.
 The actual adjustment made depends on the final component of the
 key-binding used to invoke the command, with all modifiers removed:
@@ -2977,6 +3022,7 @@ is one of the above.
 
 \(fn)" t nil)
 
+<<<<<<< HEAD
 (autoload 'mc/mark-all-like-this-dwim "multiple-cursors/mc-mark-more" "\
 Tries to guess what you want to mark all of.
 Can be pressed multiple times to increase selection.
@@ -3007,11 +3053,33 @@ Add a cursor where you click.
 
 (autoload 'mc/mark-sgml-tag-pair "multiple-cursors/mc-mark-more" "\
 Mark the tag we're in and its pair for renaming.
+=======
+;;;***
+
+;;;### (autoloads (mm/clear-all mm/deactivate-region-and-clear-all
+;;;;;;  mm/deactivate-region-or-clear-all) "mark-multiple/mark-multiple"
+;;;;;;  "mark-multiple/mark-multiple.el" (20862 43119))
+;;; Generated autoloads from mark-multiple/mark-multiple.el
+
+(autoload 'mm/deactivate-region-or-clear-all "mark-multiple/mark-multiple" "\
+Deactivate mark if active, otherwise clear all.
+
+\(fn)" t nil)
+
+(autoload 'mm/deactivate-region-and-clear-all "mark-multiple/mark-multiple" "\
+Deactivate mark and clear all.
+
+\(fn)" t nil)
+
+(autoload 'mm/clear-all "mark-multiple/mark-multiple" "\
+Remove all marks
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 
 \(fn)" t nil)
 
 ;;;***
 
+<<<<<<< HEAD
 ;;;### (autoloads (mc/sort-regions mc/reverse-regions mc/insert-numbers)
 ;;;;;;  "multiple-cursors/mc-separate-operations" "multiple-cursors/mc-separate-operations.el"
 ;;;;;;  (20864 8157))
@@ -3028,12 +3096,20 @@ Insert increasing numbers for each cursor, starting at 0 or ARG.
 \(fn)" t nil)
 
 (autoload 'mc/sort-regions "multiple-cursors/mc-separate-operations" "\
+=======
+;;;### (autoloads (rename-sgml-tag) "mark-multiple/rename-sgml-tag"
+;;;;;;  "mark-multiple/rename-sgml-tag.el" (20862 43119))
+;;; Generated autoloads from mark-multiple/rename-sgml-tag.el
+
+(autoload 'rename-sgml-tag "mark-multiple/rename-sgml-tag" "\
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 
 
 \(fn)" t nil)
 
 ;;;***
 
+<<<<<<< HEAD
 ;;;### (autoloads (set-rectangular-region-anchor) "multiple-cursors/rectangular-region-mode"
 ;;;;;;  "multiple-cursors/rectangular-region-mode.el" (20864 8157))
 ;;; Generated autoloads from multiple-cursors/rectangular-region-mode.el
@@ -3043,6 +3119,19 @@ Anchors the rectangular region at point.
 
 Think of this one as `set-mark' except you're marking a rectangular region. It is
 an exceedingly quick way of adding multiple cursors to multiple lines.
+=======
+;;;### (autoloads (gfm-mode markdown-mode) "markdown-mode/markdown-mode"
+;;;;;;  "markdown-mode/markdown-mode.el" (20859 24717))
+;;; Generated autoloads from markdown-mode/markdown-mode.el
+
+(autoload 'markdown-mode "markdown-mode/markdown-mode" "\
+Major mode for editing Markdown files.
+
+\(fn)" t nil)
+
+(autoload 'gfm-mode "markdown-mode/markdown-mode" "\
+Major mode for editing GitHub Flavored Markdown files.
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 
 \(fn)" t nil)
 
@@ -3539,10 +3628,16 @@ accept it or skip it.
 ;;;;;;  "expand-region/sml-mode-expansions.el" "expand-region/text-mode-expansions.el"
 ;;;;;;  "expand-region/web-mode-expansions.el" "helm/helm-aliases.el"
 ;;;;;;  "helm/helm-pkg.el" "helm/helm-plugin.el" "hide-region/hide-region.el"
+<<<<<<< HEAD
 ;;;;;;  "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-core.el"
 ;;;;;;  "multiple-cursors/multiple-cursors-pkg.el" "multiple-cursors/multiple-cursors.el"
 ;;;;;;  "nav/nav-dev.el" "point-undo/point-undo.el" "pp+/pp+.el"
 ;;;;;;  "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
+=======
+;;;;;;  "mark-multiple/mark-multiple-pkg.el" "mark-multiple/mm-pabbrev-integration.el"
+;;;;;;  "monokai-theme/monokai-theme.el" "nav/nav-dev.el" "point-undo/point-undo.el"
+;;;;;;  "pp+/pp+.el" "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 ;;;;;;  "slime/contrib/slime-asdf.el" "slime/contrib/slime-autodoc.el"
 ;;;;;;  "slime/contrib/slime-banner.el" "slime/contrib/slime-c-p-c.el"
 ;;;;;;  "slime/contrib/slime-clipboard.el" "slime/contrib/slime-compiler-notes-tree.el"
@@ -3562,7 +3657,11 @@ accept it or skip it.
 ;;;;;;  "slime/contrib/slime-xref-browser.el" "slime/hyperspec.el"
 ;;;;;;  "slime/slime-autoloads.el" "slime/slime.el" "smooth-scroll/smooth-scroll.el"
 ;;;;;;  "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el"
+<<<<<<< HEAD
 ;;;;;;  "yasnippet/yasnippet-tests.el") (20864 8173 514267))
+=======
+;;;;;;  "yasnippet/yasnippet-tests.el") (20863 55704 140569))
+>>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 
 ;;;***
 
