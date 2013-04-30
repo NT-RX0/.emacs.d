@@ -91,8 +91,7 @@
             (:name key-chord :description "Map pairs of simultaneously pressed keys to commands." :type emacswiki :features "key-chord"))
  (linum-ex status "installed" recipe
            (:name linum-ex :description "Display line numbers to the left of buffers" :type emacswiki :features linum-ex))
- (mark-multiple status "installed" recipe
-                (:name mark-multiple :description "mark several regions at once" :website "http://emacsrocks.com/e08.html" :type github :pkgname "magnars/mark-multiple.el" :features "mark-more-like-this"))
+ (mark-multiple status "removed" recipe nil)
  (markdown-mode status "installed" recipe
                 (:name markdown-mode :description "Major mode to edit Markdown files in Emacs" :type git :url "git://jblevins.org/git/markdown-mode.git" :before
                        (add-to-list 'auto-mode-alist
@@ -101,6 +100,8 @@
                        (add-to-list 'auto-mode-alist
                                     '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))))
  (monokai-theme status "removed" recipe nil)
+ (multiple-cursors status "installed" recipe
+                   (:name multiple-cursors :description "An experiment in adding multiple cursors to emacs" :type github :pkgname "magnars/multiple-cursors.el" :features multiple-cursors))
  (nav status "installed" recipe
       (:name nav :description "Emacs mode for filesystem navigation" :type hg :url "https://emacs-nav.googlecode.com/hg" :features nav))
  (org-mode status "removed" recipe nil)

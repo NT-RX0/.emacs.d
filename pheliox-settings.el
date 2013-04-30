@@ -128,7 +128,7 @@
 (setq kill-ring-max 200)
 
 (setq default-major-mode 'text-mode)
-(global-font-lock-mode t)
+(global-font-lock-mode nil)
 
 (put 'set-goal-column 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
