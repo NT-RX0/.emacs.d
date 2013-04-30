@@ -1,0 +1,75 @@
+[submodule "auto-complete"]
+    path = plugins/auto-complete
+    url = https://github.com/auto-complete/auto-complete
+[submodule "el-get/autopair"]
+	path = el-get/autopair
+	url = https://github.com/capitaomorte/autopair.git
+[submodule "el-get/el-get"]
+	path = el-get/el-get
+	url = https://github.com/dimitri/el-get.git
+[submodule "el-get/highlight-indentation"]
+	path = el-get/highlight-indentation
+	url = https://github.com/antonj/Highlight-Indentation-for-Emacs.git
+[submodule "el-get/slime"]
+	path = el-get/slime
+	url = http://github.com/nablaone/slime.git
+[submodule "el-get/zencoding-mode"]
+	path = el-get/zencoding-mode
+	url = http://github.com/rooney/zencoding.git
+[submodule "plugins/cedet"]
+	path = plugins/cedet
+	url = https://github.com/emacsmirror/cedet.git
+[submodule "plugins/org-mode"]
+	path = plugins/org-mode
+	url = git://orgmode.org/org-mode.git
+[submodule "plugins/page-break-lines"]
+	path = plugins/page-break-lines
+	url = https://github.com/purcell/page-break-lines.git
+[submodule "themes/color-theme-molokai"]
+	path = themes/color-theme-molokai
+	url = https://github.com/alloy-d/color-theme-molokai.git
+[submodule "el-get/color-theme-almost-monokai"]
+	path = el-get/color-theme-almost-monokai
+	url = https://github.com/edenc/color-theme-almost-monokai.git
+[submodule "el-get/expand-region"]
+	path = el-get/expand-region
+	url = https://github.com/magnars/expand-region.el.git
+[submodule "el-get/color-theme-solarized"]
+	path = el-get/color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "el-get/color-theme-zenburn"]
+	path = el-get/color-theme-zenburn
+	url = https://github.com/bbatsov/zenburn-emacs.git
+[submodule "el-get/color-theme-twilight"]
+	path = el-get/color-theme-twilight
+	url = http://github.com/crafterm/twilight-emacs.git
+[submodule "el-get/helm"]
+	path = el-get/helm
+	url = https://github.com/emacs-helm/helm.git
+[submodule "el-get/js2-mode"]
+	path = el-get/js2-mode
+	url = http://github.com/mooz/js2-mode.git
+[submodule "el-get/mark-multiple"]
+	path = el-get/mark-multiple
+	url = http://github.com/magnars/mark-multiple.el.git
+[submodule "el-get/markdown-mode"]
+        path = el-get/markdown-mode
+        url = git://jblevins.org/git/markdown-mode.git
+[submodule "el-get/pymacs"]
+        path = el-get/pymacs
+        url = http://github.com/pinard/Pymacs.git
+[submodule "el-get/yasnippet"]
+        path = el-get/yasnippet
+        url = http://github.com/capitaomorte/yasnippet.git
+[submodule "plugins/dictionary-el"]
+        path = plugins/dictionary-el
+        url = https://github.com/myrkr/dictionary-el.git
+[submodule "plugins/icicles"]
+        path = plugins/icicles
+        url = https://github.com/emacsmirror/icicles.git
+[submodule "plugins/swank-js"]
+        path = plugins/swank-js
+        url = https://github.com/swank-js/swank-js.git
+        [submodule "plugins/weibo.emacs"]
+        path = plugins/weibo.emacs
+        url = https://github.com/austin-----/weibo.emacs.git
