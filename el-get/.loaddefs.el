@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (autopair-global-mode autopair-mode) "autopair/autopair"
-;;;;;;  "autopair/autopair.el" (20858 51204))
+;;;;;;  "autopair/autopair.el" (20863 35756))
 ;;; Generated autoloads from autopair/autopair.el
 
 (autoload 'autopair-mode "autopair/autopair" "\
@@ -229,6 +229,22 @@ Submit your color-theme to the maintainer.
 
 (autoload 'color-theme-initialize "color-theme/color-theme" "\
 Initialize the color theme package by loading color-theme-libraries.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (css-mode) "css-mode/css-mode" "css-mode/css-mode.el"
+;;;;;;  (20863 32044))
+;;; Generated autoloads from css-mode/css-mode.el
+(add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
+
+(autoload 'css-mode "css-mode/css-mode" "\
+Major mode for editing CSS source code.
+
+Key bindings:
+
+\\{css-mode-map}
 
 \(fn)" t nil)
 
@@ -2950,6 +2966,23 @@ Opens Nav in a new window to the left of the current one.
 
 ;;;***
 
+;;;### (autoloads (paredit-mode) "paredit/paredit" "paredit/paredit.el"
+;;;;;;  (20863 33448))
+;;; Generated autoloads from paredit/paredit.el
+
+(autoload 'paredit-mode "paredit/paredit" "\
+Minor mode for pseudo-structurally editing Lisp code.
+With a prefix argument, enable Paredit Mode even if there are
+  unbalanced parentheses in the buffer.
+Paredit behaves badly if parentheses are unbalanced, so exercise
+  caution when forcing Paredit Mode to be enabled, and consider
+  fixing unbalanced parentheses instead.
+\\<paredit-mode-map>
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
 ;;;### (autoloads (pymacs-apply pymacs-call pymacs-exec pymacs-eval
 ;;;;;;  pymacs-autoload pymacs-load) "pymacs/pymacs" "pymacs/pymacs.el"
 ;;;;;;  (20861 64205))
@@ -3389,11 +3422,12 @@ accept it or skip it.
 ;;;;;;  "color-theme-mac-classic/color-theme-mac-classic.el" "color-theme-solarized/color-theme-solarized-pkg.el"
 ;;;;;;  "color-theme-solarized/solarized-dark-theme.el" "color-theme-solarized/solarized-light-theme.el"
 ;;;;;;  "color-theme-tango/color-theme-tango.el" "color-theme-twilight/color-theme-twilight.el"
-;;;;;;  "color-theme/color-theme-autoloads.el" "el-get/el-get-autoloads.el"
-;;;;;;  "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
-;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
-;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
-;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "expand-region/cc-mode-expansions.el"
+;;;;;;  "color-theme/color-theme-autoloads.el" "css-mode/css-mode-autoloads.el"
+;;;;;;  "css-mode/css-mode-pkg.el" "el-get/el-get-autoloads.el" "el-get/el-get-build.el"
+;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
+;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
+;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
+;;;;;;  "el-get/el-get-status.el" "expand-region/cc-mode-expansions.el"
 ;;;;;;  "expand-region/clojure-mode-expansions.el" "expand-region/cperl-mode-expansions.el"
 ;;;;;;  "expand-region/css-mode-expansions.el" "expand-region/er-basic-expansions.el"
 ;;;;;;  "expand-region/erlang-mode-expansions.el" "expand-region/expand-region-core.el"
@@ -3428,8 +3462,8 @@ accept it or skip it.
 ;;;;;;  "slime/contrib/slime-tramp.el" "slime/contrib/slime-typeout-frame.el"
 ;;;;;;  "slime/contrib/slime-xref-browser.el" "slime/hyperspec.el"
 ;;;;;;  "slime/slime-autoloads.el" "slime/slime.el" "smooth-scroll/smooth-scroll.el"
-;;;;;;  "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (20862 44474 267269))
+;;;;;;  "swank-js/slime-js.el" "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el"
+;;;;;;  "yasnippet/yasnippet-tests.el") (20863 37133 256837))
 
 ;;;***
 

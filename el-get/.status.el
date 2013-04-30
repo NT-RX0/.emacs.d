@@ -41,6 +41,8 @@
                              (progn
                                (autoload 'color-theme-zenburn "zenburn" "Just some alien fruit salad to keep you in the zone." t)
                                (defalias 'zenburn #'color-theme-zenburn))))
+ (css-mode status "installed" recipe
+           (:name css-mode :description "Minor mode for CSS" :features css-mode :type elpa))
  (dictionary status "removed" recipe nil)
  (ecb status "removed" recipe nil)
  (el-get status "installed" recipe
@@ -125,6 +127,8 @@
                            ("gnu" . "http://elpa.gnu.org/packages/")
                            ("marmalade" . "http://marmalade-repo.org/packages/")
                            ("SC" . "http://joseito.republika.pl/sunrise-commander/"))))))
+ (paredit status "installed" recipe
+          (:name paredit :description "Minor mode for editing parentheses" :type http :url "http://mumble.net/~campbell/emacs/paredit.el" :features "paredit"))
  (point-undo status "installed" recipe
              (:name point-undo :auto-generated t :type emacswiki :description "undo/redo position" :website "https://raw.github.com/emacsmirror/emacswiki.org/master/point-undo.el"))
  (popup status "removed" recipe nil)
@@ -153,8 +157,10 @@
                (slime-setup)))
  (smooth-scroll status "installed" recipe
                 (:name smooth-scroll :description "Minor mode for smooth scrolling." :type emacswiki :features smooth-scroll))
+ (swank-js status "removed" recipe nil)
  (tabbar status "installed" recipe
          (:name tabbar :type emacswiki :description "Display a tab bar in the header line" :lazy t :load-path "."))
+ (undo-tree status "removed" recipe nil)
  (vline status "installed" recipe
         (:name vline :description "show vertical line (column highlighting) mode." :type emacswiki :features vline))
  (yasnippet status "installed" recipe
