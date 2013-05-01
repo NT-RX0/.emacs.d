@@ -1,5 +1,5 @@
 ;; el-get Settings
-(if (eq system-type 'linux) 
+(if (eq system-type 'gnu/linux) 
     (progn
       (print "Welcome back commander")
       (add-to-list 'load-path (concat current-emacs-path "el-get/el-get"))

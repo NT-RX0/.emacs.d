@@ -1,6 +1,6 @@
 ;;set linux var by default
-(defvar home-path)
-(setq home-path nil)
+(defvar home-path nil)
+;;(setq home-path nil)
 (defvar emacs-configuration-dir)
 (setq emacs-configuration-dir ".emacs.d/")
 (if (not (string< home-path nil))
@@ -22,7 +22,7 @@
 (require 'pheliox-settings)
 (require 'pheliox-key-bindings)
 (require 'pheliox-functions)
-(require
+(require 'pheliox-eshell)
 
 
 

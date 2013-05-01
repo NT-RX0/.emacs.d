@@ -38,6 +38,8 @@
 (flyspell-mode t)
 ;;保存会话
 (desktop-save-mode t)
+(setq history-length 250)
+
 ;;启用minibuffer，好像是默认设置吧   
 (minibuffer-electric-default-mode t)   
 ;;启用部分补全功能，如输入M-x q r r相当于M-x query-replace-regexp   
