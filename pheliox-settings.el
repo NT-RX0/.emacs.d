@@ -130,8 +130,7 @@
 (setq kill-ring-max 200)
 
 (setq default-major-mode 'text-mode)
-;;(global-font-lock-mode nil)
-
+(global-font-lock-mode t)
 
 (put 'set-goal-column 'disabled nil)
 (put 'narrow-to-region 'disabled nil)

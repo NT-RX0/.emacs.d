@@ -3551,11 +3551,6 @@ accept it or skip it.
 ;;;;;;  "multiple-cursors/multiple-cursors-pkg.el" "multiple-cursors/multiple-cursors.el"
 ;;;;;;  "nav/nav-dev.el" "point-undo/point-undo.el" "pp+/pp+.el"
 ;;;;;;  "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
-=======
-;;;;;;  "mark-multiple/mark-multiple-pkg.el" "mark-multiple/mm-pabbrev-integration.el"
-;;;;;;  "monokai-theme/monokai-theme.el" "nav/nav-dev.el" "point-undo/point-undo.el"
-;;;;;;  "pp+/pp+.el" "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
->>>>>>> 9f8f342e31c8f51608bcd7499a8841bb6a7e2501
 ;;;;;;  "slime/contrib/slime-asdf.el" "slime/contrib/slime-autodoc.el"
 ;;;;;;  "slime/contrib/slime-banner.el" "slime/contrib/slime-c-p-c.el"
 ;;;;;;  "slime/contrib/slime-clipboard.el" "slime/contrib/slime-compiler-notes-tree.el"

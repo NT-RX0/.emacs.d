@@ -499,6 +499,9 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;;nxhtml-mode
+(load (concat current-emacs-path "plugins/nxhtml/autostart.el") )
+
 
 
 (provide 'pheliox-load-plugins)
