@@ -51,6 +51,7 @@
 (add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
 (ac-config-default)
 (setq ac-fuzzy-enable t)
+
 (ac-set-trigger-key "TAB")
 (ac-set-trigger-key "<tab>")
 
@@ -62,7 +63,7 @@
 
 ;;nav
 ;;(add-to-list 'load-path (concat current-emacs-path "plugins/nav"))
-;;(require 'nav)
+(require 'nav)
 ;;(nav-disable-overeager-window-splitting)
 
 ;;markdown
@@ -97,7 +98,10 @@
 (tabbar-mode t)
 (global-set-key [(meta left)] 'tabbar-backward-group)
 (global-set-key [(meta right)] 'tabbar-forward-group)
-(global-set-key [(C-S-tab)] 'tabbar-backward)
+;;Windows system settings
+(global-set-key [(C-S-<tab>)] 'tabbar-backward)
+;;X system settings
+(global-set-key (kbd "C-S-<iso-lefttab>") 'tabbar-backward)
 (global-set-key [(C-tab)] 'tabbar-forward)
 ;; customize tabbar group
 (defun tabbar-buffer-groups ()
@@ -205,7 +209,7 @@
 
 ;; (setq folding-fold-on-startup t)
 ;; (folding-mode-add-find-file-hook)
-
+ 
 ;; (setq folding-keys-already-setup nil)
 ;; (add-hook 'folding-mode-hook
 ;;           (function 
@@ -425,7 +429,24 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+;;multiple-cursor setup
+(require 'multiple-cursors)
 
+;; Then you have to set up your keybindings - multiple-cursors doesn't presume to
+;; know how you'd like them laid out. Here are some examples:
+
+;; When you have an active region that spans multiple lines, the following will
+;; add a cursor to each line:
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
+;; When you want to add multiple cursors not based on continuous lines, but based on
+;; keywords in the buffer, use:
+
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 
 
 (provide 'pheliox-load-plugins)
