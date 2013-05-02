@@ -22,6 +22,25 @@
 ;; Enable CEDET
 (add-to-list 'load-path (concat current-emacs-path "plugins/cedet/common"))
 (require 'cedet)
+;; Semantic
+(require 'semantic/ia)
+(require 'semantic/bovine/gcc)
+(global-semantic-idle-completions-mode t)
+(global-semantic-decoration-mode t)
+(global-semantic-highlight-func-mode t)
+(global-semantic-show-unmatched-syntax-mode t)
+;; activates highlighting of local names that are the same as name of tag under cursor;
+(global-semantic-idle-local-symbol-highlight-mode t)
+;; activates automatic parsing of source code in the idle time;
+(global-semantic-idle-scheduler-mode t)
+;; activates displaying of information about current tag in the idle time. Requires that global-semantic-idle-scheduler-mode was enabled.
+(global-semantic-idle-summary-mode t)
+;; CC-mode
+(add-hook 'c-mode-hook '(lambda ()
+                          (setq ac-sources (append '(ac-source-semantic) ac-sources))
+                          (local-set-key (kbd "RET") 'newline-and-indent)
+                          (linum-mode t)
+                          (semantic-mode t)))
 
 ;; Enable ECB
 (add-to-list 'load-path (concat current-emacs-path "plugins/ecb"))
@@ -294,7 +313,7 @@
 (autoload 'global-dictionary-tooltip-mode "dictionary"
   "Enable/disable dictionary-tooltip-mode for all buffers" t)
 
-(global-set-key [mouse-3] 'dictionary-mouse-popup-matching-words)
+;; (global-set-key [mouse-3] 'dictionary-mouse-popup-matching-words)
 (global-set-key [(control c)(d)] 'dictionary-lookup-definition)
 (global-set-key [(control c)(s)] 'dictionary-search)
 (global-set-key [(control c)(m)] 'dictionary-match-words)
