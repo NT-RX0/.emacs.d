@@ -175,3 +175,6 @@ tramp
 *~
 ede-projects.el
 .desktop/
+.semantic-db/
+session.*
+.mc-lists.el

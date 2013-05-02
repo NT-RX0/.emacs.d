@@ -22,9 +22,12 @@
 ;; Enable CEDET
 (add-to-list 'load-path (concat current-emacs-path "plugins/cedet/common"))
 (require 'cedet)
+
 ;; Semantic
 (require 'semantic/ia)
 (require 'semantic/bovine/gcc)
+(setq semanticdb-default-save-directory (concat current-emacs-path ".semantic-db/")) 
+
 (global-semantic-idle-completions-mode t)
 (global-semantic-decoration-mode t)
 (global-semantic-highlight-func-mode t)
@@ -35,12 +38,33 @@
 (global-semantic-idle-scheduler-mode t)
 ;; activates displaying of information about current tag in the idle time. Requires that global-semantic-idle-scheduler-mode was enabled.
 (global-semantic-idle-summary-mode t)
+
+
 ;; CC-mode
-(add-hook 'c-mode-hook '(lambda ()
-                          (setq ac-sources (append '(ac-source-semantic) ac-sources))
-                          (local-set-key (kbd "RET") 'newline-and-indent)
-                          (linum-mode t)
-                          (semantic-mode t)))
+(add-hook 'c-mode-hook 
+          '(lambda ()
+             (setq ac-sources (append '(ac-source-semantic) ac-sources))
+             (local-set-key (kbd "RET") 'newline-and-indent)
+             ;; (linum-mode t)
+             (semantic-mode t)))
+
+;; (add-hook 'c++-mode-hook
+;;           '(lambda ()
+;;              (setq ac-sources (append '(ac-source-semantic) ac-sources))
+;;              (local-set-key (kbd "RET") 'newline-and-indent)
+;;              ;; (linum-mode t)
+;;              (semantic-mode t)))
+
+;; additional hooks
+(defun my-semantic-mode-cedet-hook ()
+  (local-set-key "." 'semantic-complete-self-insert)
+  (local-set-key ">" 'semantic-complete-self-insert)
+  ;; (local-set-key "<mouse-3>" 'semantic-ia-fast-mouse-jump)
+  )
+(add-hook 'c-mode-common-hook 'my-semantic-mode-cedet-hook)
+(add-hook 'c++-mode-common-hook 'my-semantic-mode-cedet-hook)
+
+(semantic-mode 1)
 
 ;; Enable ECB
 (add-to-list 'load-path (concat current-emacs-path "plugins/ecb"))
@@ -57,7 +81,7 @@
 (global-set-key (kbd "C-c a") 'ctl-c-a-map)
 (define-key global-map (kbd "\C-c a g") 'org-agenda)
 (setq org-log-done t)
-
+
 ;; auto complete
 (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete"))
 (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/popup"))
@@ -67,6 +91,15 @@
 (require 'auto-complete-config)
 (require 'auto-complete-extension)
 (require 'auto-complete-yasnippet)
+(setq ac-sources
+      (append '(ac-source-yasnippet
+                ac-source-semantic
+                ac-source-abbrev
+                ac-source-words-in-buffer
+                ac-source-words-in-all-buffer
+                ac-source-imenu
+                ac-source-files-in-current-dir
+                ac-source-filename) ac-sources))
 (add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
 (ac-config-default)
 (setq ac-fuzzy-enable t)

@@ -60,11 +60,11 @@
 ;; 需要 (global-auto-complete-mode 1)
 (add-to-list 'ac-modes 'eshell-mode)
 (setq ac-sources '(ac-source-eshell-pcomplete
-                   ;; ac-source-files-in-current-dir
-                   ;; ac-source-filename
-                   ;; ac-source-abbrev
-                   ;; ac-source-words-in-buffer
-                   ;; ac-source-imenu
+                   ac-source-files-in-current-dir
+                   ac-source-filename
+                   ac-source-abbrev
+                   ac-source-words-in-buffer
+                   ac-source-imenu
                    ))
 
 ;;command timing statistics

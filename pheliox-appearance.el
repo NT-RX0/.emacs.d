@@ -13,6 +13,8 @@
 (load (concat current-emacs-path "el-get/color-theme-zenburn/zenburn-theme.el"))
 (color-theme-molokai)
 ;;(color-theme-almost-monokai)
+;; set line spacing
+;;(setq-default line-spacing 0)
 
 
 (provide 'pheliox-appearance)
