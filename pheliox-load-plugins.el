@@ -91,21 +91,144 @@
 (require 'auto-complete-config)
 (require 'auto-complete-extension)
 (require 'auto-complete-yasnippet)
-(setq ac-sources
-      (append '(ac-source-yasnippet
-                ac-source-semantic
-                ac-source-abbrev
-                ac-source-words-in-buffer
-                ac-source-words-in-all-buffer
-                ac-source-imenu
-                ac-source-files-in-current-dir
-                ac-source-filename) ac-sources))
-(add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
+;; (setq ac-sources
+;;       (append '(ac-source-yasnippet
+;;                 ac-source-semantic
+;;                 ac-source-abbrev
+;;                 ac-source-words-in-buffer
+;;                 ac-source-words-in-all-buffer
+;;                 ac-source-imenu
+;;                 ac-source-files-in-current-dir
+;;                 ac-source-filename) ac-sources))
 (ac-config-default)
 (setq ac-fuzzy-enable t)
 
-(ac-set-trigger-key "TAB")
-(ac-set-trigger-key "<tab>")
+(defun ac-settings-4-lisp ()
+  "Auto complete settings for lisp mode."
+  (setq ac-sources
+        '(ac-source-yasnippet
+          ac-source-symbols
+          ;; ac-source-semantic
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ;; ac-source-imenu
+          ac-source-files-in-current-dir
+          ac-source-filename)))
+
+(defun ac-settings-4-java ()
+  (setq ac-omni-completion-sources (list (cons "\\." '(ac-source-semantic))
+                                         (cons "->" '(ac-source-semantic))))
+  (setq ac-sources
+        '(;;ac-source-semantic
+          ac-source-yasnippet
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ac-source-files-in-current-dir
+          ac-source-filename)))
+
+(defun ac-settings-4-c ()
+  (setq ac-omni-completion-sources (list (cons "\\." '(ac-source-semantic))
+                                         (cons "->" '(ac-source-semantic))))
+  (setq ac-sources
+        '(ac-source-yasnippet
+          ac-source-c-keywords
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ac-source-files-in-current-dir
+          ac-source-filename)))
+
+(defun ac-settings-4-cpp ()
+  (setq ac-omni-completion-sources
+        (list (cons "\\." '(ac-source-semantic))
+              (cons "->" '(ac-source-semantic))))
+  (setq ac-sources
+        '(ac-source-yasnippet
+          ac-source-c++-keywords
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ac-source-files-in-current-dir
+          ac-source-filename)))
+
+(defun ac-settings-4-text ()
+  (setq ac-sources
+        '(;;ac-source-semantic
+          ac-source-yasnippet
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ac-source-imenu)))
+
+(defun ac-settings-4-eshell ()
+  (setq ac-sources
+        '(;;ac-source-semantic
+          ac-source-filename
+          ac-source-yasnippet
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ac-source-files-in-current-dir
+          ac-source-symbols
+          ac-source-imenu)))
+
+(defun ac-settings-4-ruby ()
+  (require 'rcodetools-settings)
+  (setq ac-omni-completion-sources
+        (list (cons "\\." '(ac-source-rcodetools))
+              (cons "::" '(ac-source-rcodetools)))))
+
+(defun ac-settings-4-html ()
+  (setq ac-sources
+        '(;;ac-source-semantic
+          ac-source-yasnippet
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ac-source-files-in-current-dir
+          ac-source-filename)))
+
+(defun ac-settings-4-tcl ()
+  (setq ac-sources
+        '(;;ac-source-semantic
+          ac-source-yasnippet
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ac-source-files-in-current-dir
+          ac-source-filename)))
+
+(defun ac-settings-4-awk ()
+  (setq ac-sources
+        '(;;ac-source-semantic
+          ac-source-yasnippet
+          ac-source-abbrev
+          ac-source-words-in-buffer
+          ac-source-words-in-all-buffer
+          ac-source-files-in-current-dir
+          ac-source-filename)))
+
+(add-hook 'lisp-mode-hook 'ac-settings-4-lisp)
+(add-hook 'emacs-lisp-mode-hook 'ac-settings-4-lisp)
+(add-hook 'lisp-interaction-mode-hook'ac-settings-4-lisp)
+(add-hook 'svn-log-edit-mode-hook 'ac-settings-4-lisp)
+(add-hook 'change-log-mode-hook'ac-settings-4-lisp)
+(add-hook 'java-mode-hook   'ac-settings-4-java)
+(add-hook 'c-mode-hook      'ac-settings-4-c)
+(add-hook 'c++-mode-hook    'ac-settings-4-cpp)
+(add-hook 'text-mode-hook   'ac-settings-4-text)
+(add-hook 'eshell-mode-hook 'ac-settings-4-eshell)
+(add-hook 'ruby-mode-hook   'ac-settings-4-ruby)
+(add-hook 'html-mode-hook   'ac-settings-4-html)
+(add-hook 'java-mode-hook   'ac-settings-4-java)
+(add-hook 'awk-mode-hook    'ac-settings-4-awk)
+
+(add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
+
+;;(ac-set-trigger-key "TAB")
+;; (ac-set-trigger-key "<tab>")
 
 ;;yasnippet
 ;;(add-to-list 'load-path (concat current-emacs-path "plugins/yasnippet"))
@@ -502,6 +625,22 @@
 ;;nxhtml-mode
 (load (concat current-emacs-path "plugins/nxhtml/autostart.el") )
 
+;;Helm settings
+(require 'helm-config)
+(add-hook 'eshell-mode-hook
+          #'(lambda ()
+              (define-key eshell-mode-map 
+                [remap pcomplete]
+                'helm-esh-pcomplete)))
+
+(add-hook 'eshell-mode-hook
+          #'(lambda ()
+              (define-key eshell-mode-map 
+                (kbd "M-p")
+                'helm-eshell-history)))
+
+
+
 
 
 (provide 'pheliox-load-plugins)
