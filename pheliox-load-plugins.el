@@ -111,9 +111,9 @@
           ;; ac-source-semantic
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ;; ac-source-words-in-all-buffer
           ;; ac-source-imenu
-          ac-source-files-in-current-dir
+          ;; ac-source-files-in-current-dir
           ac-source-filename)))
 
 (defun ac-settings-4-java ()
@@ -124,9 +124,10 @@
           ac-source-yasnippet
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
-          ac-source-files-in-current-dir
-          ac-source-filename)))
+          ;; ac-source-words-in-all-buffer
+          ;; ac-source-files-in-current-dir
+          ;; ac-source-filename
+)))
 
 (defun ac-settings-4-c ()
   (setq ac-omni-completion-sources (list (cons "\\." '(ac-source-semantic))
@@ -136,8 +137,8 @@
           ac-source-c-keywords
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
-          ac-source-files-in-current-dir
+          ;; ac-source-words-in-all-buffer
+          ;; ac-source-files-in-current-dir
           ac-source-filename)))
 
 (defun ac-settings-4-cpp ()
@@ -149,8 +150,8 @@
           ac-source-c++-keywords
           ac-source-abbrev
           ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
-          ac-source-files-in-current-dir
+          ;; ac-source-words-in-all-buffer
+          ;; ac-source-files-in-current-dir
           ac-source-filename)))
 
 (defun ac-settings-4-text ()
@@ -160,19 +161,21 @@
           ac-source-abbrev
           ac-source-words-in-buffer
           ac-source-words-in-all-buffer
-          ac-source-imenu)))
+          ;; ac-source-imenu
+)))
 
 (defun ac-settings-4-eshell ()
   (setq ac-sources
         '(;;ac-source-semantic
           ac-source-filename
-          ac-source-yasnippet
+          ;; ac-source-yasnippet
           ac-source-abbrev
-          ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
+          ;; ac-source-words-in-buffer
+          ;; ac-source-words-in-all-buffer
           ac-source-files-in-current-dir
           ac-source-symbols
-          ac-source-imenu)))
+          ;; ac-source-imenu
+)))
 
 (defun ac-settings-4-ruby ()
   (require 'rcodetools-settings)
@@ -188,7 +191,8 @@
           ac-source-words-in-buffer
           ac-source-words-in-all-buffer
           ac-source-files-in-current-dir
-          ac-source-filename)))
+          ;; ac-source-filename
+)))
 
 (defun ac-settings-4-tcl ()
   (setq ac-sources
@@ -628,16 +632,22 @@
 ;;Helm settings
 (require 'helm-config)
 (add-hook 'eshell-mode-hook
-          #'(lambda ()
+          '(lambda ()
               (define-key eshell-mode-map 
                 [remap pcomplete]
                 'helm-esh-pcomplete)))
 
 (add-hook 'eshell-mode-hook
-          #'(lambda ()
+          '(lambda ()
               (define-key eshell-mode-map 
-                (kbd "M-p")
+                (kbd "M-r")
                 'helm-eshell-history)))
+
+(add-hook 'eshell-mode-hook
+          '(lambda ()
+             (define-key eshell-mode-map 
+               (kbd "M-p")
+               nil)))
 
 
 

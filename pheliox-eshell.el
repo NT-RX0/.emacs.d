@@ -63,16 +63,20 @@
                    ))
 
 ;;command timing statistics
-(add-hook 'eshell-load-hook
-          (lambda()(setq last-command-start-time (time-to-seconds))))
-(add-hook 'eshell-pre-command-hook
-          (lambda()(setq last-command-start-time (time-to-seconds))))
-(add-hook 'eshell-before-prompt-hook
-          (lambda()
-            (message "spend %g seconds"
-                     (- (time-to-seconds) last-command-start-time))))
+;; (add-hook 'eshell-load-hook
+;;           (lambda()(setq last-command-start-time (time-to-seconds))))
+;; (add-hook 'eshell-pre-command-hook
+;;           (lambda()(setq last-command-start-time (time-to-seconds))))
+;; (add-hook 'eshell-before-prompt-hook
+;;           (lambda()
+;;             (message "spend %g seconds"
+;;                      (- (time-to-seconds) last-command-start-time))))
 
+;;tramp password settings
+(setq password-cache-expiry nil)
 
+;;eshell color settings
+(add-hook 'eshell-mode-hook 'ansi-color-for-comint-mode-on)
 
 
 (provide 'pheliox-eshell)
