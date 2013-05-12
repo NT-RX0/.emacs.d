@@ -45,23 +45,6 @@
 ;;                   '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))
 ;;      (add-to-list 'eshell-output-filter-functions 'eshell-handle-ansi-color)))
 
-;; auto complete for eshell
-(defvar ac-source-eshell-pcomplete
-  '((candidates . (pcomplete-completions))))
-(defun ac-complete-eshell-pcomplete ()
-  (interactive)
-  (auto-complete '(ac-source-eshell-pcomplete)))
-;; 自动开启 ac-mode
-;; 需要 (global-auto-complete-mode 1)
-(add-to-list 'ac-modes 'eshell-mode)
-(setq ac-sources '(ac-source-eshell-pcomplete
-                   ac-source-files-in-current-dir
-                   ac-source-filename
-                   ac-source-abbrev
-                   ac-source-words-in-buffer
-                   ac-source-imenu
-                   ))
-
 ;;command timing statistics
 ;; (add-hook 'eshell-load-hook
 ;;           (lambda()(setq last-command-start-time (time-to-seconds))))

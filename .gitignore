@@ -178,3 +178,4 @@ ede-projects.el
 .semantic-db/
 session.*
 .mc-lists.el
+.elc

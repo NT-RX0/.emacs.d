@@ -37,33 +37,30 @@
 ;;smart spell correction
 (flyspell-mode t)
 ;;保存会话
-(desktop-save-mode t)
+(require 'desktop)
+(setq desktop-buffers-not-to-save
+      (concat "\\("
+              "^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|^tags\\|^TAGS"
+              "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.bbdb"
+              "\\)$"))
+(add-to-list 'desktop-modes-not-to-save 'dired-mode)
+(add-to-list 'desktop-modes-not-to-save 'Info-mode)
+(add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
+(add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
+;; Automatically save and restore sessions
+(setq desktop-dirname             (concat current-emacs-path ".desktop-save/")
+      desktop-base-file-name      "emacs.desktop"
+      desktop-base-lock-name      "lock"
+      desktop-path                (list desktop-dirname)
+      desktop-save                t
+      desktop-files-not-to-save   "^$" ;reload tramp paths
+      desktop-load-locked-desktop nil)
+(desktop-save-mode 1)
+;; (setq desktop-path (concat current-emacs-path ".desktop-save/"))
 (setq history-length 250)
+(desktop-save-mode t)
 
-;;启用minibuffer，好像是默认设置吧   
-(minibuffer-electric-default-mode t)   
-;;启用部分补全功能，如输入M-x q r r相当于M-x query-replace-regexp   
-(icomplete-mode t)   
-;;所有的问题用y/n方式，不用yes/no方式。有点懒，只想输入一个字母   
-(fset 'yes-or-no-p 'y-or-n-p)   
-;;当寻找一个同名的文件，自动关联上那个文件？   
-(setq uniquify-buffer-name-style 'forward)   
-;;设定句子结尾，主要是针对中文设置   
-(setq sentence-end "\\([¡££¡£¿]\\|¡¡\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")   
-(setq sentence-end-double-space nil)   
-;;去掉Emacs和gnus启动时的引导界面   
-(setq inhibit-startup-message t)   
-(setq gnus-inhibit-startup-message t)   
-;;当指针移到另一行，不要新增这一行？d   
-(setq next-line-add-newlines nil)   
-;;在文档最后自动插入空白一行，好像某些系统配置文件是需要这样的   
-(setq require-final-newline t)  
-;;鼠标自动避开指针，如当你输入的时候，指针到了鼠标的位置，鼠标有点挡住视线了   
-(mouse-avoidance-mode 'animate)   
-;;允许自动打开图片，如wiki里面   
-(auto-image-file-mode t)
-;;可以操作压缩文档   
-(auto-compression-mode t)
+
 
 ;;auto-save
 (auto-save-mode 1)
@@ -114,7 +111,20 @@
 ;;ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
+(add-hook 'ido-setup-hook 
+          (lambda () 
+            (define-key ido-completion-map [tab] 'ido-complete)))
+;; (global-set-key
+;;  "\M-x"
+;;  (lambda ()
+;;    (interactive)
+;;    (call-interactively
+;;     (intern
+;;      (ido-completing-read
+;;       "M-x "
+;;       (all-completions "" obarray 'commandp))))))
 (ido-mode t)
+
 
 ;;Messages log
 (setq message-log-max t)

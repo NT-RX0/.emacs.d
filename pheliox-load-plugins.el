@@ -2,25 +2,48 @@
 (if (eq system-type 'gnu/linux) 
     (progn
       (print "Welcome back commander")
-      (add-to-list 'load-path (concat current-emacs-path "el-get/el-get"))
-      (require 'el-get)
+
+      ;;initialize el-get
+      (add-to-list 'load-path (concat current-emacs-path "plugins/el-get/el-get"))
+
+      ;;el-get submodules fix
+      (defun force-git-add-after-el-get (package-path)
+        (let* ((git-executable (el-get-executable-find "git"))
+               (name (format "*git add subdir  %s*" package))	 )
+          (message
+           (format "cd %s && %s add %s/"
+                   el-get-dir git-executable package-path))
+          (shell-command 
+           (format "cd %s && %s add %s/" 
+                   el-get-dir git-executable package-path))))
+            
+      (add-hook 'el-get-post-install-hooks 'force-git-add-after-el-get)
+      (add-hook 'el-get-post-update-hooks 'force-git-add-after-el-get)
+
+      
+      ;;el-get setup
+      (setq el-get-dir (concat current-emacs-path "plugins/el-get/"))
+      (setq el-get-user-package-directory (concat current-emacs-path "plugins/.packages.d/"))
+
       (unless (require 'el-get nil 'noerror)
 	(with-current-buffer
 	    (url-retrieve-synchronously
 	     "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-	  (goto-char (point-max))
-	  (eval-print-last-sexp)))
+	  (let (el-get-master-branch)
+	    (goto-char (point-max))
+	    (eval-print-last-sexp))))
 
-      (el-get 'sync)))
+      (el-get 'sync)
+ ))
 
 
 ;; colors
-(add-to-list 'load-path (concat current-emacs-path "el-get/color-theme"))
+;; (add-to-list 'load-path (concat current-emacs-path "plugins/packages.d/color-theme/"))
 (require 'color-theme)
 (color-theme-initialize)
 
 ;; Enable CEDET
-(add-to-list 'load-path (concat current-emacs-path "plugins/cedet/common"))
+(add-to-list 'load-path (concat current-emacs-path "plugins/cedet/common/"))
 (require 'cedet)
 
 ;; Semantic
@@ -82,6 +105,13 @@
 (define-key global-map (kbd "\C-c a g") 'org-agenda)
 (setq org-log-done t)
 
+;;yasnippet
+;;(add-to-list 'load-path (concat current-emacs-path "plugins/yasnippet"))
+(require 'yasnippet)
+(yas/global-mode 1)
+
+
+
 ;; auto complete
 (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete"))
 (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/popup"))
@@ -89,7 +119,7 @@
 (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/ert"))
 (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete-extension"))
 (require 'auto-complete-config)
-(require 'auto-complete-extension)
+;;(require 'auto-complete-extension)
 (require 'auto-complete-yasnippet)
 ;; (setq ac-sources
 ;;       (append '(ac-source-yasnippet
@@ -102,6 +132,9 @@
 ;;                 ac-source-filename) ac-sources))
 (ac-config-default)
 (setq ac-fuzzy-enable t)
+(setq ac-use-fuzzy t)
+
+(global-auto-complete-mode)
 
 (defun ac-settings-4-lisp ()
   "Auto complete settings for lisp mode."
@@ -231,18 +264,46 @@
 
 (add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
 
-;;(ac-set-trigger-key "TAB")
-;; (ac-set-trigger-key "<tab>")
-
-;;yasnippet
-;;(add-to-list 'load-path (concat current-emacs-path "plugins/yasnippet"))
-(require 'yasnippet)
-(yas/global-mode 1)
+
+;; ;; auto complete for eshell
+;; (defvar ac-source-eshell-pcomplete
+;;   '((candidates . (pcomplete-completions))))
+;; (defun ac-complete-eshell-pcomplete ()
+;;   (interactive)
+;;   (auto-complete '(ac-source-eshell-pcomplete)))
+;; ;; 自动开启 ac-mode
+;; ;; 需要 (global-auto-complete-mode 1)
+;; (add-to-list 'ac-modes 'eshell-mode)
+;; (setq ac-sources '(ac-source-eshell-pcomplete
+;;                    ac-source-filename
+;;                    ac-source-files-in-current-dir
+;;                    ac-source-abbrev
+;;                    ac-source-words-in-buffer
+;;                    ac-source-imenu
+;;                    ))
+
+(setq ac-use-menu-map t)
+;; Default settings
+(define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map "\r" nil)
+(define-key ac-completing-map [return]   nil)
+(define-key ac-completing-map (kbd "M-j")        'ac-complete)
+(define-key ac-completing-map (kbd "<C-return>") 'ac-complete)
+(define-key ac-menu-map [return]   nil)
+(define-key ac-menu-map "RET"        nil)
+(define-key ac-menu-map (kbd "M-j")        'ac-complete)
+(define-key ac-menu-map (kbd "<C-return>") 'ac-complete)
+;; (define-key ac-menu-map "M-n"        'ac-next)
+;; (define-key ac-menu-map "M-p"        'ac-previous)
+
+(setq ac-set-trigger-key [TAB])
+
+(setq ac-auto-start 3)
 
 
 ;;nav
 ;;(add-to-list 'load-path (concat current-emacs-path "plugins/nav"))
-(require 'nav)
+;;(require 'nav)
 ;;(nav-disable-overeager-window-splitting)
 
 ;;markdown
@@ -510,20 +571,20 @@
 ;;      (key-chord-define-global [?h ?j]  'undo)  ; the same
 
 ;;point undo key set
-(require 'point-undo)
-(define-key global-map [f5] 'point-undo)
-(define-key global-map [f6] 'point-redo)
+;;(require 'point-undo)
+;;(define-key global-map [f5] 'point-undo)
+;;(define-key global-map [f6] 'point-redo)
 
 ;;hide lines shortcut
 ;;hide region
-(require 'hide-region)
-(global-set-key (kbd "C-c r") 'hide-region-hide)
-(global-set-key (kbd "C-c R") 'hide-region-unhide)
+;;(require 'hide-region)
+;;(global-set-key (kbd "C-c r") 'hide-region-hide)
+;;(global-set-key (kbd "C-c R") 'hide-region-unhide)
 
 ;; hide lines
-(require 'hide-lines)
-(global-set-key (kbd "C-c l") 'hide-lines)
-(global-set-key (kbd "C-c L") 'show-all-invisible)
+;;(require 'hide-lines)
+;;(global-set-key (kbd "C-c l") 'hide-lines)
+;;(global-set-key (kbd "C-c L") 'show-all-invisible)
 
 ;;expand region key set
 (require 'expand-region)
@@ -627,28 +688,163 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;;nxhtml-mode
-(load (concat current-emacs-path "plugins/nxhtml/autostart.el") )
+(load (concat current-emacs-path "plugins/nxhtml/autostart.el"))
 
 ;;Helm settings
 (require 'helm-config)
-(add-hook 'eshell-mode-hook
-          '(lambda ()
-              (define-key eshell-mode-map 
-                [remap pcomplete]
-                'helm-esh-pcomplete)))
+;; (add-hook 'eshell-mode-hook
+;;           '(lambda ()
+;;               (define-key eshell-mode-map 
+;;                 [remap pcomplete]
+;;                 'helm-esh-pcomplete)))
 
-(add-hook 'eshell-mode-hook
-          '(lambda ()
-              (define-key eshell-mode-map 
-                (kbd "M-r")
-                'helm-eshell-history)))
+;; (add-hook 'eshell-mode-hook
+;;           '(lambda ()
+;;               (define-key eshell-mode-map 
+;;                 (kbd "M-r")
+;;                 'helm-eshell-history)))
 
-(add-hook 'eshell-mode-hook
-          '(lambda ()
-             (define-key eshell-mode-map 
-               (kbd "M-p")
-               nil)))
+;; (add-hook 'eshell-mode-hook
+;;           '(lambda ()
+;;              (define-key eshell-mode-map 
+;;                (kbd "M-p")
+;;                nil)))
 
+
+;;slime setup
+(require 'slime)
+(slime-setup '(slime-js slime-repl))
+(defun slime-tab ()
+  "slime-mode tab dwim, either indent, complete symbol or yas/expand"
+  (interactive)
+  (let ((r (slime-indent-and-complete-symbol)))
+    (unless r
+      (yas/expand))))
+(defun my-slime-mode-hook ()
+  (interactive)
+  (define-key slime-mode-map (kbd "<tab>")
+    'slime-tab)
+  )
+(add-hook 'slime-mode-hook 'my-slime-mode-hook)
+
+;;paredit with autopair
+(require 'paredit)
+(paredit-mode t)
+(require 'autopair)
+
+(defvar autopair-modes '(r-mode ruby-mode))
+(defun turn-on-autopair-mode () (autopair-mode 1))
+(dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
+
+(require 'paredit)
+(defadvice paredit-mode (around disable-autopairs-around (arg))
+  "Disable autopairs mode if paredit-mode is turned on"
+  ad-do-it
+  (if (null ad-return-value)
+      (autopair-mode 1)
+    (autopair-mode 0)
+    ))
+
+(ad-activate 'paredit-mode)
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+;;change key bindings
+(define-key paredit-mode-map (kbd "M-;") nil)
+;;manually set global paredit mode
+;;
+;; (define-globalized-minor-mode global-paredit-mode
+;;   paredit-mode
+;;   (lambda ()
+;;     (paredit-mode t)))
+;; (global-paredit-mode t)
+
+
+
+;;highlight-symbol mode
+(require 'highlight-symbol)
+(define-globalized-minor-mode global-highlight-symbol-mode
+  highlight-symbol-mode
+  (lambda ()
+    (highlight-symbol-mode t)))
+(global-highlight-symbol-mode t)
+
+;;undo-tree setup
+(add-to-list 'load-path (concat current-emacs-path "plugins/undo-tree/"))
+(require 'undo-tree)
+(global-undo-tree-mode)
+
+;;multiple-cursor setup
+(require 'multiple-cursors)
+
+;; Then you have to set up your keybindings - multiple-cursors doesn't presume to
+;; know how you'd like them laid out. Here are some examples:
+
+;; When you have an active region that spans multiple lines, the following will
+;; add a cursor to each line:
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
+;; When you want to add multiple cursors not based on continuous lines, but based on
+;; keywords in the buffer, use:
+
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;;nxhtml-mode
+(load (concat current-emacs-path "plugins/nxhtml/autostart.el"))
+
+;;Helm settings
+(require 'helm-config)
+;; (add-hook 'eshell-mode-hook
+;;           '(lambda ()
+;;               (define-key eshell-mode-map 
+;;                 [remap pcomplete]
+;;                 'helm-esh-pcomplete)))
+
+;; (add-hook 'eshell-mode-hook
+;;           '(lambda ()
+;;               (define-key eshell-mode-map 
+;;                 (kbd "M-r")
+;;                 'helm-eshell-history)))
+
+;; (add-hook 'eshell-mode-hook
+;;           '(lambda ()
+;;              (define-key eshell-mode-map 
+;;                (kbd "M-p")
+;;                nil)))
+
+;;smex settings
+(global-set-key [(meta x)] (lambda ()
+                             (interactive)
+                             (or (boundp 'smex-cache)
+                                 (smex-initialize))
+                             (global-set-key [(meta x)] 'smex)
+                             (smex)))
+
+(global-set-key [(shift meta x)] (lambda ()
+                                   (interactive)
+                                   (or (boundp 'smex-cache)
+                                       (smex-initialize))
+                                   (global-set-key [(shift meta x)] 'smex-major-mode-commands)
+                                   (smex-major-mode-commands)))
+;;using acronyms
+(defadvice ido-set-matches-1 (after ido-acronym-matches activate)
+  (if (> (length ido-text) 1)
+      (let ((regex (concat "^" (mapconcat 'char-to-string ido-text "[^-]*-")
+                           "[^-]*$")))
+        (setq ad-return-value
+              (append (reverse (remove-if-not (lambda (i)
+                                                (string-match regex i)) items))
+                      ad-return-value)))))
+
+
+
 
 
 

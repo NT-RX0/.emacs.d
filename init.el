@@ -24,7 +24,29 @@
 (require 'pheliox-functions)
 (require 'pheliox-eshell)
 
-
+;; autopair 	
+;; color-theme 	
+;; css-mode 	
+;; header2 	
+;; highlight-parentheses 	
+;; htmlize 	
+;; key-chord 	
+;; multiple-cursors 	
+;; paredit 	
+;; slime 	
+;; tabbar 	
+;; zencoding-mode
+;; browse-kill-ring		    
+;; color-theme-almost-monokai   
+;; expand-region		    
+;; helm			    
+;; highlight-symbol		    
+;; js2-mode			    
+;; markdown-mode		    
+;; package			    
+;; pymacs			    
+;; smex			    
+;; yasnippet                    
 
 
 (custom-set-variables
@@ -52,4 +74,4 @@
  '(tabbar-separator ((t (:inherit tabbar-default :background "gray8" :box (:line-width 1 :color "grey9") :height 0.3))))
  '(tabbar-unselected ((t (:inherit tabbar-default :background "gray25" :foreground "gray60" :box (:line-width 2 :color "gray20") :overline "gray10" :height 0.9))))
  '(show-paren-match ((t (:foreground "violet" :background "gray10"))))
-)
+ )
