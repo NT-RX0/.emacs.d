@@ -4641,7 +4641,9 @@ if ARG is omitted or nil."
   ;; do the initial link fontification
   (markdown-fontify-buffer-wiki-links))
 
-;;(add-to-list 'auto-mode-alist '("\\.text$" . markdown-mode))
+;;;###autoload(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+;;;###autoload(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;;;###autoload(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 
 
 ;;; GitHub Flavored Markdown Mode  ============================================

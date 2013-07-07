@@ -53,21 +53,35 @@ e.g
 
 Each time \"<f5> q\" is pressed the next function is executed, if you wait
 More than 2 seconds, next hit will run again the first function and so on."
+   (define-key keymap key (helm-make-multi-command functions delay)))
+
+(defmacro helm-multi-key-defun (name docstring funs &optional delay)
+  "Define NAME as a multi-key command running FUNS.
+After DELAY seconds the FUNS list is reinitialised.
+See `helm-define-multi-key'."
+  (declare (indent 2))
+  (setq docstring (if docstring (concat docstring "\n\n")
+                      "This is a helmish multi-key command."))
+  `(defalias (quote ,name) (helm-make-multi-command ,funs ,delay) ,docstring))
+
+(defun helm-make-multi-command (functions &optional delay)
+  "Return an anonymous multi-key command running FUNCTIONS.
+Run each function of FUNCTIONS list in turn when called within DELAY seconds."
+  (declare (indent 1))
   (lexical-let ((funs functions)
                 (iter (gensym "helm-iter-key"))
                 (timeout delay))
     (eval (list 'defvar iter nil))
-    (define-key keymap key #'(lambda ()
-                               (interactive)
-                               (helm-run-multi-key-command
-                                funs iter timeout)))))
+    #'(lambda () (interactive) (helm-run-multi-key-command funs iter timeout))))
 
 (defun helm-run-multi-key-command (functions iterator delay)
   (let ((fn #'(lambda ()
                 (loop for count from 1 to (length functions)
                       collect count)))
         next)
-    (unless (symbol-value iterator)
+    (unless (and (symbol-value iterator)
+                 ;; Reset iterator when another key is pressed.
+                 (eq this-command real-last-command))
       (set iterator (helm-iter-list (funcall fn))))
     (setq next (helm-iter-next (symbol-value iterator)))
     (unless next
@@ -88,6 +102,12 @@ More than 2 seconds, next hit will run again the first function and so on."
 (defun helm-iter-next (iterator)
   "Return next elm of ITERATOR."
   (funcall iterator))
+
+(helm-multi-key-defun helm-toggle-resplit-and-swap-windows
+    "Multi key command to resplit and swap helm window.
+First call run `helm-toggle-resplit-window',
+second call within 0.5s run `helm-swap-windows'."
+  '(helm-toggle-resplit-window helm-swap-windows) 0.5)
 
 
 ;;; Keymap
@@ -152,8 +172,7 @@ More than 2 seconds, next hit will run again the first function and so on."
     ;; Disable `file-cache-minibuffer-complete'.
     (define-key map (kbd "<C-tab>")    'undefined)
     ;; Multi keys
-    (helm-define-multi-key map (kbd "C-t") '(helm-toggle-resplit-window
-                                             helm-swap-windows) 0.5)
+    (define-key map (kbd "C-t")        'helm-toggle-resplit-and-swap-windows)
     ;; Debugging command
     (define-key map (kbd "C-h C-d")    'undefined)
     (define-key map (kbd "C-h C-d")    'helm-debug-output)
@@ -829,16 +848,21 @@ not `exit-minibuffer' or unwanted functions."
   "Return the value of `helm-default-directory'."
   (buffer-local-value 'helm-default-directory (get-buffer helm-buffer)))
 
-(defmacro with-helm-after-update-hook (&rest body)
-  "Execute BODY at end of `helm-update'."
+(defmacro with-helm-temp-hook (hook &rest body)
+  "Execute temporarily BODY as a function for HOOK."
   (declare (indent 0) (debug t))
   (let ((fun (gensym "helm-hook")))
     `(progn
        (defun ,fun ()
          (unwind-protect
               (progn ,@body)
-           (remove-hook 'helm-after-update-hook (quote ,fun))))
-       (add-hook 'helm-after-update-hook (quote ,fun)))))
+           (remove-hook ,hook (quote ,fun))))
+       (add-hook ,hook (quote ,fun)))))
+
+(defmacro with-helm-after-update-hook (&rest body)
+  "Execute BODY at end of `helm-update'."
+  (declare (indent 0) (debug t))
+  `(with-helm-temp-hook 'helm-after-update-hook ,@body))
 
 (defun* helm-attr (attribute-name
                    &optional (src (helm-get-current-source)) compute)
@@ -2112,6 +2136,8 @@ Helm plug-ins are realized by this function."
                              (helm-interpret-value candidate-proc source)
                              (if (or helm-force-updating-p
                                      helm-never-delay-on-input
+                                     ;; Avoid using `while-no-input' with tramp.
+                                     (file-remote-p helm-pattern)
                                      (assoc 'no-delay-on-input source))
                                  (helm-interpret-value candidate-fn source)
                                  (let ((result (while-no-input
