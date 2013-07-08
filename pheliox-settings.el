@@ -3,7 +3,7 @@
 ;; user settings
 (setq user-full-name "PHELiOX")
 (setq user-mail-address "pheliox@live.com")
-
+
 ;;Screen Settings
 (setq truncate-lines t)
 (setq redisplay-dont-pause t
@@ -16,6 +16,7 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq auto-window-vscroll nil)
+
 ;;follow mode to sync between windows
 (follow-mode t)
 ;;cursor color
@@ -34,6 +35,7 @@
 ;; Use (setq-default ...) to set value globally 
 ;;
 (setq-default indent-tabs-mode nil) 
+
 ;;smart spell correction
 (setq flyspell-prog-mode t)
 (setq-default ispell-program-name "aspell")
@@ -43,6 +45,7 @@
 (setq ispell-list-command "--list")
 (setq flyspell-issue-message-flag nil)
 (add-hook 'text-mode-hook '(lambda() (flyspell-mode t)))
+
 ;;保存会话
 (require 'desktop)
 (setq desktop-buffers-not-to-save
@@ -94,8 +97,10 @@
         (,tramp-file-name-regexp t)))
 
 
-;;(setq default-frame-alist  '((height . 50) (width . 80) )) 
+;; (setq default-frame-alist  '((height . 100) (width . 180) )) 
 ;;(setq default-frame-alist  nil) 
+(if window-system
+    (set-frame-size (selected-frame) 280 100))
 (split-window-right)
 
 ;;auto rename buffer
@@ -115,6 +120,7 @@
 ;;set tab width
 (setq tab-width 4) ; or any other preferred value
 
+
 ;;ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -131,7 +137,7 @@
 ;;       "M-x "
 ;;       (all-completions "" obarray 'commandp))))))
 (ido-mode t)
-
+
 
 ;;Messages log
 (setq message-log-max t)
@@ -160,8 +166,6 @@
 
 
 
-
-
 
 
 
