@@ -34,16 +34,16 @@
 @item Neil Van Dyke @tab Mikel Bancroft @tab Mészáros Levente
 @item Matt Pillsbury @tab Matthew D. Swank @tab Masayuki Onjo
 @item Mark Wooding @tab Marco Monteiro @tab Lynn Quam
-@item Lu@'{@dotless{i}}s Oliveira @tab Levente Mészáros @tab Lasse Rasinen
-@item Knut Olav Bøhmer @tab Kai Kaminski @tab Julian Stecklina
-@item Juergen Gmeiner @tab Jon Allen Boone @tab Johan Bockgård
-@item Jan Rychter @tab James McIlree @tab Ivan Shvedunov
-@item Ivan Boldyrev @tab Ignas Mikalajunas @tab Hannu Koivisto
-@item Gerd Flaig @tab G@'abor Melis @tab Gail Zacharias
-@item Frederic Brunel @tab Francois-Rene Rideau @tab Dustin Long
-@item Dan Weinreb @tab Dan Pierson @tab Daniel Koning
-@item Cyrus Harmon @tab Cecil Westerhof @tab B.Scott Michel
-@item Brian Mastenbrook @tab Brandon Bergren @tab Bob Halley
-@item Barry Fishman @tab Andrew Myers @tab Aleksandar Bakic
-@item Alain Picard
+@item Lu@'{@dotless{i}}s Oliveira @tab Lu@'{@dotless{i}}s Oliveira @tab Levente Mészáros
+@item Lasse Rasinen @tab Knut Olav Bøhmer @tab Kai Kaminski
+@item Julian Stecklina @tab Juergen Gmeiner @tab Jon Allen Boone
+@item Johan Bockgård @tab Jan Rychter @tab James McIlree
+@item Ivan Shvedunov @tab Ivan Boldyrev @tab Ignas Mikalajunas
+@item Hannu Koivisto @tab Gerd Flaig @tab G@'abor Melis
+@item Gail Zacharias @tab Frederic Brunel @tab Francois-Rene Rideau
+@item  @tab Dustin Long @tab Dan Weinreb
+@item Dan Pierson @tab Daniel Koning @tab Cyrus Harmon
+@item Cecil Westerhof @tab B.Scott Michel @tab Brian Mastenbrook
+@item Brandon Bergren @tab Bob Halley @tab Barry Fishman
+@item Andrew Myers @tab Aleksandar Bakic @tab Alain Picard
 @end multitable

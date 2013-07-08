@@ -35,13 +35,20 @@
 ;;
 (setq-default indent-tabs-mode nil) 
 ;;smart spell correction
-(flyspell-mode t)
+(setq flyspell-prog-mode t)
+(setq-default ispell-program-name "aspell")
+;; (setq text-mode-hook '(lambda()  
+;;                         (flyspell-mode t) 
+;;                         )) 
+(setq ispell-list-command "--list")
+(setq flyspell-issue-message-flag nil)
+(add-hook 'text-mode-hook '(lambda() (flyspell-mode t)))
 ;;保存会话
 (require 'desktop)
 (setq desktop-buffers-not-to-save
       (concat "\\("
               "^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|^tags\\|^TAGS"
-              "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.bbdb"
+              "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.db"
               "\\)$"))
 (add-to-list 'desktop-modes-not-to-save 'dired-mode)
 (add-to-list 'desktop-modes-not-to-save 'Info-mode)
@@ -151,13 +158,8 @@
 (setq dired-recursive-copies 'top)
 (setq dired-recursive-deletes 'top)
 
-;; Fringe
-(setq fringe-mode 'left-only)
-(setq fringe-mode 'default)
-(setq fringe-mode 'left-only)
-(setq-default right-fringe-width 0)
-(setq default-indicate-buffer-boundaries '((top . left) (t . left)))
 
+
 
 
 

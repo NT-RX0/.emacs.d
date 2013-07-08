@@ -2976,18 +2976,18 @@ Paulo Madeira            Paul Collins             NIIMI Satoshi
 Neil Van Dyke            Mikel Bancroft           Mészáros Levente
 Matt Pillsbury           Matthew D. Swank         Masayuki Onjo
 Mark Wooding             Marco Monteiro           Lynn Quam
-Lui's Oliveira           Levente Mészáros         Lasse Rasinen
-Knut Olav Bøhmer         Kai Kaminski             Julian Stecklina
-Juergen Gmeiner          Jon Allen Boone          Johan Bockgård
-Jan Rychter              James McIlree            Ivan Shvedunov
-Ivan Boldyrev            Ignas Mikalajunas        Hannu Koivisto
-Gerd Flaig               Ga'bor Melis             Gail Zacharias
-Frederic Brunel          Francois-Rene Rideau     Dustin Long
-Dan Weinreb              Dan Pierson              Daniel Koning
-Cyrus Harmon             Cecil Westerhof          B.Scott Michel
-Brian Mastenbrook        Brandon Bergren          Bob Halley
-Barry Fishman            Andrew Myers             Aleksandar Bakic
-Alain Picard                                      
+Lui's Oliveira           Lui's Oliveira           Levente Mészáros
+Lasse Rasinen            Knut Olav Bøhmer         Kai Kaminski
+Julian Stecklina         Juergen Gmeiner          Jon Allen Boone
+Johan Bockgård           Jan Rychter              James McIlree
+Ivan Shvedunov           Ivan Boldyrev            Ignas Mikalajunas
+Hannu Koivisto           Gerd Flaig               Ga'bor Melis
+Gail Zacharias           Frederic Brunel          Francois-Rene Rideau
+                         Dustin Long              Dan Weinreb
+Dan Pierson              Daniel Koning            Cyrus Harmon
+Cecil Westerhof          B.Scott Michel           Brian Mastenbrook
+Brandon Bergren          Bob Halley               Barry Fishman
+Andrew Myers             Aleksandar Bakic         Alain Picard
 
    ... not counting the bundled code from `hyperspec.el', `CLOCC', and
 the `CMU AI Repository'.
@@ -3567,8 +3567,8 @@ Ref: slime-scratch94965
 Node: slime-sprof95575
 Node: slime-fancy96497
 Node: Credits96740
-Node: Key Index101059
-Node: Command Index112421
-Node: Variable Index127015
+Node: Key Index101080
+Node: Command Index112442
+Node: Variable Index127036
 
 End Tag Table
