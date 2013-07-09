@@ -296,7 +296,7 @@
 ;; (define-key ac-menu-map "M-n"        'ac-next)
 ;; (define-key ac-menu-map "M-p"        'ac-previous)
 
-(setq ac-set-trigger-key [TAB])
+(setq ac-set-trigger-key [tab])
 
 (setq ac-auto-start 3)
 
@@ -697,12 +697,10 @@
 
 ;;smex settings
 (require 'smex)
-(global-set-key [(meta x)] (lambda ()
-                                (interactive)
-                                (or (boundp 'smex-cache)
-                                    (smex-initialize))
-                                (global-set-key [(meta x)] 'smex)
-                                (smex)))
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; (global-set-key [(shift meta x)] (lambda ()
 ;;                                    (interactive)
@@ -710,22 +708,33 @@
 ;;                                        (smex-initialize))
 ;;                                    (global-set-key [(shift meta x)] 'smex-major-mode-commands)
 ;;                                    (smex-major-mode-commands)))
+
 ;;using acronyms
-(defadvice ido-set-matches-1 (after ido-acronym-matches activate)
-  (if (> (length ido-text) 1)
-      (let ((regex (concat "^" (mapconcat 'char-to-string ido-text "[^-]*-")
-                           "[^-]*$")))
-        (setq ad-return-value
-              (append (reverse (remove-if-not (lambda (i)
-                                                (string-match regex i)) items))
-                      ad-return-value)))))
+;;buggy
+;; (defadvice ido-set-matches-1 (after ido-acronym-matches activate)
+;;   (if (> (length ido-text) 1)
+;;       (let ((regex (concat "^" (mapconcat 'char-to-string ido-text "[^-]*-")
+;;                            "[^-]*$")))
+;;         (setq ad-return-value
+;;               (append (reverse (remove-if-not (lambda (i)
+;;                                                 (string-match regex i)) items))
+;;                       ad-return-value)))))
 
 
 ;; auto-compile-settings
 (require 'auto-async-byte-compile)
 (setq auto-async-byte-compile-exclude-files-regexp "~#")
 (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+
+;;popwin
+;;; for popwin
+(require 'popwin)
+(popwin-mode 1)
 
+(setq display-buffer-function 'popwin:display-buffer)
+
+(push '(" *auto-async-byte-compile*" :height 14 :position bottom :noselect t) popwin:special-display-config)
+(push '("*VC-log*" :height 10 :position bottom) popwin:special-display-config)
 
 
 

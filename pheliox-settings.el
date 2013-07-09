@@ -37,14 +37,16 @@
 (setq-default indent-tabs-mode nil) 
 
 ;;smart spell correction
-(setq flyspell-prog-mode t)
-(setq-default ispell-program-name "aspell")
+(setq-default ispell-program-name "hunspell")
 ;; (setq text-mode-hook '(lambda()  
 ;;                         (flyspell-mode t) 
 ;;                         )) 
 (setq ispell-list-command "--list")
 (setq flyspell-issue-message-flag nil)
 (add-hook 'text-mode-hook '(lambda() (flyspell-mode t)))
+(add-hook 'prog-mode-hook '(lambda() (flyspell-prog-mode)))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
 
 ;;保存会话
 (require 'desktop)
@@ -122,21 +124,17 @@
 
 
 ;;ido mode
+(ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
+(setq ido-use-filename-at-point 'guess
+      ido-use-url-at-point t
+      ido-max-prospects 10)
 (add-hook 'ido-setup-hook 
           (lambda () 
-            (define-key ido-completion-map [tab] 'ido-complete)))
-;; (global-set-key
-;;  "\M-x"
-;;  (lambda ()
-;;    (interactive)
-;;    (call-interactively
-;;     (intern
-;;      (ido-completing-read
-;;       "M-x "
-;;       (all-completions "" obarray 'commandp))))))
-(ido-mode t)
+            (define-key ido-completion-map [<tab>] 'ido-complete)))
+
+
 
 
 ;;Messages log
