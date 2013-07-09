@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (autopair-global-mode autopair-mode) "autopair/autopair"
-;;;;;;  "autopair/autopair.el" (20879 42200))
+;;;;;;  "autopair/autopair.el" (20952 58563))
 ;;; Generated autoloads from autopair/autopair.el
 
 (autoload 'autopair-mode "autopair/autopair" "\
@@ -37,7 +37,7 @@ See `autopair-mode' for more information on Autopair mode.
 
 ;;;### (autoloads (browse-kill-ring browse-kill-ring-default-keybindings)
 ;;;;;;  "browse-kill-ring/browse-kill-ring" "browse-kill-ring/browse-kill-ring.el"
-;;;;;;  (20953 18629))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from browse-kill-ring/browse-kill-ring.el
 
 (autoload 'browse-kill-ring-default-keybindings "browse-kill-ring/browse-kill-ring" "\
@@ -196,7 +196,7 @@ Initialize the color theme package by loading color-theme-libraries.
 ;;;***
 
 ;;;### (autoloads (css-mode) "css-mode/css-mode" "css-mode/css-mode.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from css-mode/css-mode.el
 (add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
 
@@ -213,7 +213,7 @@ Key bindings:
 
 ;;;### (autoloads (el-get-checksum el-get-make-recipes el-get-cd
 ;;;;;;  el-get-self-update el-get-update-all el-get-version) "el-get/el-get"
-;;;;;;  "el-get/el-get.el" (20879 42200))
+;;;;;;  "el-get/el-get.el" (20952 58563))
 ;;; Generated autoloads from el-get/el-get.el
 
 (autoload 'el-get-version "el-get/el-get" "\
@@ -250,7 +250,7 @@ Compute the checksum of the given package, and put it in the kill-ring
 ;;;***
 
 ;;;### (autoloads (el-get-list-packages) "el-get/el-get-list-packages"
-;;;;;;  "el-get/el-get-list-packages.el" (20879 42200))
+;;;;;;  "el-get/el-get-list-packages.el" (20952 58563))
 ;;; Generated autoloads from el-get/el-get-list-packages.el
 
 (autoload 'el-get-list-packages "el-get/el-get-list-packages" "\
@@ -261,7 +261,7 @@ Display a list of packages.
 ;;;***
 
 ;;;### (autoloads (er/expand-region) "expand-region/expand-region"
-;;;;;;  "expand-region/expand-region.el" (20939 48626))
+;;;;;;  "expand-region/expand-region.el" (20954 33734))
 ;;; Generated autoloads from expand-region/expand-region.el
 
 (autoload 'er/expand-region "expand-region/expand-region" "\
@@ -281,7 +281,7 @@ before calling `er/expand-region' for the first time.
 ;;;;;;  expand-region-skip-whitespace expand-region-autocopy-register
 ;;;;;;  expand-region-guess-python-mode expand-region-preferred-python-mode
 ;;;;;;  expand-region) "expand-region/expand-region-custom" "expand-region/expand-region-custom.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from expand-region/expand-region-custom.el
 
 (let ((loads (get 'expand-region 'custom-loads))) (if (member '"expand-region/expand-region-custom" loads) nil (put 'expand-region 'custom-loads (cons '"expand-region/expand-region-custom" loads))))
@@ -332,7 +332,7 @@ List of modes which derive from `text-mode' for which text mode expansions are n
 
 ;;;### (autoloads (update-file-header make-box-comment make-divider
 ;;;;;;  make-revision make-header) "header2/header2" "header2/header2.el"
-;;;;;;  (20953 35249))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from header2/header2.el
 
 (autoload 'make-header "header2/header2" "\
@@ -389,7 +389,7 @@ the strings that cause them to be invoked.
 ;;;;;;  helm-select-action helm-force-update helm-toggle-suspend-update
 ;;;;;;  helm-other-buffer helm-resume-previous-session-after-quit
 ;;;;;;  helm-resume helm-open-last-log helm-define-multi-key) "helm/helm"
-;;;;;;  "helm/helm.el" (20953 18812))
+;;;;;;  "helm/helm.el" (20954 33734))
 ;;; Generated autoloads from helm/helm.el
 
 (autoload 'helm-define-multi-key "helm/helm" "\
@@ -691,7 +691,7 @@ This will enable `helm-follow-mode' automatically in `helm-source-buffers-list'.
 ;;;***
 
 ;;;### (autoloads (helm-reset-adaptative-history) "helm/helm-adaptative"
-;;;;;;  "helm/helm-adaptative.el" (20879 42200))
+;;;;;;  "helm/helm-adaptative.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-adaptative.el
 
 (autoload 'helm-reset-adaptative-history "helm/helm-adaptative" "\
@@ -704,7 +704,7 @@ Useful when you have a old or corrupted `helm-adaptive-history-file'.
 
 ;;;### (autoloads (helm-apt helm-apt-show-all helm-apt-show-only-deinstalled
 ;;;;;;  helm-apt-show-only-not-installed helm-apt-show-only-installed)
-;;;;;;  "helm/helm-apt" "helm/helm-apt.el" (20879 42200))
+;;;;;;  "helm/helm-apt" "helm/helm-apt.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-apt.el
 
 (autoload 'helm-apt-show-only-installed "helm/helm-apt" "\
@@ -736,7 +736,7 @@ With a prefix arg reload cache.
 ;;;***
 
 ;;;### (autoloads (helm-bbdb) "helm/helm-bbdb" "helm/helm-bbdb.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-bbdb.el
 
 (autoload 'helm-bbdb "helm/helm-bbdb" "\
@@ -751,7 +751,7 @@ http://bbdb.sourceforge.net/
 ;;;***
 
 ;;;### (autoloads (helm-bookmark-ext helm-bmkext-run-edit) "helm/helm-bmkext"
-;;;;;;  "helm/helm-bmkext.el" (20939 48621))
+;;;;;;  "helm/helm-bmkext.el" (20954 33734))
 ;;; Generated autoloads from helm/helm-bmkext.el
 
 (autoload 'helm-bmkext-run-edit "helm/helm-bmkext" "\
@@ -771,7 +771,7 @@ Contain also `helm-source-google-suggest'.
 
 ;;;### (autoloads (helm-pp-bookmarks helm-bookmarks helm-bookmark-run-delete
 ;;;;;;  helm-bookmark-run-jump-other-window helm-bookmark-toggle-filename)
-;;;;;;  "helm/helm-bookmark" "helm/helm-bookmark.el" (20879 42200))
+;;;;;;  "helm/helm-bookmark" "helm/helm-bookmark.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-bookmark.el
 
 (autoload 'helm-bookmark-toggle-filename "helm/helm-bookmark" "\
@@ -807,7 +807,7 @@ Preconfigured `helm' for bookmarks (pretty-printed).
 ;;;;;;  helm-buffer-run-query-replace-regexp helm-buffer-run-zgrep
 ;;;;;;  helm-buffer-run-grep helm-buffer-run-kill-buffers helm-buffer-save-persistent
 ;;;;;;  helm-buffer-revert-persistent helm-buffer-diff-persistent)
-;;;;;;  "helm/helm-buffers" "helm/helm-buffers.el" (20939 48621))
+;;;;;;  "helm/helm-buffers" "helm/helm-buffers.el" (20954 33734))
 ;;; Generated autoloads from helm/helm-buffers.el
 
 (autoload 'helm-buffer-diff-persistent "helm/helm-buffers" "\
@@ -884,7 +884,7 @@ It is an enhanced version of `helm-for-buffers'.
 ;;;***
 
 ;;;### (autoloads (helm-simple-call-tree) "helm/helm-call-tree" "helm/helm-call-tree.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-call-tree.el
 
 (autoload 'helm-simple-call-tree "helm/helm-call-tree" "\
@@ -898,7 +898,7 @@ http://www.emacswiki.org/cgi-bin/wiki/download/simple-call-tree.el
 ;;;***
 
 ;;;### (autoloads (helm-colors) "helm/helm-color" "helm/helm-color.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-color.el
 
 (autoload 'helm-colors "helm/helm-color" "\
@@ -909,7 +909,7 @@ Preconfigured `helm' for color.
 ;;;***
 
 ;;;### (autoloads (helm-M-x) "helm/helm-command" "helm/helm-command.el"
-;;;;;;  (20953 18812))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from helm/helm-command.el
 
 (autoload 'helm-M-x "helm/helm-command" "\
@@ -921,7 +921,7 @@ It is `helm' replacement of regular `M-x' `execute-extended-command'.
 ;;;***
 
 ;;;### (autoloads (helm-configuration) "helm/helm-config" "helm/helm-config.el"
-;;;;;;  (20953 18812))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from helm/helm-config.el
 
 (autoload 'helm-configuration "helm/helm-config" "\
@@ -932,7 +932,7 @@ Customize `helm'.
 ;;;***
 
 ;;;### (autoloads (helm-dabbrev) "helm/helm-dabbrev" "helm/helm-dabbrev.el"
-;;;;;;  (20953 18812))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from helm/helm-dabbrev.el
 
 (autoload 'helm-dabbrev "helm/helm-dabbrev" "\
@@ -945,7 +945,7 @@ Customize `helm'.
 ;;;### (autoloads (helm-complex-command-history helm-timers helm-locate-library
 ;;;;;;  helm-manage-advice helm-apropos helm-lisp-completion-or-file-name-at-point
 ;;;;;;  helm-lisp-indent helm-complete-file-name-at-point helm-lisp-completion-at-point)
-;;;;;;  "helm/helm-elisp" "helm/helm-elisp.el" (20953 18812))
+;;;;;;  "helm/helm-elisp" "helm/helm-elisp.el" (20954 33734))
 ;;; Generated autoloads from helm/helm-elisp.el
 
 (autoload 'helm-lisp-completion-at-point "helm/helm-elisp" "\
@@ -997,7 +997,7 @@ Preconfigured `helm' for timers.
 ;;;***
 
 ;;;### (autoloads (helm-elscreen) "helm/helm-elscreen" "helm/helm-elscreen.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-elscreen.el
 
 (autoload 'helm-elscreen "helm/helm-elscreen" "\
@@ -1008,7 +1008,7 @@ Preconfigured helm to list elscreen.
 ;;;***
 
 ;;;### (autoloads (helm-emms) "helm/helm-emms" "helm/helm-emms.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-emms.el
 
 (autoload 'helm-emms "helm/helm-emms" "\
@@ -1019,7 +1019,7 @@ Preconfigured `helm' for emms sources.
 ;;;***
 
 ;;;### (autoloads (helm-eshell-history helm-esh-pcomplete) "helm/helm-eshell"
-;;;;;;  "helm/helm-eshell.el" (20879 42200))
+;;;;;;  "helm/helm-eshell.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-eshell.el
 
 (autoload 'helm-esh-pcomplete "helm/helm-eshell" "\
@@ -1036,7 +1036,7 @@ Preconfigured helm for eshell history.
 
 ;;;### (autoloads (helm-calcul-expression helm-eval-expression-with-eldoc
 ;;;;;;  helm-eval-expression) "helm/helm-eval" "helm/helm-eval.el"
-;;;;;;  (20953 18812))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from helm/helm-eval.el
 
 (autoload 'helm-eval-expression "helm/helm-eval" "\
@@ -1057,7 +1057,7 @@ Preconfigured helm for `helm-source-calculation-result'.
 ;;;***
 
 ;;;### (autoloads (helm-run-external-command) "helm/helm-external"
-;;;;;;  "helm/helm-external.el" (20879 42200))
+;;;;;;  "helm/helm-external.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-external.el
 
 (autoload 'helm-run-external-command "helm/helm-external" "\
@@ -1086,7 +1086,7 @@ You can set your own list of commands with
 ;;;;;;  helm-ff-run-load-file helm-ff-run-byte-compile-file helm-ff-run-rename-file
 ;;;;;;  helm-ff-run-copy-file helm-ff-run-zgrep helm-ff-run-pdfgrep
 ;;;;;;  helm-ff-run-grep helm-ff-run-switch-to-history helm-ff-run-toggle-auto-update)
-;;;;;;  "helm/helm-files" "helm/helm-files.el" (20953 18812))
+;;;;;;  "helm/helm-files" "helm/helm-files.el" (20954 33734))
 ;;; Generated autoloads from helm/helm-files.el
 
 (autoload 'helm-ff-run-toggle-auto-update "helm/helm-files" "\
@@ -1309,7 +1309,7 @@ Preconfigured `helm' for `recentf'.
 ;;;***
 
 ;;;### (autoloads (helm-firefox-bookmarks) "helm/helm-firefox" "helm/helm-firefox.el"
-;;;;;;  (20939 48621))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from helm/helm-firefox.el
 
 (autoload 'helm-firefox-bookmarks "helm/helm-firefox" "\
@@ -1330,7 +1330,7 @@ After closing firefox, you will be able to browse you bookmarks.
 ;;;***
 
 ;;;### (autoloads (helm-ucs helm-select-xfont) "helm/helm-font" "helm/helm-font.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-font.el
 
 (autoload 'helm-select-xfont "helm/helm-font" "\
@@ -1346,7 +1346,7 @@ Preconfigured helm for `ucs-names' math symbols.
 ;;;***
 
 ;;;### (autoloads (helm-gentoo) "helm/helm-gentoo" "helm/helm-gentoo.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-gentoo.el
 
 (autoload 'helm-gentoo "helm/helm-gentoo" "\
@@ -1363,7 +1363,7 @@ Preconfigured `helm' for gentoo linux.
 ;;;;;;  helm-grep-run-other-frame-action helm-grep-run-other-window-action
 ;;;;;;  helm-grep-run-default-action helm-grep-run-persistent-action
 ;;;;;;  helm-goto-next-file helm-goto-precedent-file) "helm/helm-grep"
-;;;;;;  "helm/helm-grep.el" (20879 42200))
+;;;;;;  "helm/helm-grep.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-grep.el
 
 (autoload 'helm-goto-precedent-file "helm/helm-grep" "\
@@ -1475,7 +1475,7 @@ Preconfigured helm for pdfgrep.
 ;;;;;;  helm-bookmark-help helm-ucs-help helm-etags-help helm-pdfgrep-help
 ;;;;;;  helm-grep-help helm-generic-file-help helm-read-file-name-help
 ;;;;;;  helm-ff-help helm-buffer-help helm-help) "helm/helm-help"
-;;;;;;  "helm/helm-help.el" (20953 18812))
+;;;;;;  "helm/helm-help.el" (20954 33734))
 ;;; Generated autoloads from helm/helm-help.el
 
 (defvar helm-mode-line-string "\\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
@@ -1607,7 +1607,7 @@ HELM-ATTRIBUTE should be a symbol.
 ;;;***
 
 ;;;### (autoloads (helm-imenu) "helm/helm-imenu" "helm/helm-imenu.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-imenu.el
 
 (autoload 'helm-imenu "helm/helm-imenu" "\
@@ -1618,7 +1618,7 @@ Preconfigured `helm' for `imenu'.
 ;;;***
 
 ;;;### (autoloads (helm-info-at-point) "helm/helm-info" "helm/helm-info.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-info.el
 
 (autoload 'helm-info-at-point "helm/helm-info" "\
@@ -1630,7 +1630,7 @@ With a prefix-arg insert symbol at point.
 ;;;***
 
 ;;;### (autoloads (helm-locate) "helm/helm-locate" "helm/helm-locate.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-locate.el
 
 (autoload 'helm-locate "helm/helm-locate" "\
@@ -1654,7 +1654,7 @@ Where db_path is a filename matched by
 ;;;***
 
 ;;;### (autoloads (helm-man-woman) "helm/helm-man" "helm/helm-man.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-man.el
 
 (autoload 'helm-man-woman "helm/helm-man" "\
@@ -1666,7 +1666,7 @@ With a prefix arg reinitialize the cache.
 ;;;***
 
 ;;;### (autoloads (helm-match-plugin-mode) "helm/helm-match-plugin"
-;;;;;;  "helm/helm-match-plugin.el" (20879 42200))
+;;;;;;  "helm/helm-match-plugin.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-match-plugin.el
 
 (defvar helm-match-plugin-mode nil "\
@@ -1688,8 +1688,8 @@ See `helm-mp-matching-method' for the behavior of each method.
 
 ;;;### (autoloads (helm-minibuffer-history helm-mini helm-stumpwm-commands
 ;;;;;;  helm-ratpoison-commands helm-eev-anchors helm-insert-latex-math
-;;;;;;  helm-world-time) "helm/helm-misc" "helm/helm-misc.el" (20879
-;;;;;;  42200))
+;;;;;;  helm-world-time) "helm/helm-misc" "helm/helm-misc.el" (20952
+;;;;;;  58563))
 ;;; Generated autoloads from helm/helm-misc.el
 
 (autoload 'helm-world-time "helm/helm-misc" "\
@@ -1730,7 +1730,7 @@ Preconfigured `helm' for `minibuffer-history'.
 ;;;***
 
 ;;;### (autoloads (helm-mode helm-comp-read helm-cr-empty-string)
-;;;;;;  "helm/helm-mode" "helm/helm-mode.el" (20939 48621))
+;;;;;;  "helm/helm-mode" "helm/helm-mode.el" (20954 33734))
 ;;; Generated autoloads from helm/helm-mode.el
 
 (autoload 'helm-cr-empty-string "helm/helm-mode" "\
@@ -1850,7 +1850,7 @@ Note: This mode is incompatible with Emacs23.
 ;;;***
 
 ;;;### (autoloads (helm-yahoo-suggest helm-google-suggest helm-surfraw)
-;;;;;;  "helm/helm-net" "helm/helm-net.el" (20879 42200))
+;;;;;;  "helm/helm-net" "helm/helm-net.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-net.el
 
 (autoload 'helm-surfraw "helm/helm-net" "\
@@ -1871,7 +1871,7 @@ Preconfigured `helm' for Yahoo searching with Yahoo suggest.
 ;;;***
 
 ;;;### (autoloads (helm-org-headlines helm-org-keywords) "helm/helm-org"
-;;;;;;  "helm/helm-org.el" (20879 42200))
+;;;;;;  "helm/helm-org.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-org.el
 
 (autoload 'helm-org-keywords "helm/helm-org" "\
@@ -1888,7 +1888,7 @@ Preconfigured helm to show org headlines.
 
 ;;;### (autoloads (helm-browse-code helm-multi-occur-from-isearch
 ;;;;;;  helm-multi-occur helm-occur-from-isearch helm-occur helm-regexp)
-;;;;;;  "helm/helm-regexp" "helm/helm-regexp.el" (20879 42200))
+;;;;;;  "helm/helm-regexp" "helm/helm-regexp.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-regexp.el
 
 (autoload 'helm-regexp "helm/helm-regexp" "\
@@ -1937,7 +1937,7 @@ Preconfigured helm to browse code.
 
 ;;;### (autoloads (helm-show-kill-ring helm-register helm-all-mark-rings
 ;;;;;;  helm-global-mark-ring helm-mark-ring) "helm/helm-ring" "helm/helm-ring.el"
-;;;;;;  (20939 48621))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from helm/helm-ring.el
 
 (autoload 'helm-mark-ring "helm/helm-ring" "\
@@ -1971,7 +1971,7 @@ First call open the kill-ring browser, next calls move to next line.
 ;;;***
 
 ;;;### (autoloads (helm-semantic-or-imenu helm-semantic) "helm/helm-semantic"
-;;;;;;  "helm/helm-semantic.el" (20879 42200))
+;;;;;;  "helm/helm-semantic.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-semantic.el
 
 (autoload 'helm-semantic "helm/helm-semantic" "\
@@ -1993,7 +1993,7 @@ Fill in the symbol at point by default.
 ;;;### (autoloads (helm-xrandr-set helm-list-emacs-process helm-top
 ;;;;;;  helm-top-run-sort-by-user helm-top-run-sort-by-mem helm-top-run-sort-by-cpu
 ;;;;;;  helm-top-run-sort-by-com) "helm/helm-sys" "helm/helm-sys.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-sys.el
 
 (autoload 'helm-top-run-sort-by-com "helm/helm-sys" "\
@@ -2034,7 +2034,7 @@ Preconfigured `helm' for emacs process.
 ;;;***
 
 ;;;### (autoloads (helm-etags-select) "helm/helm-tags" "helm/helm-tags.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-tags.el
 
 (autoload 'helm-etags-select "helm/helm-tags" "\
@@ -2049,7 +2049,7 @@ If tag file have been modified reinitialize cache.
 
 ;;;### (autoloads (helm-yank-text-at-point helm-w32-shell-execute-open-file
 ;;;;;;  helm-quit-and-find-file helm-display-all-sources helm-show-all-in-this-source-only)
-;;;;;;  "helm/helm-utils" "helm/helm-utils.el" (20879 42200))
+;;;;;;  "helm/helm-utils" "helm/helm-utils.el" (20952 58563))
 ;;; Generated autoloads from helm/helm-utils.el
 
 (autoload 'helm-show-all-in-this-source-only "helm/helm-utils" "\
@@ -2086,7 +2086,7 @@ the entire symbol.
 ;;;***
 
 ;;;### (autoloads (helm-w3m-bookmarks) "helm/helm-w3m" "helm/helm-w3m.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-w3m.el
 
 (autoload 'helm-w3m-bookmarks "helm/helm-w3m" "\
@@ -2103,7 +2103,7 @@ http://emacs-w3m.namazu.org/
 
 ;;;### (autoloads (helm-yaoddmuse-emacswiki-post-library helm-yaoddmuse-emacswiki-edit-or-view
 ;;;;;;  helm-yaoddmuse-cache-pages) "helm/helm-yaoddmuse" "helm/helm-yaoddmuse.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from helm/helm-yaoddmuse.el
 
 (autoload 'helm-yaoddmuse-cache-pages "helm/helm-yaoddmuse" "\
@@ -2264,7 +2264,7 @@ HTMLize dired-marked files.
 
 ;;;### (autoloads (js2-imenu-extras-mode js2-imenu-extras-setup)
 ;;;;;;  "js2-mode/js2-imenu-extras" "js2-mode/js2-imenu-extras.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from js2-mode/js2-imenu-extras.el
 
 (autoload 'js2-imenu-extras-setup "js2-mode/js2-imenu-extras" "\
@@ -2280,7 +2280,7 @@ Toggle Imenu support for frameworks and structural patterns.
 ;;;***
 
 ;;;### (autoloads (js2-mode js2-minor-mode) "js2-mode/js2-mode" "js2-mode/js2-mode.el"
-;;;;;;  (20939 48626))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from js2-mode/js2-mode.el
 
 (autoload 'js2-minor-mode "js2-mode/js2-mode" "\
@@ -2337,7 +2337,7 @@ If COMMAND is nil, the key-chord is removed.
 ;;;***
 
 ;;;### (autoloads (gfm-mode markdown-mode) "markdown-mode/markdown-mode"
-;;;;;;  "markdown-mode/markdown-mode.el" (20939 48626))
+;;;;;;  "markdown-mode/markdown-mode.el" (20954 33734))
 ;;; Generated autoloads from markdown-mode/markdown-mode.el
 
 (autoload 'markdown-mode "markdown-mode/markdown-mode" "\
@@ -2357,7 +2357,7 @@ Major mode for editing GitHub Flavored Markdown files.
 
 ;;;### (autoloads (mc/edit-beginnings-of-lines mc/edit-ends-of-lines
 ;;;;;;  mc/edit-lines) "multiple-cursors/mc-edit-lines" "multiple-cursors/mc-edit-lines.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from multiple-cursors/mc-edit-lines.el
 
 (autoload 'mc/edit-lines "multiple-cursors/mc-edit-lines" "\
@@ -2388,7 +2388,7 @@ Add one cursor to the beginning of each line in the active region.
 ;;;;;;  mc/mark-next-lines mc/mark-previous-symbol-like-this mc/mark-previous-word-like-this
 ;;;;;;  mc/mark-previous-like-this mc/mark-next-symbol-like-this
 ;;;;;;  mc/mark-next-word-like-this mc/mark-next-like-this) "multiple-cursors/mc-mark-more"
-;;;;;;  "multiple-cursors/mc-mark-more.el" (20939 48627))
+;;;;;;  "multiple-cursors/mc-mark-more.el" (20954 33734))
 ;;; Generated autoloads from multiple-cursors/mc-mark-more.el
 
 (autoload 'mc/mark-next-like-this "multiple-cursors/mc-mark-more" "\
@@ -2532,7 +2532,7 @@ Mark the tag we're in and its pair for renaming.
 ;;;***
 
 ;;;### (autoloads (mc/mark-pop) "multiple-cursors/mc-mark-pop" "multiple-cursors/mc-mark-pop.el"
-;;;;;;  (20939 48627))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from multiple-cursors/mc-mark-pop.el
 
 (autoload 'mc/mark-pop "multiple-cursors/mc-mark-pop" "\
@@ -2546,7 +2546,7 @@ line point is on.
 
 ;;;### (autoloads (mc/sort-regions mc/reverse-regions mc/insert-numbers)
 ;;;;;;  "multiple-cursors/mc-separate-operations" "multiple-cursors/mc-separate-operations.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58563))
 ;;; Generated autoloads from multiple-cursors/mc-separate-operations.el
 
 (autoload 'mc/insert-numbers "multiple-cursors/mc-separate-operations" "\
@@ -2567,7 +2567,7 @@ Insert increasing numbers for each cursor, starting at 0 or ARG.
 ;;;***
 
 ;;;### (autoloads (set-rectangular-region-anchor) "multiple-cursors/rectangular-region-mode"
-;;;;;;  "multiple-cursors/rectangular-region-mode.el" (20879 42200))
+;;;;;;  "multiple-cursors/rectangular-region-mode.el" (20952 58563))
 ;;; Generated autoloads from multiple-cursors/rectangular-region-mode.el
 
 (autoload 'set-rectangular-region-anchor "multiple-cursors/rectangular-region-mode" "\
@@ -2597,63 +2597,76 @@ Paredit behaves badly if parentheses are unbalanced, so exercise
 
 ;;;***
 
-;;;### (autoloads (pymacs-apply pymacs-call pymacs-exec pymacs-eval
-;;;;;;  pymacs-autoload pymacs-load) "pymacs/pymacs" "pymacs/pymacs.el"
-;;;;;;  (20879 34884))
-;;; Generated autoloads from pymacs/pymacs.el
+;;;### (autoloads (popwin:messages popwin:find-file-tail popwin:find-file
+;;;;;;  popwin:popup-buffer-tail popwin:one-window popwin:universal-display
+;;;;;;  popwin:pop-to-buffer popwin:display-buffer popwin:popup-buffer)
+;;;;;;  "popwin/popwin" "popwin/popwin.el" (20955 36609))
+;;; Generated autoloads from popwin/popwin.el
 
-(autoload 'pymacs-load "pymacs/pymacs" "\
-Import the Python module named MODULE into Emacs.
-Each function in the Python module is made available as an Emacs function.
-The Lisp name of each function is the concatenation of PREFIX with
-the Python name, in which underlines are replaced by dashes.  If PREFIX is
-not given, it defaults to MODULE followed by a dash.
-If NOERROR is not nil, do not raise error when the module is not found.
+(autoload 'popwin:popup-buffer "popwin/popwin" "\
+Show BUFFER in a popup window and return the popup window. If
+NOSELECT is non-nil, the popup window will not be selected. If
+STICK is non-nil, the popup window will be stuck. If TAIL is
+non-nil, the popup window will show the last contents. Calling
+`popwin:popup-buffer' during `popwin:popup-buffer' is allowed. In
+that case, the buffer of the popup window will be replaced with
+BUFFER.
 
-\(fn MODULE &optional PREFIX NOERROR)" t nil)
+\(fn BUFFER &key (width popwin:popup-window-width) (height popwin:popup-window-height) (position popwin:popup-window-position) NOSELECT DEDICATED STICK TAIL)" t nil)
 
-(autoload 'pymacs-autoload "pymacs/pymacs" "\
-Pymacs's equivalent of the standard emacs facility `autoload'.
-Define FUNCTION to autoload from Python MODULE using PREFIX.
-If PREFIX is not given, it defaults to MODULE followed by a dash.
-Optional DOCSTRING documents FUNCTION until it gets loaded.
-INTERACTIVE is normally the argument to the function `interactive',
-t means `interactive' without arguments, nil means not interactive,
-which is the default.
+(autoload 'popwin:display-buffer "popwin/popwin" "\
+Display BUFFER-OR-NAME, if possible, in a popup window, or as
+usual. This function can be used as a value of
+`display-buffer-function'.
 
-\(fn FUNCTION MODULE &optional PREFIX DOCSTRING INTERACTIVE)" nil nil)
+\(fn BUFFER-OR-NAME &optional NOT-THIS-WINDOW)" t nil)
 
-(autoload 'pymacs-eval "pymacs/pymacs" "\
-Compile TEXT as a Python expression, and return its value.
+(autoload 'popwin:pop-to-buffer "popwin/popwin" "\
+Same as `pop-to-buffer' except that this function will use
+`popwin:display-buffer-1' instead of `display-buffer'.
 
-\(fn TEXT)" t nil)
+\(fn BUFFER &optional OTHER-WINDOW NORECORD)" t nil)
 
-(autoload 'pymacs-exec "pymacs/pymacs" "\
-Compile and execute TEXT as a sequence of Python statements.
-This functionality is experimental, and does not appear to be useful.
+(autoload 'popwin:universal-display "popwin/popwin" "\
+Call the following command interactively with letting
+`popwin:special-display-config' be
+`popwin:universal-display-config'. This wil be useful when
+displaying buffers in popup windows temporarily.
 
-\(fn TEXT)" t nil)
+\(fn)" t nil)
 
-(autoload 'pymacs-call "pymacs/pymacs" "\
-Return the result of calling a Python function FUNCTION over ARGUMENTS.
-FUNCTION is a string denoting the Python function, ARGUMENTS are separate
-Lisp expressions, one per argument.  Immutable Lisp constants are converted
-to Python equivalents, other structures are converted into Lisp handles.
+(autoload 'popwin:one-window "popwin/popwin" "\
+Delete other window than the popup window. C-g restores the
+original window configuration.
 
-\(fn FUNCTION &rest ARGUMENTS)" nil nil)
+\(fn)" t nil)
 
-(autoload 'pymacs-apply "pymacs/pymacs" "\
-Return the result of calling a Python function FUNCTION over ARGUMENTS.
-FUNCTION is a string denoting the Python function, ARGUMENTS is a list of
-Lisp expressions.  Immutable Lisp constants are converted to Python
-equivalents, other structures are converted into Lisp handles.
+(autoload 'popwin:popup-buffer-tail "popwin/popwin" "\
+Same as `popwin:popup-buffer' except that the buffer will be
+`recenter'ed at the bottom.
 
-\(fn FUNCTION ARGUMENTS)" nil nil)
+\(fn &rest SAME-AS-POPWIN:POPUP-BUFFER)" t nil)
+
+(autoload 'popwin:find-file "popwin/popwin" "\
+Edit file FILENAME with popup window by `popwin:popup-buffer'.
+
+\(fn FILENAME &optional WILDCARDS)" t nil)
+
+(autoload 'popwin:find-file-tail "popwin/popwin" "\
+Edit file FILENAME with popup window by
+`popwin:popup-buffer-tail'.
+
+\(fn FILE &optional WILDCARD)" t nil)
+
+(autoload 'popwin:messages "popwin/popwin" "\
+Display *Messages* buffer in a popup window.
+
+\(fn)" t nil)
 
 ;;;***
 
 ;;;### (autoloads (common-lisp-indent-function) "slime/contrib/slime-cl-indent"
-;;;;;;  "slime/contrib/slime-cl-indent.el" (20879 42200))
+;;;;;;  "slime/contrib/slime-cl-indent.el" (20952 58563))
 ;;; Generated autoloads from slime/contrib/slime-cl-indent.el
 
 (autoload 'common-lisp-indent-function "slime/contrib/slime-cl-indent" "\
@@ -2735,7 +2748,7 @@ For example, the function `case' has an indent property
 ;;;***
 
 ;;;### (autoloads (smex-initialize smex) "smex/smex" "smex/smex.el"
-;;;;;;  (20953 35243))
+;;;;;;  (20954 33734))
 ;;; Generated autoloads from smex/smex.el
 
 (autoload 'smex "smex/smex" "\
@@ -2920,7 +2933,7 @@ Returns non-nil if the new state is enabled.
 ;;;***
 
 ;;;### (autoloads (yas-global-mode yas-minor-mode) "yasnippet/yasnippet"
-;;;;;;  "yasnippet/yasnippet.el" (20879 42200))
+;;;;;;  "yasnippet/yasnippet.el" (20952 58564))
 ;;; Generated autoloads from yasnippet/yasnippet.el
 
 (autoload 'yas-minor-mode "yasnippet/yasnippet" "\
@@ -2964,7 +2977,7 @@ See `yas-minor-mode' for more information on Yas minor mode.
 
 ;;;### (autoloads (zencoding-preview zencoding-expand-yas zencoding-mode
 ;;;;;;  zencoding-expand-line) "zencoding-mode/zencoding-mode" "zencoding-mode/zencoding-mode.el"
-;;;;;;  (20879 42200))
+;;;;;;  (20952 58564))
 ;;; Generated autoloads from zencoding-mode/zencoding-mode.el
 
 (autoload 'zencoding-expand-line "zencoding-mode/zencoding-mode" "\
@@ -3015,49 +3028,39 @@ accept it or skip it.
 
 ;;;***
 
-;;;### (autoloads nil nil ("auto-async-byte-compile/auto-async-byte-compile.el"
-;;;;;;  "autopair/autopair-tests.el" "color-theme-almost-monokai/color-theme-almost-monokai.el"
+;;;### (autoloads nil nil ("autopair/autopair-tests.el" "color-theme-almost-monokai/color-theme-almost-monokai.el"
 ;;;;;;  "color-theme/color-theme-autoloads.el" "css-mode/css-mode-autoloads.el"
 ;;;;;;  "css-mode/css-mode-pkg.el" "el-get/el-get-autoloads.el" "el-get/el-get-build.el"
 ;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
 ;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
 ;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el" "expand-region/cc-mode-expansions.el"
-;;;;;;  "expand-region/clojure-mode-expansions.el" "expand-region/cperl-mode-expansions.el"
-;;;;;;  "expand-region/css-mode-expansions.el" "expand-region/er-basic-expansions.el"
-;;;;;;  "expand-region/erlang-mode-expansions.el" "expand-region/expand-region-core.el"
+;;;;;;  "el-get/el-get-status.el" "expand-region/cperl-mode-expansions.el"
+;;;;;;  "expand-region/css-mode-expansions.el" "expand-region/erlang-mode-expansions.el"
 ;;;;;;  "expand-region/expand-region-pkg.el" "expand-region/feature-mode-expansions.el"
-;;;;;;  "expand-region/html-mode-expansions.el" "expand-region/js-mode-expansions.el"
-;;;;;;  "expand-region/js2-mode-expansions.el" "expand-region/jsp-expansions.el"
-;;;;;;  "expand-region/latex-mode-expansions.el" "expand-region/nxml-mode-expansions.el"
-;;;;;;  "expand-region/octave-expansions.el" "expand-region/python-el-expansions.el"
-;;;;;;  "expand-region/python-el-fgallina-expansions.el" "expand-region/python-mode-expansions.el"
-;;;;;;  "expand-region/ruby-mode-expansions.el" "expand-region/sml-mode-expansions.el"
-;;;;;;  "expand-region/text-mode-expansions.el" "expand-region/the-org-mode-expansions.el"
-;;;;;;  "expand-region/web-mode-expansions.el" "helm/helm-aliases.el"
-;;;;;;  "helm/helm-pkg.el" "helm/helm-plugin.el" "multiple-cursors/mc-cycle-cursors.el"
-;;;;;;  "multiple-cursors/multiple-cursors-core.el" "multiple-cursors/multiple-cursors-pkg.el"
-;;;;;;  "multiple-cursors/multiple-cursors.el" "slime/contrib/bridge.el"
-;;;;;;  "slime/contrib/inferior-slime.el" "slime/contrib/slime-asdf.el"
-;;;;;;  "slime/contrib/slime-autodoc.el" "slime/contrib/slime-banner.el"
-;;;;;;  "slime/contrib/slime-c-p-c.el" "slime/contrib/slime-clipboard.el"
-;;;;;;  "slime/contrib/slime-compiler-notes-tree.el" "slime/contrib/slime-editing-commands.el"
-;;;;;;  "slime/contrib/slime-enclosing-context.el" "slime/contrib/slime-fancy-inspector.el"
-;;;;;;  "slime/contrib/slime-fancy-trace.el" "slime/contrib/slime-fancy.el"
-;;;;;;  "slime/contrib/slime-fontifying-fu.el" "slime/contrib/slime-fuzzy.el"
-;;;;;;  "slime/contrib/slime-highlight-edits.el" "slime/contrib/slime-hyperdoc.el"
-;;;;;;  "slime/contrib/slime-indentation.el" "slime/contrib/slime-mdot-fu.el"
-;;;;;;  "slime/contrib/slime-media.el" "slime/contrib/slime-motd.el"
-;;;;;;  "slime/contrib/slime-mrepl.el" "slime/contrib/slime-package-fu.el"
-;;;;;;  "slime/contrib/slime-parse.el" "slime/contrib/slime-presentation-streams.el"
+;;;;;;  "expand-region/latex-mode-expansions.el" "expand-region/octave-expansions.el"
+;;;;;;  "expand-region/python-el-expansions.el" "expand-region/python-el-fgallina-expansions.el"
+;;;;;;  "expand-region/python-mode-expansions.el" "expand-region/sml-mode-expansions.el"
+;;;;;;  "expand-region/text-mode-expansions.el" "expand-region/web-mode-expansions.el"
+;;;;;;  "helm/helm-aliases.el" "ibus/ibus.el" "ido-hacks/ido-hacks.el"
+;;;;;;  "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-pkg.el"
+;;;;;;  "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
+;;;;;;  "slime/contrib/slime-asdf.el" "slime/contrib/slime-autodoc.el"
+;;;;;;  "slime/contrib/slime-banner.el" "slime/contrib/slime-c-p-c.el"
+;;;;;;  "slime/contrib/slime-clipboard.el" "slime/contrib/slime-compiler-notes-tree.el"
+;;;;;;  "slime/contrib/slime-editing-commands.el" "slime/contrib/slime-enclosing-context.el"
+;;;;;;  "slime/contrib/slime-fancy-inspector.el" "slime/contrib/slime-fontifying-fu.el"
+;;;;;;  "slime/contrib/slime-fuzzy.el" "slime/contrib/slime-highlight-edits.el"
+;;;;;;  "slime/contrib/slime-hyperdoc.el" "slime/contrib/slime-indentation.el"
+;;;;;;  "slime/contrib/slime-mdot-fu.el" "slime/contrib/slime-media.el"
+;;;;;;  "slime/contrib/slime-motd.el" "slime/contrib/slime-mrepl.el"
+;;;;;;  "slime/contrib/slime-package-fu.el" "slime/contrib/slime-presentation-streams.el"
 ;;;;;;  "slime/contrib/slime-presentations.el" "slime/contrib/slime-references.el"
-;;;;;;  "slime/contrib/slime-repl.el" "slime/contrib/slime-sbcl-exts.el"
-;;;;;;  "slime/contrib/slime-scheme.el" "slime/contrib/slime-scratch.el"
-;;;;;;  "slime/contrib/slime-snapshot.el" "slime/contrib/slime-sprof.el"
-;;;;;;  "slime/contrib/slime-tramp.el" "slime/contrib/slime-typeout-frame.el"
-;;;;;;  "slime/contrib/slime-xref-browser.el" "slime/hyperspec.el"
-;;;;;;  "slime/slime-autoloads.el" "slime/slime.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (20953 35289 401630))
+;;;;;;  "slime/contrib/slime-sbcl-exts.el" "slime/contrib/slime-scheme.el"
+;;;;;;  "slime/contrib/slime-scratch.el" "slime/contrib/slime-snapshot.el"
+;;;;;;  "slime/contrib/slime-sprof.el" "slime/contrib/slime-tramp.el"
+;;;;;;  "slime/contrib/slime-typeout-frame.el" "slime/contrib/slime-xref-browser.el"
+;;;;;;  "slime/hyperspec.el" "slime/slime-autoloads.el" "yasnippet/yasnippet-debug.el"
+;;;;;;  "yasnippet/yasnippet-tests.el") (20955 36609 623564))
 
 ;;;***
 

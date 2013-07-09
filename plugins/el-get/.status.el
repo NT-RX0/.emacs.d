@@ -32,6 +32,14 @@
                    (:name highlight-symbol :description "Quickly highlight a symbol throughout the buffer and cycle through its locations." :type http :url "http://nschum.de/src/emacs/highlight-symbol/highlight-symbol.el" :features "highlight-symbol"))
  (htmlize status "installed" recipe
           (:name htmlize :website "http://www.emacswiki.org/emacs/Htmlize" :description "Convert buffer text and decorations to HTML." :type http :url "http://fly.srk.fer.hr/~hniksic/emacs/htmlize.el.cgi" :localname "htmlize.el"))
+ (ibus status "installed" recipe
+       (:name ibus :description "IBus client for GNU Emacs" :website "https://launchpad.net/ibus.el" :type http-tar :options
+              ("xzf")
+              :url "http://launchpad.net/ibus.el/0.3/0.3.2/+download/ibus-el-0.3.2.tar.gz" :post-init
+              (add-hook 'after-init-hook 'ibus-mode-on)
+              :features "ibus"))
+ (ido-hacks status "installed" recipe
+            (:name ido-hacks :description "Advices for ido-mode." :type github :pkgname "scottjad/ido-hacks" :load "ido-hacks.el"))
  (js2-mode status "installed" recipe
            (:name js2-mode :website "https://github.com/mooz/js2-mode#readme" :description "An improved JavaScript editing mode" :type github :pkgname "mooz/js2-mode" :prepare
                   (autoload 'js2-mode "js2-mode" nil t)))
@@ -71,6 +79,8 @@
                    (autoload 'enable-paredit-mode "paredit")
                    (autoload 'disable-paredit-mode "paredit"))
                  :url "http://mumble.net/~campbell/emacs/paredit.el"))
+ (popwin status "installed" recipe
+         (:name popwin :description "Popup Window Manager." :website "https://github.com/m2ym/popwin-el" :type github :pkgname "m2ym/popwin-el"))
  (pymacs status "installed" recipe
          (:name pymacs :description "Interface between Emacs Lisp and Python" :type github :pkgname "pinard/Pymacs" :prepare
                 (progn
