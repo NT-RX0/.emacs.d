@@ -1,6 +1,19 @@
 ;;----------------------------------------------------------------------------
 ;; Which functionality to enable (use t or nil for true and false)
 ;;----------------------------------------------------------------------------
+(defvar *spell-check-support-enabled*)
+(defvar *macbook-pro-support-enabled*)
+(defvar *is-a-mac*)
+(defvar *is-carbon-emacs*)
+(defvar *is-cocoa-emacs*)
+
+(defvar *win32*)
+(defvar *cygwin*)
+
+(defvar *linux*)
+(defvar *unix*)
+(defvar *linux-x*)
+
 (setq *spell-check-support-enabled* t)
 (setq *macbook-pro-support-enabled* t)
 (setq *is-a-mac* (eq system-type 'darwin))
@@ -28,7 +41,7 @@
 (if (not (string< home-path nil))
   (setq home-path "~/"))
 ;;Default settings dir
-(defvar current-emacs-path)
+(defvar current-emacs-path nil)
 (setq current-emacs-path (concat home-path emacs-configuration-dir))
 (add-to-list 'load-path current-emacs-path)
 ;;(add-to-list 'load-path "~/.emacs.d")

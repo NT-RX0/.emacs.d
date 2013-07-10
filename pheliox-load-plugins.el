@@ -183,7 +183,7 @@
   ;; (remove-hook 'find-file-hook 'rinari-launch)
 
   (setq ac-clang-auto-save t)
-  )
+)
 (add-hook 'c-mode-hook 'my-ac-cc-mode-setup)
 (add-hook 'c++-mode-hook 'my-ac-cc-mode-setup)
 
@@ -243,10 +243,8 @@
 ;;session
 (add-to-list 'load-path (concat current-emacs-path "plugins/session"))
 (require 'session)
-(add-hook 'after-init-hook
-          'session-initialize)
-(add-to-list 'session-globals-exclude
-             'org-mark-ring)
+(add-hook 'after-init-hook 'session-initialize)
+(add-to-list 'session-globals-exclude 'org-mark-ring)
 
 ;;cursor change
 ;; (add-to-list 'load-path (concat current-emacs-path "plugins/cursor-chg"))
@@ -261,20 +259,6 @@
 
 ;; (toggle-cursor-type-when-idle nil) ; Turn on cursor change when Emacs is idle
 ;; (change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
-
-;; Change cursor color according to mode; inspired by
-;; http://www.emacswiki.org/emacs/ChangingCursorDynamically
-
-;; valid values are t, nil, box, hollow, bar, (bar . WIDTH), hbar,
-;; (hbar. HEIGHT); see the docs for set-cursor-type
-(setq pheliox-read-only-color       "gray")
-(setq pheliox-read-only-cursor-type 'hollow)
-
-(setq pheliox-overwrite-color       "Orange")
-(setq pheliox-overwrite-cursor-type 'box)
-
-(setq pheliox-normal-color          "dodger blue")
-(setq pheliox-normal-cursor-type    'hbar)
 
 (defvar hcz-set-cursor-color-color t)
 (defvar hcz-set-cursor-type-type t)
@@ -294,8 +278,8 @@
       ;; (set-cursor-color (setq hcz-set-cursor-color-color color))
       (setq cursor-type (setq hcz-set-cursor-type-type type))
       (setq hcz-set-cursor-type-buffer (buffer-name)))
-    )
   )
+)
 (add-hook 'post-command-hook 'hcz-set-cursor-type-according-to-mode)
 
 (defun hcz-set-cursor-color-according-to-mode ()
@@ -577,11 +561,11 @@
 (require 'slime)
 (slime-setup '(slime-js slime-repl))
 (defun slime-tab ()
-  "slime-mode tab dwim, either indent, complete symbol or yas/expand"
+  "slime-mode tab dwim, either indent, complete symbol or yas-expand"
   (interactive)
   (let ((r (slime-indent-and-complete-symbol)))
     (unless r
-      (yas/expand))))
+      (yas-expand))))
 (defun my-slime-mode-hook ()
   (interactive)
   (define-key slime-mode-map (kbd "<tab>")

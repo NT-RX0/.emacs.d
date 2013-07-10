@@ -27,7 +27,7 @@
 ;; highlighted
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#333234")
-(set-face-background 'region "sienna3")
+(set-face-background 'region "royalblue")
 (global-linum-mode t)
 
 (transient-mark-mode t)

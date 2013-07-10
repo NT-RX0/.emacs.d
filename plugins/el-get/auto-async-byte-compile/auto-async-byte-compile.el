@@ -173,8 +173,8 @@ This minor-mode performs `batch-byte-compile' automatically after saving elisp f
 
 (defun aabc/display-function (process-name result-buffer status)
   (if (eq status 'normal)
-      (message "%s completed" process-name)))
-    ;; (funcall auto-async-byte-compile-display-function result-buffer)))
+      (message "%s completed" process-name)
+    (funcall auto-async-byte-compile-display-function result-buffer)))
 
 (defun aabc/status (exitstatus buffer)
   (cond ((eq exitstatus 1)
