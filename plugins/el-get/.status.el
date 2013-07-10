@@ -16,6 +16,8 @@
            (:name autopair :website "https://github.com/capitaomorte/autopair" :description "Autopair is an extension to the Emacs text editor that automatically pairs braces and quotes." :type github :pkgname "capitaomorte/autopair" :features autopair))
  (browse-kill-ring status "installed" recipe
                    (:name browse-kill-ring :description "Interactively insert items from kill-ring" :type github :pkgname "browse-kill-ring/browse-kill-ring"))
+ (cl-lib status "installed" recipe
+         (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
  (color-theme status "installed" recipe
               (:name color-theme :description "An Emacs-Lisp package with more than 50 color themes for your use. For questions about color-theme" :website "http://www.nongnu.org/color-theme/" :type http-tar :options
                      ("xzf")
@@ -57,6 +59,19 @@
                   (autoload 'js2-mode "js2-mode" nil t)))
  (key-chord status "installed" recipe
             (:name key-chord :description "Map pairs of simultaneously pressed keys to commands." :type emacswiki :features "key-chord"))
+ (magit status "installed" recipe
+        (:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :depends
+               (cl-lib)
+               :info "." :build
+               (if
+                   (version<= "24.3" emacs-version)
+                   `(("make" ,(format "EMACS=%s" el-get-emacs)
+                      "all"))
+                 `(("make" ,(format "EMACS=%s" el-get-emacs)
+                    "docs")))
+               :build/berkeley-unix
+               (("touch" "`find . -name Makefile`")
+                ("gmake"))))
  (markdown-mode status "installed" recipe
                 (:name markdown-mode :description "Major mode to edit Markdown files in Emacs" :type git :url "git://jblevins.org/git/markdown-mode.git" :before
                        (add-to-list 'auto-mode-alist

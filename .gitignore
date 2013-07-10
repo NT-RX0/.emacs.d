@@ -181,3 +181,4 @@ session.*
 *.elc
 .elc
 byte-cache/
+.old

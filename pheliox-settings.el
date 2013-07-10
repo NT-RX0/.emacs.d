@@ -31,7 +31,7 @@
 (global-linum-mode t)
 
 (transient-mark-mode t)
-(global-visual-line-mode t)
+;; (global-visual-line-mode t)
 ;;
 ;; Emacs normally uses both tabs and spaces to indent lines. If you
 ;; prefer, all indentation can be made from spaces only. To request this,
@@ -132,15 +132,15 @@
 
 
 ;;ido mode
-(ido-mode t)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(setq ido-use-filename-at-point 'guess
-      ido-use-url-at-point t
-      ido-max-prospects 10)
-(add-hook 'ido-setup-hook 
-          (lambda () 
-            (define-key ido-completion-map [<tab>] 'ido-complete)))
+;; (ido-mode t)
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-everywhere t)
+;; (setq ido-use-filename-at-point 'guess
+;;       ido-use-url-at-point t
+;;       ido-max-prospects 10)
+;; (add-hook 'ido-setup-hook 
+;;           (lambda () 
+;;             (define-key ido-completion-map [<tab>] 'ido-complete)))
 
 
 

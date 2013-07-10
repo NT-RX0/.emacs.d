@@ -647,6 +647,7 @@
 
 ;;Helm settings
 (require 'helm-config)
+(helm-mode 1)
 ;; (add-hook 'eshell-mode-hook
 ;;           '(lambda ()
 ;;               (define-key eshell-mode-map 
@@ -666,11 +667,11 @@
 ;;                nil)))
 
 ;;smex settings
-(require 'smex)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; (require 'smex)
+;; (global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; ;; This is your old M-x.
+;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; (global-set-key [(shift meta x)] (lambda ()
 ;;                                    (interactive)
@@ -704,7 +705,7 @@
 (setq display-buffer-function 'popwin:display-buffer)
 
 (push '(" *auto-async-byte-compile*" :height 14 :position bottom :noselect t) popwin:special-display-config)
-(push '("*VC-log*" :height 10 :position bottom) popwin:special-display-config)
+;; (push '("*VC-log*" :height 10 :position bottom) popwin:special-display-config)
 
 
 
