@@ -16,7 +16,7 @@
           (shell-command 
            (format "cd %s && %s add %s/" 
                    el-get-dir git-executable package-path))))
-            
+      
       (add-hook 'el-get-post-install-hooks 'force-git-add-after-el-get)
       (add-hook 'el-get-post-update-hooks 'force-git-add-after-el-get)
 
@@ -34,7 +34,7 @@
 	    (eval-print-last-sexp))))
 
       (el-get 'sync)
- ))
+      ))
 
 
 ;; colors
@@ -64,12 +64,12 @@
 
 
 ;; CC-mode
-(add-hook 'c-mode-hook 
-          '(lambda ()
-             (setq ac-sources (append '(ac-source-semantic) ac-sources))
-             (local-set-key (kbd "RET") 'newline-and-indent)
-             ;; (linum-mode t)
-             (semantic-mode t)))
+;; (add-hook 'c-mode-hook 
+;;           '(lambda ()
+;;              (setq ac-sources (append '(ac-source-semantic) ac-sources))
+;;              (local-set-key (kbd "RET") 'newline-and-indent)
+;;              ;; (linum-mode t)
+;;              (semantic-mode t)))
 
 ;; (add-hook 'c++-mode-hook
 ;;           '(lambda ()
@@ -108,19 +108,85 @@
 ;;yasnippet
 ;;(add-to-list 'load-path (concat current-emacs-path "plugins/yasnippet"))
 (require 'yasnippet)
-(yas/global-mode 1)
+(yas-global-mode 1)
 
 
 
 ;; auto complete
-(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete"))
-(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/popup"))
-(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/fuzzy"))
-(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/ert"))
-(add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete-extension"))
-(require 'auto-complete-config)
-;;(require 'auto-complete-extension)
+;; (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete"))
+;; (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/popup"))
+;; (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/fuzzy"))
+;; (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/ert"))
+;; (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete-extension"))
+;; (add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
+(require 'auto-complete-extension)
 (require 'auto-complete-yasnippet)
+(require 'auto-complete-config)
+(require 'pos-tip)
+
+;; extra modes auto-complete must support
+(dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
+                                    sass-mode yaml-mode csv-mode espresso-mode haskell-mode
+                                    html-mode nxml-mode sh-mode smarty-mode clojure-mode
+                                    lisp-mode textile-mode markdown-mode tuareg-mode
+                                    js2-mode css-mode less-css-mode))
+  (add-to-list 'ac-modes mode))
+
+(defun my-ac-cc-mode-setup ()
+  (require 'auto-complete-clang)
+  (when (and (not *cygwin*) (not *win32*))
+    ; I don't do C++ stuff with cygwin+clang
+    (setq ac-sources (append '(ac-source-clang) ac-sources)))
+  (setq clang-include-dir-str
+        (cond
+         (*is-a-mac* "
+/usr/llvm-gcc-4.2/bin/../lib/gcc/i686-apple-darwin11/4.2.1/include
+/usr/include/c++/4.2.1
+/usr/include/c++/4.2.1/backward
+/usr/local/include
+/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1/include
+/usr/include
+")
+         (*cygwin* "
+/usr/lib/gcc/i686-pc-cygwin/3.4.4/include/c++/i686-pc-cygwin
+/usr/lib/gcc/i686-pc-cygwin/3.4.4/include/c++/backward
+/usr/local/include
+/usr/lib/gcc/i686-pc-cygwin/3.4.4/include
+/usr/include
+/usr/lib/gcc/i686-pc-cygwin/3.4.4/../../../../include/w32api
+")
+         (*linux* "
+/usr/include
+/usr/lib/wx/include/gtk2-unicode-release-2.8
+/usr/include/wx-2.8
+/usr/include/gtk-2.0
+/usr/lib/gtk-2.0/include
+/usr/include/atk-1.0
+/usr/include/cairo
+/usr/include/gdk-pixbuf-2.0
+/usr/include/pango-1.0
+/usr/include/glib-2.0
+/usr/lib/glib-2.0/include
+/usr/include/pixman-1
+/usr/include/freetype2
+/usr/include/libpng14
+")
+         (t "")                         ; other platforms
+         )
+        )
+  (setq ac-clang-flags
+        (mapcar (lambda (item) (concat "-I" item))
+                (split-string clang-include-dir-str)))
+
+  ;; (cppcm-reload-all)
+                                        ; fixed rinari's bug
+  ;; (remove-hook 'find-file-hook 'rinari-launch)
+
+  (setq ac-clang-auto-save t)
+  )
+(add-hook 'c-mode-hook 'my-ac-cc-mode-setup)
+(add-hook 'c++-mode-hook 'my-ac-cc-mode-setup)
+
 ;; (setq ac-sources
 ;;       (append '(ac-source-yasnippet
 ;;                 ac-source-semantic
@@ -130,175 +196,37 @@
 ;;                 ac-source-imenu
 ;;                 ac-source-files-in-current-dir
 ;;                 ac-source-filename) ac-sources))
+
 (ac-config-default)
 (setq ac-fuzzy-enable t)
 (setq ac-use-fuzzy t)
-
-(global-auto-complete-mode)
-
-(defun ac-settings-4-lisp ()
-  "Auto complete settings for lisp mode."
-  (setq ac-sources
-        '(ac-source-yasnippet
-          ac-source-symbols
-          ;; ac-source-semantic
-          ac-source-abbrev
-          ac-source-words-in-buffer
-          ;; ac-source-words-in-all-buffer
-          ;; ac-source-imenu
-          ;; ac-source-files-in-current-dir
-          ac-source-filename)))
-
-(defun ac-settings-4-java ()
-  (setq ac-omni-completion-sources (list (cons "\\." '(ac-source-semantic))
-                                         (cons "->" '(ac-source-semantic))))
-  (setq ac-sources
-        '(;;ac-source-semantic
-          ac-source-yasnippet
-          ac-source-abbrev
-          ac-source-words-in-buffer
-          ;; ac-source-words-in-all-buffer
-          ;; ac-source-files-in-current-dir
-          ;; ac-source-filename
-)))
-
-(defun ac-settings-4-c ()
-  (setq ac-omni-completion-sources (list (cons "\\." '(ac-source-semantic))
-                                         (cons "->" '(ac-source-semantic))))
-  (setq ac-sources
-        '(ac-source-yasnippet
-          ac-source-c-keywords
-          ac-source-abbrev
-          ac-source-words-in-buffer
-          ;; ac-source-words-in-all-buffer
-          ;; ac-source-files-in-current-dir
-          ac-source-filename)))
-
-(defun ac-settings-4-cpp ()
-  (setq ac-omni-completion-sources
-        (list (cons "\\." '(ac-source-semantic))
-              (cons "->" '(ac-source-semantic))))
-  (setq ac-sources
-        '(ac-source-yasnippet
-          ac-source-c++-keywords
-          ac-source-abbrev
-          ac-source-words-in-buffer
-          ;; ac-source-words-in-all-buffer
-          ;; ac-source-files-in-current-dir
-          ac-source-filename)))
-
-(defun ac-settings-4-text ()
-  (setq ac-sources
-        '(;;ac-source-semantic
-          ac-source-yasnippet
-          ac-source-abbrev
-          ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
-          ;; ac-source-imenu
-)))
-
-(defun ac-settings-4-eshell ()
-  (setq ac-sources
-        '(;;ac-source-semantic
-          ac-source-filename
-          ;; ac-source-yasnippet
-          ac-source-abbrev
-          ;; ac-source-words-in-buffer
-          ;; ac-source-words-in-all-buffer
-          ac-source-files-in-current-dir
-          ac-source-symbols
-          ;; ac-source-imenu
-)))
-
-(defun ac-settings-4-ruby ()
-  (require 'rcodetools-settings)
-  (setq ac-omni-completion-sources
-        (list (cons "\\." '(ac-source-rcodetools))
-              (cons "::" '(ac-source-rcodetools)))))
-
-(defun ac-settings-4-html ()
-  (setq ac-sources
-        '(;;ac-source-semantic
-          ac-source-yasnippet
-          ac-source-abbrev
-          ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
-          ac-source-files-in-current-dir
-          ;; ac-source-filename
-)))
-
-(defun ac-settings-4-tcl ()
-  (setq ac-sources
-        '(;;ac-source-semantic
-          ac-source-yasnippet
-          ac-source-abbrev
-          ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
-          ac-source-files-in-current-dir
-          ac-source-filename)))
-
-(defun ac-settings-4-awk ()
-  (setq ac-sources
-        '(;;ac-source-semantic
-          ac-source-yasnippet
-          ac-source-abbrev
-          ac-source-words-in-buffer
-          ac-source-words-in-all-buffer
-          ac-source-files-in-current-dir
-          ac-source-filename)))
-
-(add-hook 'lisp-mode-hook 'ac-settings-4-lisp)
-(add-hook 'emacs-lisp-mode-hook 'ac-settings-4-lisp)
-(add-hook 'lisp-interaction-mode-hook'ac-settings-4-lisp)
-(add-hook 'svn-log-edit-mode-hook 'ac-settings-4-lisp)
-(add-hook 'change-log-mode-hook'ac-settings-4-lisp)
-(add-hook 'java-mode-hook   'ac-settings-4-java)
-(add-hook 'c-mode-hook      'ac-settings-4-c)
-(add-hook 'c++-mode-hook    'ac-settings-4-cpp)
-(add-hook 'text-mode-hook   'ac-settings-4-text)
-(add-hook 'eshell-mode-hook 'ac-settings-4-eshell)
-(add-hook 'ruby-mode-hook   'ac-settings-4-ruby)
-(add-hook 'html-mode-hook   'ac-settings-4-html)
-(add-hook 'java-mode-hook   'ac-settings-4-java)
-(add-hook 'awk-mode-hook    'ac-settings-4-awk)
-
-(add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
+(setq ac-dwim nil)
+(setq ac-quick-help-prefer-pos-tip t) 
 
 
-;; ;; auto complete for eshell
-;; (defvar ac-source-eshell-pcomplete
-;;   '((candidates . (pcomplete-completions))))
-;; (defun ac-complete-eshell-pcomplete ()
-;;   (interactive)
-;;   (auto-complete '(ac-source-eshell-pcomplete)))
-;; ;; 自动开启 ac-mode
-;; ;; 需要 (global-auto-complete-mode 1)
-;; (add-to-list 'ac-modes 'eshell-mode)
-;; (setq ac-sources '(ac-source-eshell-pcomplete
-;;                    ac-source-filename
-;;                    ac-source-files-in-current-dir
-;;                    ac-source-abbrev
-;;                    ac-source-words-in-buffer
-;;                    ac-source-imenu
-;;                    ))
+(global-auto-complete-mode t)
 
-(setq ac-use-menu-map t)
 ;; Default settings
+(setq ac-use-menu-map t)
+
 (define-key ac-completing-map "\t" 'ac-complete)
 (define-key ac-completing-map "\r" nil)
-(define-key ac-completing-map [return]   nil)
 (define-key ac-completing-map (kbd "M-j")        'ac-complete)
 (define-key ac-completing-map (kbd "<C-return>") 'ac-complete)
-(define-key ac-menu-map [return]   nil)
-(define-key ac-menu-map "RET"        nil)
-(define-key ac-menu-map (kbd "M-j")        'ac-complete)
-(define-key ac-menu-map (kbd "<C-return>") 'ac-complete)
+;; (define-key ac-menu-map [return]   nil)
+;; (define-key ac-menu-map "RET"        nil)
+;; (define-key ac-menu-map (kbd "M-j")        'ac-complete)
+;; (define-key ac-menu-map (kbd "<C-return>") 'ac-complete)
 ;; (define-key ac-menu-map "M-n"        'ac-next)
 ;; (define-key ac-menu-map "M-p"        'ac-previous)
 
-(setq ac-set-trigger-key [tab])
+(ac-set-trigger-key "TAB")
 
 (setq ac-auto-start 3)
+
+
+(require 'auto-complete-clang)
+
 
 
 ;;nav
@@ -321,12 +249,70 @@
              'org-mark-ring)
 
 ;;cursor change
-(add-to-list 'load-path (concat current-emacs-path "plugins/cursor-chg"))
-(require 'cursor-chg)  ; Load the library
-;;cursor change setting
-(setq curchg-default-cursor-color "dodger blue")
-(toggle-cursor-type-when-idle 1) ; Turn on cursor change when Emacs is idle
-(change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
+;; (add-to-list 'load-path (concat current-emacs-path "plugins/cursor-chg"))
+;; (require 'cursor-chg)  ; Load the library
+;; ;;cursor change setting
+;; (setq curchg-default-cursor-color "dodger blue")
+;; (setq curchg-change-cursor-on-input-method-flag t)
+;; (setq curchg-input-method-cursor-color "Orange")
+;; (setq curchg-set-cursor-type 'box)
+;; (setq curchg-idle-cursor-type 'hollow)
+;; (setq curchg-overwrite/read-only-cursor-type 'hollow)
+
+;; (toggle-cursor-type-when-idle nil) ; Turn on cursor change when Emacs is idle
+;; (change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
+
+;; Change cursor color according to mode; inspired by
+;; http://www.emacswiki.org/emacs/ChangingCursorDynamically
+
+;; valid values are t, nil, box, hollow, bar, (bar . WIDTH), hbar,
+;; (hbar. HEIGHT); see the docs for set-cursor-type
+(setq pheliox-read-only-color       "gray")
+(setq pheliox-read-only-cursor-type 'hollow)
+
+(setq pheliox-overwrite-color       "Orange")
+(setq pheliox-overwrite-cursor-type 'box)
+
+(setq pheliox-normal-color          "dodger blue")
+(setq pheliox-normal-cursor-type    'hbar)
+
+(defvar hcz-set-cursor-color-color t)
+(defvar hcz-set-cursor-type-type t)
+(defvar hcz-set-cursor-type-buffer t)
+
+(defun hcz-set-cursor-type-according-to-mode ()
+  "change cursor type according to some minor modes."
+  ;; set-cursor-color is somewhat costly, so we only call it when needed:
+  ;; setq cursor-type is somewhat costly, so we only call it when needed:
+  (let ((type
+         (if buffer-read-only 'hollow
+           (if overwrite-mode 'box
+             'hbar))))
+    (unless (and
+             (string= type hcz-set-cursor-type-type)
+             (string= (buffer-name) hcz-set-cursor-type-buffer))
+      ;; (set-cursor-color (setq hcz-set-cursor-color-color color))
+      (setq cursor-type (setq hcz-set-cursor-type-type type))
+      (setq hcz-set-cursor-type-buffer (buffer-name)))
+    )
+  )
+(add-hook 'post-command-hook 'hcz-set-cursor-type-according-to-mode)
+
+(defun hcz-set-cursor-color-according-to-mode ()
+  "change cursor color according to some minor modes."
+  ;; set-cursor-color is somewhat costly, so we only call it when needed:
+  (let ((color
+         (if buffer-read-only "gray"
+           (if overwrite-mode "orange"
+             "dodger blue"))))
+    (unless (and
+             (string= color hcz-set-cursor-color-color)
+             (string= (buffer-name) hcz-set-cursor-color-buffer))
+      (set-cursor-color (setq hcz-set-cursor-color-color color))
+      (setq hcz-set-cursor-color-buffer (buffer-name)))))
+(add-hook 'post-command-hook 'hcz-set-cursor-color-according-to-mode)
+
+
 
 ;;browse-kill-ring
 (require 'browse-kill-ring)
@@ -356,13 +342,13 @@
           major-mode '(comint-mode compilation-mode)))
      "Process"
      )
-    ;; ((member (buffer-name)
-    ;;          '("*scratch*" "*Messages*" "*Help*"))
-    ;;  "Common"
-    ;;  )
-    ((string-equal "*" (substring (buffer-name) 0 1))
+    ((member (buffer-name)
+             '("*scratch*" "*Messages*" "*Help*" "*Compile-Log*" "*auto-async-byte-compile*" "*Shell Command Output*"))
      "Common"
      )
+    ;; ((string-equal "*" (substring (buffer-name) 0 1))
+    ;;  "Common"
+    ;;  )
     ;; ((member (buffer-name)
     ;;          '("xyz" "day" "m3" "abi" "for" "nws" "eng" "f_g" "tim" "tmp"))
     ;;  "Main"
@@ -449,7 +435,7 @@
 
 ;; (setq folding-fold-on-startup t)
 ;; (folding-mode-add-find-file-hook)
- 
+
 ;; (setq folding-keys-already-setup nil)
 ;; (add-hook 'folding-mode-hook
 ;;           (function 

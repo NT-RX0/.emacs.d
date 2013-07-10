@@ -3,6 +3,17 @@
 ;;; Code:
 
 
+;;;### (autoloads (auto-complete) "auto-complete/auto-complete" "auto-complete/auto-complete.el"
+;;;;;;  (20957 7933))
+;;; Generated autoloads from auto-complete/auto-complete.el
+
+(autoload 'auto-complete "auto-complete/auto-complete" "\
+Start auto-completion at current point.
+
+\(fn &optional SOURCES)" t nil)
+
+;;;***
+
 ;;;### (autoloads (autopair-global-mode autopair-mode) "autopair/autopair"
 ;;;;;;  "autopair/autopair.el" (20952 58563))
 ;;; Generated autoloads from autopair/autopair.el
@@ -3028,7 +3039,10 @@ accept it or skip it.
 
 ;;;***
 
-;;;### (autoloads nil nil ("autopair/autopair-tests.el" "color-theme-almost-monokai/color-theme-almost-monokai.el"
+;;;### (autoloads nil nil ("auto-complete-clang/auto-complete-clang.el"
+;;;;;;  "auto-complete-extension/auto-complete-extension.el" "auto-complete-yasnippet/auto-complete-yasnippet.el"
+;;;;;;  "auto-complete/auto-complete-config.el" "auto-complete/auto-complete-pkg.el"
+;;;;;;  "autopair/autopair-tests.el" "color-theme-almost-monokai/color-theme-almost-monokai.el"
 ;;;;;;  "color-theme/color-theme-autoloads.el" "css-mode/css-mode-autoloads.el"
 ;;;;;;  "css-mode/css-mode-pkg.el" "el-get/el-get-autoloads.el" "el-get/el-get-build.el"
 ;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
@@ -3041,8 +3055,9 @@ accept it or skip it.
 ;;;;;;  "expand-region/python-el-expansions.el" "expand-region/python-el-fgallina-expansions.el"
 ;;;;;;  "expand-region/python-mode-expansions.el" "expand-region/sml-mode-expansions.el"
 ;;;;;;  "expand-region/text-mode-expansions.el" "expand-region/web-mode-expansions.el"
-;;;;;;  "helm/helm-aliases.el" "ibus/ibus.el" "ido-hacks/ido-hacks.el"
+;;;;;;  "fuzzy/fuzzy.el" "helm/helm-aliases.el" "ibus/ibus.el" "ido-hacks/ido-hacks.el"
 ;;;;;;  "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-pkg.el"
+;;;;;;  "popup/popup.el" "pos-tip/pos-tip.el" "readline-complete/readline-complete.el"
 ;;;;;;  "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
 ;;;;;;  "slime/contrib/slime-asdf.el" "slime/contrib/slime-autodoc.el"
 ;;;;;;  "slime/contrib/slime-banner.el" "slime/contrib/slime-c-p-c.el"
@@ -3060,7 +3075,7 @@ accept it or skip it.
 ;;;;;;  "slime/contrib/slime-sprof.el" "slime/contrib/slime-tramp.el"
 ;;;;;;  "slime/contrib/slime-typeout-frame.el" "slime/contrib/slime-xref-browser.el"
 ;;;;;;  "slime/hyperspec.el" "slime/slime-autoloads.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (20955 36609 623564))
+;;;;;;  "yasnippet/yasnippet-tests.el") (20957 12646 597688))
 
 ;;;***
 

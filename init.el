@@ -1,3 +1,25 @@
+;;----------------------------------------------------------------------------
+;; Which functionality to enable (use t or nil for true and false)
+;;----------------------------------------------------------------------------
+(setq *spell-check-support-enabled* t)
+(setq *macbook-pro-support-enabled* t)
+(setq *is-a-mac* (eq system-type 'darwin))
+(setq *is-carbon-emacs* (and *is-a-mac* (eq window-system 'mac)))
+(setq *is-cocoa-emacs* (and *is-a-mac* (eq window-system 'ns)))
+
+(setq *win32* (eq system-type 'windows-nt) )
+(setq *cygwin* (eq system-type 'cygwin) )
+
+(setq *linux* (or (eq system-type 'gnu/linux) (eq system-type 'linux)) )
+(setq *unix* (or *linux* (eq system-type 'usg-unix-v) (eq system-type 'berkeley-unix)) )
+(setq *linux-x* (and window-system *linux*) )
+
+;;(setq *xemacs* (featurep 'xemacs) )
+
+;;(setq *emacs23* (and (not *xemacs*) (or (>= emacs-major-version 23))) )
+;;(setq *emacs24* (and (not *xemacs*) (or (>= emacs-major-version 24))) )
+
+
 ;;set linux var by default
 (defvar home-path nil)
 ;;(setq home-path nil)
@@ -11,8 +33,11 @@
 (add-to-list 'load-path current-emacs-path)
 ;;(add-to-list 'load-path "~/.emacs.d")
 
+
 ;;configuration file list
-(if (eq system-type 'windows-nt)
+
+;;Load Windows Path Settings
+(if *win32*
     (progn
       (print "Windows detected")
       (require 'pheliox-settings-windows)))
@@ -55,7 +80,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-async-byte-compile-display-function (quote display-buffer))
+ '(blink-cursor-mode t)
  '(column-number-mode t)
+ '(curchg-change-cursor-on-overwrite/read-only-flag t)
+ '(curchg-default-cursor-type (quote box))
+ '(curchg-overwrite/read-only-cursor-type (quote hollow))
  '(size-indication-mode t)
  '(tabbar-background-color "gray20")
  '(tabbar-mode t nil (tabbar))

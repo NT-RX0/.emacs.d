@@ -6,6 +6,7 @@
 
 ;;Screen Settings
 (setq truncate-lines t)
+;; (scroll-lock-mode t)
 (setq redisplay-dont-pause t
       scroll-margin 1
       scroll-step 1
@@ -14,16 +15,22 @@
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq mouse-wheel-follow-mouse t) ;; scroll window under mouse
 (setq auto-window-vscroll nil)
 
 ;;follow mode to sync between windows
 (follow-mode t)
 ;;cursor color
 (set-cursor-color "dodger blue")
+
 ;; In every buffer, the line which contains the cursor will be fully
 ;; highlighted
 (global-hl-line-mode t)
+(set-face-background 'hl-line "#333234")
+(set-face-background 'region "sienna3")
+
+(transient-mark-mode t)
+(global-visual-line-mode t)
 ;;
 ;; Emacs normally uses both tabs and spaces to indent lines. If you
 ;; prefer, all indentation can be made from spaces only. To request this,
@@ -152,6 +159,7 @@
 
 (setq default-major-mode 'text-mode)
 (global-font-lock-mode t)
+(setq font-lock-verbose t)
 
 (put 'set-goal-column 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
@@ -164,6 +172,9 @@
 
 
 
+;;hippie-expand
+(global-set-key (kbd "M-/") 'hippie-expand)
+
 
 
 
