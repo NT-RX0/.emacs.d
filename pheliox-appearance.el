@@ -26,6 +26,7 @@
 
 ;; Set theme
 (load (concat current-emacs-path "themes/color-theme-molokai/color-theme-molokai.el"))
+(load (concat current-emacs-path "themes/phelio-theme/phelio-theme.el"))
 ;;(load (concat current-emacs-path "el-get/color-theme-zenburn/zenburn-theme.el"))
 (color-theme-molokai)
 ;;(color-theme-almost-monokai)

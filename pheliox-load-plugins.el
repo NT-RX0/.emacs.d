@@ -330,6 +330,8 @@
              '("*scratch*" "*Messages*" "*Help*" "*Compile-Log*" "*auto-async-byte-compile*" "*Shell Command Output*"))
      "Common"
      )
+    ((string-equal "*helm" (substring (buffer-name) 0 1 ))
+     "Helm Group")
     ;; ((string-equal "*" (substring (buffer-name) 0 1))
     ;;  "Common"
     ;;  )
@@ -648,12 +650,11 @@
 ;;Helm settings
 (require 'helm-config)
 (helm-mode 1)
-;; (add-hook 'eshell-mode-hook
-;;           '(lambda ()
-;;               (define-key eshell-mode-map 
-;;                 [remap pcomplete]
-;;                 'helm-esh-pcomplete)))
-
+(add-hook 'eshell-mode-hook
+          '(lambda ()
+              (define-key eshell-mode-map 
+                [remap pcomplete]
+                'helm-esh-pcomplete)))
 ;; (add-hook 'eshell-mode-hook
 ;;           '(lambda ()
 ;;               (define-key eshell-mode-map 
@@ -665,31 +666,8 @@
 ;;              (define-key eshell-mode-map 
 ;;                (kbd "M-p")
 ;;                nil)))
-
-;;smex settings
-;; (require 'smex)
-;; (global-set-key (kbd "M-x") 'smex)
-;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; ;; This is your old M-x.
-;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; (global-set-key [(shift meta x)] (lambda ()
-;;                                    (interactive)
-;;                                    (or (boundp 'smex-cache)
-;;                                        (smex-initialize))
-;;                                    (global-set-key [(shift meta x)] 'smex-major-mode-commands)
-;;                                    (smex-major-mode-commands)))
 
-;;using acronyms
-;;buggy
-;; (defadvice ido-set-matches-1 (after ido-acronym-matches activate)
-;;   (if (> (length ido-text) 1)
-;;       (let ((regex (concat "^" (mapconcat 'char-to-string ido-text "[^-]*-")
-;;                            "[^-]*$")))
-;;         (setq ad-return-value
-;;               (append (reverse (remove-if-not (lambda (i)
-;;                                                 (string-match regex i)) items))
-;;                       ad-return-value)))))
 
 
 ;; auto-compile-settings
@@ -706,6 +684,72 @@
 
 (push '(" *auto-async-byte-compile*" :height 14 :position bottom :noselect t) popwin:special-display-config)
 ;; (push '("*VC-log*" :height 10 :position bottom) popwin:special-display-config)
+
+;;cmake-mode
+(require 'cmake-mode)
+(setq auto-mode-alist (append '(("CMakeLists\\.txt\\'" . cmake-mode))
+                              '(("\\.cmake\\'" . cmake-mode))
+                              auto-mode-alist))
+
+;;ace-jump
+(require 'ace-jump-mode)
+
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+
+;; refine ido
+;;ido mode
+(ido-mode t)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(setq ido-use-filename-at-point 'guess
+      ido-use-url-at-point t
+      ido-max-prospects 10)
+(setq ido-create-new-buffer 'always)
+;; (add-hook 'ido-setup-hook 
+;;           (lambda () 
+;;             (define-key ido-completion-map "TAB" 'ido-complete)))
+
+;; Try out flx-ido for better flex matching between words
+;; (require 'flx-ido)
+;; (setq flx-ido-use t)
+
+;; ;; flx-ido looks better with ido-vertical-mode
+;; (require 'ido-vertical-mode)
+;; (ido-vertical-mode)
+
+;; (defun sd/ido-define-keys () ;; C-n/p is more intuitive in vertical layout
+;;   (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+;;   (define-key ido-completion-map (kbd "<down>") 'ido-next-match)
+;;   (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+;;   (define-key ido-completion-map (kbd "<up>") 'ido-prev-match))
+
+;; ;; Always rescan buffer for imenu
+(set-default 'imenu-auto-rescan t)
+
+(add-to-list 'ido-ignore-directories "target")
+(add-to-list 'ido-ignore-directories "node_modules")
+
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+
+
+;;smex settings
+(require 'smex)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; ;; This is your old M-x.
+;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; (global-set-key [(shift meta x)] (lambda ()
+;;                                    (interactive)
+;;                                    (or (boundp 'smex-cache)
+;;                                        (smex-initialize))
+;;                                    (global-set-key [(shift meta x)] 'smex-major-mode-commands)
+;;                                    (smex-major-mode-commands)))
+
+;;flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 
 
