@@ -104,11 +104,13 @@
 (global-set-key (kbd "C-c a") 'ctl-c-a-map)
 (define-key global-map (kbd "\C-c a g") 'org-agenda)
 (setq org-log-done t)
+(setq org-startup-indented t)
 
 ;;yasnippet
 ;;(add-to-list 'load-path (concat current-emacs-path "plugins/yasnippet"))
 (require 'yasnippet)
 (yas-global-mode 1)
+(yas/minor-mode-on)
 
 
 
@@ -119,10 +121,11 @@
 ;; (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete/lib/ert"))
 ;; (add-to-list 'load-path (concat current-emacs-path "plugins/auto-complete-extension"))
 ;; (add-to-list 'ac-dictionary-directories (concat current-emacs-path "plugins/auto-complete/dict"))
-(require 'auto-complete-extension)
-(require 'auto-complete-yasnippet)
+
 (require 'auto-complete-config)
 (require 'pos-tip)
+(ac-config-default)
+(ac-flyspell-workaround)
 
 ;; extra modes auto-complete must support
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
@@ -197,10 +200,15 @@
 ;;                 ac-source-files-in-current-dir
 ;;                 ac-source-filename) ac-sources))
 
-(ac-config-default)
+(setq ac-sources
+      (append '(ac-source-yasnippet
+                ac-source-abbrev
+                )
+              ac-sources))
+
 (setq ac-fuzzy-enable t)
 (setq ac-use-fuzzy t)
-(setq ac-dwim nil)
+(setq ac-dwim t)
 (setq ac-quick-help-prefer-pos-tip t) 
 
 
@@ -209,10 +217,9 @@
 ;; Default settings
 (setq ac-use-menu-map t)
 
-(define-key ac-completing-map "\t" 'ac-complete)
-(define-key ac-completing-map "\r" nil)
-(define-key ac-completing-map (kbd "M-j")        'ac-complete)
-(define-key ac-completing-map (kbd "<C-return>") 'ac-complete)
+;; (define-key ac-completing-map "\t" 'ac-complete)
+;; (define-key ac-completing-map "\r" nil)
+
 ;; (define-key ac-menu-map [return]   nil)
 ;; (define-key ac-menu-map "RET"        nil)
 ;; (define-key ac-menu-map (kbd "M-j")        'ac-complete)
@@ -220,9 +227,11 @@
 ;; (define-key ac-menu-map "M-n"        'ac-next)
 ;; (define-key ac-menu-map "M-p"        'ac-previous)
 
-(ac-set-trigger-key "TAB")
+(global-set-key (kbd "M-/") 'auto-expand)
+(ac-set-trigger-key  "TAB")
+(ac-set-trigger-key  "<tab>")
 
-(setq ac-auto-start 3)
+;; (setq ac-auto-start 3)
 
 
 (require 'auto-complete-clang)
@@ -468,7 +477,9 @@
 
 ;;highlight parentheses + autopair
 (require 'highlight-parentheses)
-(setq hl-paren-colors '("deep pink" "purple" "dodger blue" "green yellow" "goldenrod"))
+(setq hl-paren-background-colors '("gray30"))
+(setq hl-paren-colors '("deep pink" "purple" "dodger blue" "green yellow" "goldenrod" ))
+;; (setq hl-paren-overlay '("deep pink" "purple" "dodger blue" "green yellow" "goldenrod"))
 (add-hook 'highlight-parentheses-mode-hook
           '(lambda ()
              (setq autopair-handle-action-fns
@@ -748,8 +759,9 @@
 ;;                                    (global-set-key [(shift meta x)] 'smex-major-mode-commands)
 ;;                                    (smex-major-mode-commands)))
 
-;;flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;;flymake
+(require 'flymake)
+(require 'rfringe)
 
 
 

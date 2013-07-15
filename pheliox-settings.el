@@ -5,18 +5,29 @@
 (setq user-mail-address "pheliox@live.com")
 
 ;;Screen Settings
-(setq truncate-lines t)
+;; (setq truncate-lines t)
 ;; (scroll-lock-mode t)
 (setq redisplay-dont-pause t
-      scroll-margin 1
+      scroll-margin 0
       scroll-step 1
-      scroll-conservatively 10000
+      scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse t) ;; scroll window under mouse
 (setq auto-window-vscroll nil)
+
+;; modern page up/down
+(global-set-key [next]
+                (lambda () (interactive)
+                  (condition-case nil (scroll-up)
+                    (end-of-buffer (goto-char (point-max))))))
+
+(global-set-key [prior]
+                (lambda () (interactive)
+                  (condition-case nil (scroll-down)
+                    (beginning-of-buffer (goto-char (point-min))))))
 
 ;;follow mode to sync between windows
 (follow-mode t)
@@ -51,6 +62,7 @@
 ;;                         )) 
 (setq ispell-list-command "--list")
 (setq flyspell-issue-message-flag nil)
+;; (setq flyspell-mode)
 (add-hook 'text-mode-hook '(lambda() (flyspell-mode t)))
 (add-hook 'prog-mode-hook '(lambda() (flyspell-prog-mode)))
 (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
@@ -124,8 +136,8 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;;paren-mode
 (require 'paren)
-(set-face-background 'show-paren-match-face (face-background 'default))
-(set-face-foreground 'show-paren-match-face "yellow green")
+(set-face-background 'show-paren-match-face "gray30")
+(set-face-foreground 'show-paren-match-face "green yellow")
 (set-face-attribute 'show-paren-match-face nil :weight 'extra-bold)
 
 ;;set tab width
@@ -147,11 +159,29 @@
 (setq undo-limit 15000)
 ;;set kill ring
 (setq kill-ring-max 200)
-
+(requ)
 (setq default-major-mode 'text-mode)
+
+;;Custom Font Lock
 (global-font-lock-mode t)
 (setq font-lock-verbose t)
+;;Programming Mode
+(defun add-font-lock-keywords-digits-ops ()
+  "Add digits and null as constants and operators as keywords in font lock."
+                                        ;
+  (font-lock-add-keywords nil
+                          '(
+                            ("[0-9.]+|nil|null|[tf]|true|false" . 'font-lock-constant-face)
+                            ("setq|[+-*/<>&~!=|\\|\\||&&]" . 'font-lock-keyword-face)
+                            ("\\<sizeof[[:space:]]*(\\([[:alnum:][:space:]*]+\\))" . 'font-lock-type-face)
+                            ("\\<[[:alnum:]]+_cast[[:space:]]*<\\([[:alnum:][:space:]*]+\\)>[[:space:]]*(\\([[:alnum:][:space:]*]+\\))" . 'font-lock-type-face)
+                            ))
+  )
 
+(add-hook 'elisp-mode-hook 'add-font-lock-keywords-digits-ops)
+(add-hook 'c++-mode-hook 'add-font-lock-keywords-digits-ops)
+(add-hook 'c-mode-hook 'add-font-lock-keywords-digits-ops)
+
 (put 'set-goal-column 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
@@ -164,7 +194,7 @@
 
 
 ;;hippie-expand
-(global-set-key (kbd "M-/") 'hippie-expand)
+;; (global-set-key (kbd "M-/") 'hippie-expand)
 
 
 

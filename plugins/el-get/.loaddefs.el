@@ -3,6 +3,59 @@
 ;;; Code:
 
 
+;;;### (autoloads (ace-jump-mode ace-jump-line-mode ace-jump-word-mode
+;;;;;;  ace-jump-char-mode ace-jump-mode-pop-mark) "ace-jump-mode/ace-jump-mode"
+;;;;;;  "ace-jump-mode/ace-jump-mode.el" (20958 1535))
+;;; Generated autoloads from ace-jump-mode/ace-jump-mode.el
+
+(autoload 'ace-jump-mode-pop-mark "ace-jump-mode/ace-jump-mode" "\
+Pop up a postion from `ace-jump-mode-mark-ring', and jump back to that position
+
+\(fn)" t nil)
+
+(autoload 'ace-jump-char-mode "ace-jump-mode/ace-jump-mode" "\
+AceJump char mode
+
+\(fn QUERY-CHAR)" t nil)
+
+(autoload 'ace-jump-word-mode "ace-jump-mode/ace-jump-mode" "\
+AceJump word mode.
+You can set `ace-jump-word-mode-use-query-char' to nil to prevent
+asking for a head char, that will mark all the word in current
+buffer.
+
+\(fn HEAD-CHAR)" t nil)
+
+(autoload 'ace-jump-line-mode "ace-jump-mode/ace-jump-mode" "\
+AceJump line mode.
+Marked each no empty line and move there
+
+\(fn)" t nil)
+
+(autoload 'ace-jump-mode "ace-jump-mode/ace-jump-mode" "\
+AceJump mode is a minor mode for you to quick jump to a
+position in the curret view.
+   There is three submode now:
+     `ace-jump-char-mode'
+     `ace-jump-word-mode'
+     `ace-jump-line-mode'
+
+You can specify the sequence about which mode should enter
+by customize `ace-jump-mode-submode-list'.
+
+If you do not want to query char for word mode, you can change
+`ace-jump-word-mode-use-query-char' to nil.
+
+If you don't like the default move keys, you can change it by
+setting `ace-jump-mode-move-keys'.
+
+You can constrol whether use the case sensitive via
+`ace-jump-mode-case-fold'.
+
+\(fn &optional PREFIX)" t nil)
+
+;;;***
+
 ;;;### (autoloads (auto-complete) "auto-complete/auto-complete" "auto-complete/auto-complete.el"
 ;;;;;;  (20957 33906))
 ;;; Generated autoloads from auto-complete/auto-complete.el
@@ -272,7 +325,7 @@ Display a list of packages.
 ;;;***
 
 ;;;### (autoloads (er/expand-region) "expand-region/expand-region"
-;;;;;;  "expand-region/expand-region.el" (20954 33734))
+;;;;;;  "expand-region/expand-region.el" (20958 61209))
 ;;; Generated autoloads from expand-region/expand-region.el
 
 (autoload 'er/expand-region "expand-region/expand-region" "\
@@ -341,9 +394,55 @@ List of modes which derive from `text-mode' for which text mode expansions are n
 
 ;;;***
 
+;;;### (autoloads (flymake-css-load flymake-css-lint-command) "flymake-css/flymake-css"
+;;;;;;  "flymake-css/flymake-css.el" (20960 6811))
+;;; Generated autoloads from flymake-css/flymake-css.el
+
+(defvar flymake-css-lint-command "csslint" "\
+Name (and optionally full path) of csslint executable.")
+
+(custom-autoload 'flymake-css-lint-command "flymake-css/flymake-css" t)
+
+(autoload 'flymake-css-load "flymake-css/flymake-css" "\
+Configure flymake mode to check the current buffer's css syntax.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (flymake-find-file-hook flymake-mode-off flymake-mode-on
+;;;;;;  flymake-mode) "flymake/flymake" "flymake/flymake.el" (20958
+;;;;;;  11598))
+;;; Generated autoloads from flymake/flymake.el
+
+(autoload 'flymake-mode "flymake/flymake" "\
+Toggle on-the-fly syntax checking.
+With a prefix argument ARG, enable the mode if ARG is positive,
+and disable it otherwise.  If called from Lisp, enable the mode
+if ARG is omitted or nil.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'flymake-mode-on "flymake/flymake" "\
+Turn flymake mode on.
+
+\(fn)" nil nil)
+
+(autoload 'flymake-mode-off "flymake/flymake" "\
+Turn flymake mode off.
+
+\(fn)" nil nil)
+
+(autoload 'flymake-find-file-hook "flymake/flymake" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads (update-file-header make-box-comment make-divider
 ;;;;;;  make-revision make-header) "header2/header2" "header2/header2.el"
-;;;;;;  (20954 33734))
+;;;;;;  (20958 61222))
 ;;; Generated autoloads from header2/header2.el
 
 (autoload 'make-header "header2/header2" "\
@@ -400,7 +499,7 @@ the strings that cause them to be invoked.
 ;;;;;;  helm-select-action helm-force-update helm-toggle-suspend-update
 ;;;;;;  helm-other-buffer helm-resume-previous-session-after-quit
 ;;;;;;  helm-resume helm-open-last-log helm-define-multi-key) "helm/helm"
-;;;;;;  "helm/helm.el" (20954 33734))
+;;;;;;  "helm/helm.el" (20958 61212))
 ;;; Generated autoloads from helm/helm.el
 
 (autoload 'helm-define-multi-key "helm/helm" "\
@@ -943,7 +1042,7 @@ Customize `helm'.
 ;;;***
 
 ;;;### (autoloads (helm-dabbrev) "helm/helm-dabbrev" "helm/helm-dabbrev.el"
-;;;;;;  (20954 33734))
+;;;;;;  (20958 61212))
 ;;; Generated autoloads from helm/helm-dabbrev.el
 
 (autoload 'helm-dabbrev "helm/helm-dabbrev" "\
@@ -1641,7 +1740,7 @@ With a prefix-arg insert symbol at point.
 ;;;***
 
 ;;;### (autoloads (helm-locate) "helm/helm-locate" "helm/helm-locate.el"
-;;;;;;  (20952 58563))
+;;;;;;  (20958 61212))
 ;;; Generated autoloads from helm/helm-locate.el
 
 (autoload 'helm-locate "helm/helm-locate" "\
@@ -1677,7 +1776,7 @@ With a prefix arg reinitialize the cache.
 ;;;***
 
 ;;;### (autoloads (helm-match-plugin-mode) "helm/helm-match-plugin"
-;;;;;;  "helm/helm-match-plugin.el" (20952 58563))
+;;;;;;  "helm/helm-match-plugin.el" (20958 61212))
 ;;; Generated autoloads from helm/helm-match-plugin.el
 
 (defvar helm-match-plugin-mode nil "\
@@ -2144,7 +2243,7 @@ http://www.emacswiki.org/emacs/download/yaoddmuse.el
 ;;;***
 
 ;;;### (autoloads (highlight-parentheses-mode) "highlight-parentheses/highlight-parentheses"
-;;;;;;  "highlight-parentheses/highlight-parentheses.el" (20953 35243))
+;;;;;;  "highlight-parentheses/highlight-parentheses.el" (20958 61222))
 ;;; Generated autoloads from highlight-parentheses/highlight-parentheses.el
 
 (autoload 'highlight-parentheses-mode "highlight-parentheses/highlight-parentheses" "\
@@ -2158,7 +2257,7 @@ Minor mode to highlight the surrounding parentheses.
 ;;;;;;  highlight-symbol-next-in-defun highlight-symbol-prev highlight-symbol-next
 ;;;;;;  highlight-symbol-remove-all highlight-symbol-at-point highlight-symbol-mode)
 ;;;;;;  "highlight-symbol/highlight-symbol" "highlight-symbol/highlight-symbol.el"
-;;;;;;  (20953 35244))
+;;;;;;  (20958 61222))
 ;;; Generated autoloads from highlight-symbol/highlight-symbol.el
 
 (autoload 'highlight-symbol-mode "highlight-symbol/highlight-symbol" "\
@@ -2208,7 +2307,7 @@ Jump to the previous location of the symbol at point within the defun.
 
 ;;;### (autoloads (htmlize-many-files-dired htmlize-many-files htmlize-file
 ;;;;;;  htmlize-region htmlize-buffer) "htmlize/htmlize" "htmlize/htmlize.el"
-;;;;;;  (20953 35283))
+;;;;;;  (20958 61239))
 ;;; Generated autoloads from htmlize/htmlize.el
 
 (autoload 'htmlize-buffer "htmlize/htmlize" "\
@@ -2273,6 +2372,107 @@ HTMLize dired-marked files.
 
 ;;;***
 
+;;;### (autoloads (ido-ubiquitous-function-compatibility-exceptions
+;;;;;;  ido-ubiquitous-command-compatibility-exceptions ido-ubiquitous-function-exceptions
+;;;;;;  ido-ubiquitous-command-exceptions ido-ubiquitous-mode ido-ubiquitous)
+;;;;;;  "ido-ubiquitous/ido-ubiquitous" "ido-ubiquitous/ido-ubiquitous.el"
+;;;;;;  (20958 2289))
+;;; Generated autoloads from ido-ubiquitous/ido-ubiquitous.el
+
+(let ((loads (get 'ido-ubiquitous 'custom-loads))) (if (member '"ido-ubiquitous/ido-ubiquitous" loads) nil (put 'ido-ubiquitous 'custom-loads (cons '"ido-ubiquitous/ido-ubiquitous" loads))))
+
+(defvar ido-ubiquitous-mode nil "\
+Non-nil if Ido-Ubiquitous mode is enabled.
+See the command `ido-ubiquitous-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `ido-ubiquitous-mode'.")
+
+(custom-autoload 'ido-ubiquitous-mode "ido-ubiquitous/ido-ubiquitous" nil)
+
+(autoload 'ido-ubiquitous-mode "ido-ubiquitous/ido-ubiquitous" "\
+Use `ido-completing-read' instead of `completing-read' almost everywhere.
+
+  This mode has no effect unles `ido-mode' is also enabled.
+
+  If this mode causes problems for a function, you can force the
+  function to use the original completing read by using the macro
+  `ido-ubiquitous-disable-in'. For example, if a
+  function `foo' cannot work with ido-style completion, evaluate
+  the following (for example by putting it in your .emacs file):
+
+    (ido-ubiquitous-disable-in foo)
+
+\(fn &optional ARG)" t nil)
+
+(define-obsolete-variable-alias 'ido-ubiquitous 'ido-ubiquitous-mode "0.8")
+
+(define-obsolete-function-alias 'ido-ubiquitous 'ido-ubiquitous-mode "0.8")
+
+(defvar ido-ubiquitous-command-exceptions 'nil "\
+List of commands that should not be affected by `ido-ubiquitous'.
+
+Even when `ido-ubiquitous' mode is enabled, these commands will
+continue to use `completing-read' instead of
+`ido-completing-read'.
+
+Only *interactive* commands should go here. To disable
+ido-ubiquitous in non-interactive functions, customize
+`ido-ubiquitous-function-exceptions'.
+
+Note: this feature depends on the variable `this-command' being
+properly set to the name of the currently executing command.
+Depending on how the command is onvoked, this may or may not
+happen, so this feature may simply not work in some cases.")
+
+(custom-autoload 'ido-ubiquitous-command-exceptions "ido-ubiquitous/ido-ubiquitous" t)
+
+(define-obsolete-variable-alias 'ido-ubiquitous-exceptions 'ido-ubiquitous-command-exceptions "0.4")
+
+(defvar ido-ubiquitous-function-exceptions '(grep-read-files) "\
+List of functions in which to disable ido-ubiquitous.
+
+If you need to add a function to this list, please also file a
+bug report at
+https://github.com/DarwinAwardWinner/ido-ubiquitous/issues
+
+Note that certain functions, such as `read-file-name', must
+always have ido-ubiquitous disabled, and cannot be added
+here. (They are effectively a permanent part of this list
+already.)")
+
+(custom-autoload 'ido-ubiquitous-function-exceptions "ido-ubiquitous/ido-ubiquitous" nil)
+
+(defvar ido-ubiquitous-command-compatibility-exceptions 'nil "\
+List of commands in which to disable compatibility.
+
+See `ido-ubiquitous-enable-compatibility' for a description of
+the compatibility behavior. If this behavior causes a command to
+break, add that command to this list to disable compatibility
+mode for just that command.
+
+Only *interactive* commands should go here. To disable
+compatibility mode in non-interactive functions, customize
+`ido-ubiquitous-function-compatibility-exceptions'.")
+
+(custom-autoload 'ido-ubiquitous-command-compatibility-exceptions "ido-ubiquitous/ido-ubiquitous" t)
+
+(defvar ido-ubiquitous-function-compatibility-exceptions 'nil "\
+List of functions in which to disable ido-ubiquitous compatibility mode.
+
+See `ido-ubiquitous-enable-compatibility' for a description of
+the compatibility behavior. If this behavior causes a function to
+break, add that function to this list to disable compatibility
+mode for just that command.
+
+If you need to add a function to this list, please also file a
+bug report at
+https://github.com/DarwinAwardWinner/ido-ubiquitous/issues")
+
+(custom-autoload 'ido-ubiquitous-function-compatibility-exceptions "ido-ubiquitous/ido-ubiquitous" nil)
+
+;;;***
+
 ;;;### (autoloads (js2-imenu-extras-mode js2-imenu-extras-setup)
 ;;;;;;  "js2-mode/js2-imenu-extras" "js2-mode/js2-imenu-extras.el"
 ;;;;;;  (20952 58563))
@@ -2310,7 +2510,7 @@ Major mode for editing JavaScript code.
 ;;;***
 
 ;;;### (autoloads (key-chord-define key-chord-define-global key-chord-mode)
-;;;;;;  "key-chord/key-chord" "key-chord/key-chord.el" (20953 35253))
+;;;;;;  "key-chord/key-chord" "key-chord/key-chord.el" (20958 61225))
 ;;; Generated autoloads from key-chord/key-chord.el
 
 (autoload 'key-chord-mode "key-chord/key-chord" "\
@@ -2347,8 +2547,8 @@ If COMMAND is nil, the key-chord is removed.
 
 ;;;***
 
-;;;### (autoloads (magit-status) "magit/magit" "magit/magit.el" (20957
-;;;;;;  39183))
+;;;### (autoloads (magit-status) "magit/magit" "magit/magit.el" (20960
+;;;;;;  6245))
 ;;; Generated autoloads from magit/magit.el
 
 (autoload 'magit-status "magit/magit" "\
@@ -2366,7 +2566,7 @@ when asking for user input.
 ;;;***
 
 ;;;### (autoloads (magit-blame-mode) "magit/magit-blame" "magit/magit-blame.el"
-;;;;;;  (20957 39183))
+;;;;;;  (20960 6245))
 ;;; Generated autoloads from magit/magit-blame.el
 
 (autoload 'magit-blame-mode "magit/magit-blame" "\
@@ -2377,7 +2577,7 @@ Display blame information inline.
 ;;;***
 
 ;;;### (autoloads (turn-on-magit-flow magit-flow-mode) "magit/magit-flow"
-;;;;;;  "magit/magit-flow.el" (20957 39183))
+;;;;;;  "magit/magit-flow.el" (20960 6245))
 ;;; Generated autoloads from magit/magit-flow.el
 
 (autoload 'magit-flow-mode "magit/magit-flow" "\
@@ -2393,7 +2593,7 @@ Unconditionally turn on `magit-flow-mode'.
 ;;;***
 
 ;;;### (autoloads (turn-on-magit-stgit magit-stgit-mode) "magit/magit-stgit"
-;;;;;;  "magit/magit-stgit.el" (20957 39183))
+;;;;;;  "magit/magit-stgit.el" (20960 6245))
 ;;; Generated autoloads from magit/magit-stgit.el
 
 (autoload 'magit-stgit-mode "magit/magit-stgit" "\
@@ -2409,7 +2609,7 @@ Unconditionally turn on `magit-stgit-mode'.
 ;;;***
 
 ;;;### (autoloads (turn-on-magit-svn magit-svn-mode) "magit/magit-svn"
-;;;;;;  "magit/magit-svn.el" (20957 39183))
+;;;;;;  "magit/magit-svn.el" (20960 6245))
 ;;; Generated autoloads from magit/magit-svn.el
 
 (autoload 'magit-svn-mode "magit/magit-svn" "\
@@ -2425,7 +2625,7 @@ Unconditionally turn on `magit-svn-mode'.
 ;;;***
 
 ;;;### (autoloads (turn-on-magit-topgit magit-topgit-mode) "magit/magit-topgit"
-;;;;;;  "magit/magit-topgit.el" (20957 39183))
+;;;;;;  "magit/magit-topgit.el" (20960 6245))
 ;;; Generated autoloads from magit/magit-topgit.el
 
 (autoload 'magit-topgit-mode "magit/magit-topgit" "\
@@ -2441,8 +2641,8 @@ Unconditionally turn on `magit-topgit-mode'.
 ;;;***
 
 ;;;### (autoloads (global-magit-wip-save-mode magit-wip-save-mode
-;;;;;;  magit-wip-mode) "magit/magit-wip" "magit/magit-wip.el" (20957
-;;;;;;  39183))
+;;;;;;  magit-wip-mode) "magit/magit-wip" "magit/magit-wip.el" (20960
+;;;;;;  6245))
 ;;; Generated autoloads from magit/magit-wip.el
 
 (defvar magit-wip-mode nil "\
@@ -2492,7 +2692,7 @@ See `magit-wip-save-mode' for more information on Magit-Wip-Save mode.
 ;;;***
 
 ;;;### (autoloads (rebase-mode) "magit/rebase-mode" "magit/rebase-mode.el"
-;;;;;;  (20957 39183))
+;;;;;;  (20960 6245))
 ;;; Generated autoloads from magit/rebase-mode.el
 
 (autoload 'rebase-mode "magit/rebase-mode" "\
@@ -2510,7 +2710,7 @@ running 'man git-rebase' at the command line) for details.
 ;;;***
 
 ;;;### (autoloads (gfm-mode markdown-mode) "markdown-mode/markdown-mode"
-;;;;;;  "markdown-mode/markdown-mode.el" (20954 33734))
+;;;;;;  "markdown-mode/markdown-mode.el" (20958 61216))
 ;;; Generated autoloads from markdown-mode/markdown-mode.el
 
 (autoload 'markdown-mode "markdown-mode/markdown-mode" "\
@@ -2561,7 +2761,7 @@ Add one cursor to the beginning of each line in the active region.
 ;;;;;;  mc/mark-next-lines mc/mark-previous-symbol-like-this mc/mark-previous-word-like-this
 ;;;;;;  mc/mark-previous-like-this mc/mark-next-symbol-like-this
 ;;;;;;  mc/mark-next-word-like-this mc/mark-next-like-this) "multiple-cursors/mc-mark-more"
-;;;;;;  "multiple-cursors/mc-mark-more.el" (20954 33734))
+;;;;;;  "multiple-cursors/mc-mark-more.el" (20958 61216))
 ;;; Generated autoloads from multiple-cursors/mc-mark-more.el
 
 (autoload 'mc/mark-next-like-this "multiple-cursors/mc-mark-more" "\
@@ -2754,7 +2954,7 @@ an exceedingly quick way of adding multiple cursors to multiple lines.
 ;;;***
 
 ;;;### (autoloads (paredit-mode) "paredit/paredit" "paredit/paredit.el"
-;;;;;;  (20953 35288))
+;;;;;;  (20958 61222))
 ;;; Generated autoloads from paredit/paredit.el
 
 (autoload 'paredit-mode "paredit/paredit" "\
@@ -2835,6 +3035,61 @@ Edit file FILENAME with popup window by
 Display *Messages* buffer in a popup window.
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (pymacs-apply pymacs-call pymacs-exec pymacs-eval
+;;;;;;  pymacs-autoload pymacs-load) "pymacs/pymacs" "pymacs/pymacs.el"
+;;;;;;  (20879 34884))
+;;; Generated autoloads from pymacs/pymacs.el
+
+(autoload 'pymacs-load "pymacs/pymacs" "\
+Import the Python module named MODULE into Emacs.
+Each function in the Python module is made available as an Emacs function.
+The Lisp name of each function is the concatenation of PREFIX with
+the Python name, in which underlines are replaced by dashes.  If PREFIX is
+not given, it defaults to MODULE followed by a dash.
+If NOERROR is not nil, do not raise error when the module is not found.
+
+\(fn MODULE &optional PREFIX NOERROR)" t nil)
+
+(autoload 'pymacs-autoload "pymacs/pymacs" "\
+Pymacs's equivalent of the standard emacs facility `autoload'.
+Define FUNCTION to autoload from Python MODULE using PREFIX.
+If PREFIX is not given, it defaults to MODULE followed by a dash.
+Optional DOCSTRING documents FUNCTION until it gets loaded.
+INTERACTIVE is normally the argument to the function `interactive',
+t means `interactive' without arguments, nil means not interactive,
+which is the default.
+
+\(fn FUNCTION MODULE &optional PREFIX DOCSTRING INTERACTIVE)" nil nil)
+
+(autoload 'pymacs-eval "pymacs/pymacs" "\
+Compile TEXT as a Python expression, and return its value.
+
+\(fn TEXT)" t nil)
+
+(autoload 'pymacs-exec "pymacs/pymacs" "\
+Compile and execute TEXT as a sequence of Python statements.
+This functionality is experimental, and does not appear to be useful.
+
+\(fn TEXT)" t nil)
+
+(autoload 'pymacs-call "pymacs/pymacs" "\
+Return the result of calling a Python function FUNCTION over ARGUMENTS.
+FUNCTION is a string denoting the Python function, ARGUMENTS are separate
+Lisp expressions, one per argument.  Immutable Lisp constants are converted
+to Python equivalents, other structures are converted into Lisp handles.
+
+\(fn FUNCTION &rest ARGUMENTS)" nil nil)
+
+(autoload 'pymacs-apply "pymacs/pymacs" "\
+Return the result of calling a Python function FUNCTION over ARGUMENTS.
+FUNCTION is a string denoting the Python function, ARGUMENTS is a list of
+Lisp expressions.  Immutable Lisp constants are converted to Python
+equivalents, other structures are converted into Lisp handles.
+
+\(fn FUNCTION ARGUMENTS)" nil nil)
 
 ;;;***
 
@@ -2943,7 +3198,7 @@ For example, the function `case' has an indent property
 ;;;;;;  tabbar-press-scroll-left tabbar-press-home tabbar-forward-tab
 ;;;;;;  tabbar-backward-tab tabbar-forward-group tabbar-backward-group
 ;;;;;;  tabbar-forward tabbar-backward) "tabbar/tabbar" "tabbar/tabbar.el"
-;;;;;;  (20953 35250))
+;;;;;;  (20958 61226))
 ;;; Generated autoloads from tabbar/tabbar.el
 
 (autoload 'tabbar-backward "tabbar/tabbar" "\
@@ -3202,44 +3457,56 @@ accept it or skip it.
 ;;;***
 
 ;;;### (autoloads nil nil ("auto-async-byte-compile/auto-async-byte-compile.el"
-;;;;;;  "auto-complete-clang/auto-complete-clang.el" "auto-complete-extension/auto-complete-extension.el"
-;;;;;;  "auto-complete-yasnippet/auto-complete-yasnippet.el" "auto-complete/auto-complete-config.el"
-;;;;;;  "auto-complete/auto-complete-pkg.el" "autopair/autopair-tests.el"
-;;;;;;  "cl-lib/cl-lib-autoloads.el" "cl-lib/cl-lib-pkg.el" "cl-lib/cl-lib.el"
-;;;;;;  "color-theme-almost-monokai/color-theme-almost-monokai.el"
+;;;;;;  "auto-complete-clang/auto-complete-clang.el" "auto-complete-yasnippet/auto-complete-yasnippet.el"
+;;;;;;  "auto-complete/auto-complete-config.el" "auto-complete/auto-complete-pkg.el"
+;;;;;;  "autopair/autopair-tests.el" "cl-lib/cl-lib-autoloads.el"
+;;;;;;  "cl-lib/cl-lib-pkg.el" "cl-lib/cl-lib.el" "cmake-mode/cmake-mode.el"
 ;;;;;;  "color-theme/color-theme-autoloads.el" "css-mode/css-mode-autoloads.el"
-;;;;;;  "css-mode/css-mode-pkg.el" "el-get/el-get-autoloads.el" "el-get/el-get-build.el"
-;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
-;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
-;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el" "expand-region/cperl-mode-expansions.el"
-;;;;;;  "expand-region/css-mode-expansions.el" "expand-region/erlang-mode-expansions.el"
+;;;;;;  "css-mode/css-mode-pkg.el" "dash/dash.el" "el-get/el-get-autoloads.el"
+;;;;;;  "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
+;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
+;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
+;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "expand-region/cc-mode-expansions.el"
+;;;;;;  "expand-region/clojure-mode-expansions.el" "expand-region/cperl-mode-expansions.el"
+;;;;;;  "expand-region/css-mode-expansions.el" "expand-region/er-basic-expansions.el"
+;;;;;;  "expand-region/erlang-mode-expansions.el" "expand-region/expand-region-core.el"
 ;;;;;;  "expand-region/expand-region-pkg.el" "expand-region/feature-mode-expansions.el"
-;;;;;;  "expand-region/latex-mode-expansions.el" "expand-region/octave-expansions.el"
-;;;;;;  "expand-region/python-el-expansions.el" "expand-region/python-el-fgallina-expansions.el"
-;;;;;;  "expand-region/python-mode-expansions.el" "expand-region/sml-mode-expansions.el"
-;;;;;;  "expand-region/text-mode-expansions.el" "expand-region/web-mode-expansions.el"
-;;;;;;  "helm/helm-aliases.el" "ibus/ibus.el" "ido-hacks/ido-hacks.el"
-;;;;;;  "magit/magit-bisect.el" "magit/magit-cherry.el" "magit/magit-key-mode.el"
-;;;;;;  "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-pkg.el"
-;;;;;;  "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
+;;;;;;  "expand-region/html-mode-expansions.el" "expand-region/js-mode-expansions.el"
+;;;;;;  "expand-region/js2-mode-expansions.el" "expand-region/jsp-expansions.el"
+;;;;;;  "expand-region/latex-mode-expansions.el" "expand-region/nxml-mode-expansions.el"
+;;;;;;  "expand-region/octave-expansions.el" "expand-region/python-el-expansions.el"
+;;;;;;  "expand-region/python-el-fgallina-expansions.el" "expand-region/python-mode-expansions.el"
+;;;;;;  "expand-region/ruby-mode-expansions.el" "expand-region/sml-mode-expansions.el"
+;;;;;;  "expand-region/text-mode-expansions.el" "expand-region/the-org-mode-expansions.el"
+;;;;;;  "expand-region/web-mode-expansions.el" "flymake-easy/flymake-easy.el"
+;;;;;;  "flymake-extension/flymake-extension.el" "font-lock+/font-lock+.el"
+;;;;;;  "helm/helm-aliases.el" "helm/helm-pkg.el" "helm/helm-plugin.el"
+;;;;;;  "ibus/ibus.el" "ido-hacks/ido-hacks.el" "ido-ubiquitous/ido-ubiquitous-autoloads.el"
+;;;;;;  "ido-ubiquitous/ido-ubiquitous-pkg.el" "magit/magit-bisect.el"
+;;;;;;  "magit/magit-cherry.el" "magit/magit-key-mode.el" "multiple-cursors/mc-cycle-cursors.el"
+;;;;;;  "multiple-cursors/multiple-cursors-core.el" "multiple-cursors/multiple-cursors-pkg.el"
+;;;;;;  "multiple-cursors/multiple-cursors.el" "pos-tip/pos-tip.el"
+;;;;;;  "rfringe/rfringe.el" "slime/contrib/bridge.el" "slime/contrib/inferior-slime.el"
 ;;;;;;  "slime/contrib/slime-asdf.el" "slime/contrib/slime-autodoc.el"
 ;;;;;;  "slime/contrib/slime-banner.el" "slime/contrib/slime-c-p-c.el"
 ;;;;;;  "slime/contrib/slime-clipboard.el" "slime/contrib/slime-compiler-notes-tree.el"
 ;;;;;;  "slime/contrib/slime-editing-commands.el" "slime/contrib/slime-enclosing-context.el"
-;;;;;;  "slime/contrib/slime-fancy-inspector.el" "slime/contrib/slime-fontifying-fu.el"
+;;;;;;  "slime/contrib/slime-fancy-inspector.el" "slime/contrib/slime-fancy-trace.el"
+;;;;;;  "slime/contrib/slime-fancy.el" "slime/contrib/slime-fontifying-fu.el"
 ;;;;;;  "slime/contrib/slime-fuzzy.el" "slime/contrib/slime-highlight-edits.el"
 ;;;;;;  "slime/contrib/slime-hyperdoc.el" "slime/contrib/slime-indentation.el"
 ;;;;;;  "slime/contrib/slime-mdot-fu.el" "slime/contrib/slime-media.el"
 ;;;;;;  "slime/contrib/slime-motd.el" "slime/contrib/slime-mrepl.el"
-;;;;;;  "slime/contrib/slime-package-fu.el" "slime/contrib/slime-presentation-streams.el"
-;;;;;;  "slime/contrib/slime-presentations.el" "slime/contrib/slime-references.el"
+;;;;;;  "slime/contrib/slime-package-fu.el" "slime/contrib/slime-parse.el"
+;;;;;;  "slime/contrib/slime-presentation-streams.el" "slime/contrib/slime-presentations.el"
+;;;;;;  "slime/contrib/slime-references.el" "slime/contrib/slime-repl.el"
 ;;;;;;  "slime/contrib/slime-sbcl-exts.el" "slime/contrib/slime-scheme.el"
 ;;;;;;  "slime/contrib/slime-scratch.el" "slime/contrib/slime-snapshot.el"
 ;;;;;;  "slime/contrib/slime-sprof.el" "slime/contrib/slime-tramp.el"
 ;;;;;;  "slime/contrib/slime-typeout-frame.el" "slime/contrib/slime-xref-browser.el"
-;;;;;;  "slime/hyperspec.el" "slime/slime-autoloads.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (20957 39185 836546))
+;;;;;;  "slime/hyperspec.el" "slime/slime-autoloads.el" "slime/slime.el"
+;;;;;;  "yasnippet/yasnippet-debug.el" "yasnippet/yasnippet-tests.el")
+;;;;;;  (20963 48742 868047))
 
 ;;;***
 

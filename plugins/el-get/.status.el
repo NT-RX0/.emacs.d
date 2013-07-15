@@ -1,4 +1,6 @@
-((auto-async-byte-compile status "installed" recipe
+((ace-jump-mode status "installed" recipe
+                (:name ace-jump-mode :website "https://github.com/winterTTr/ace-jump-mode/wiki" :description "A quick cursor location minor mode for emacs" :type github :pkgname "winterTTr/ace-jump-mode" :features ace-jump-mode))
+ (auto-async-byte-compile status "installed" recipe
                           (:name auto-async-byte-compile :description "Automatically byte-compile when saved" :website "http://www.emacswiki.org/emacs/AutoAsyncByteCompile" :type emacswiki :post-init
                                  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
                                  :features "auto-async-byte-compile"))
@@ -7,17 +9,20 @@
                        (popup fuzzy)))
  (auto-complete-clang status "installed" recipe
                       (:name auto-complete-clang :website "https://github.com/brianjcj/auto-complete-clang" :description "Auto-complete sources for Clang. Combine the power of AC, Clang and Yasnippet." :type github :pkgname "brianjcj/auto-complete-clang" :depends auto-complete))
- (auto-complete-extension status "installed" recipe
-                          (:name auto-complete-extension :type emacswiki :description "Some extension for auto-complete-mode" :depends auto-complete))
- (auto-complete-yasnippet status "installed" recipe
-                          (:name auto-complete-yasnippet :description "Auto-complete sources for YASnippet" :type http :url "http://www.cx4a.org/pub/auto-complete-yasnippet.el" :depends
-                                 (auto-complete yasnippet)))
  (autopair status "installed" recipe
            (:name autopair :website "https://github.com/capitaomorte/autopair" :description "Autopair is an extension to the Emacs text editor that automatically pairs braces and quotes." :type github :pkgname "capitaomorte/autopair" :features autopair))
  (browse-kill-ring status "installed" recipe
                    (:name browse-kill-ring :description "Interactively insert items from kill-ring" :type github :pkgname "browse-kill-ring/browse-kill-ring"))
  (cl-lib status "installed" recipe
          (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
+ (cmake-mode status "installed" recipe
+             (:name cmake-mode :website "http://www.itk.org/Wiki/CMake_Editors_Support" :description "Provides syntax highlighting and indentation for CMakeLists.txt and *.cmake source files." :type http :url "http://www.cmake.org/CMakeDocs/cmake-mode.el" :before
+                    (progn
+                      (autoload 'cmake-mode "cmake-mode" "Major mode for editing CMake listfiles.")
+                      (add-to-list 'auto-mode-alist
+                                   '("CMakeLists\\.txt\\'" . cmake-mode))
+                      (add-to-list 'auto-mode-alist
+                                   '("\\.cmake\\'" . cmake-mode)))))
  (color-theme status "installed" recipe
               (:name color-theme :description "An Emacs-Lisp package with more than 50 color themes for your use. For questions about color-theme" :website "http://www.nongnu.org/color-theme/" :type http-tar :options
                      ("xzf")
@@ -25,15 +30,35 @@
                      (progn
                        (color-theme-initialize)
                        (setq color-theme-is-global t))))
- (color-theme-almost-monokai status "installed" recipe
-                             (:name color-theme-almost-monokai :description "A beautiful, fruity, calm, yet dark color theme for Emacs." :type github :pkgname "lut4rp/almost-monokai" :depends color-theme :prepare
-                                    (autoload 'color-theme-almost-monokai "color-theme-almost-monokai" "color-theme: almost-monokai" t)))
+ (color-theme-tomorrow status "installed" recipe
+                       (:name color-theme-tomorrow :description "Emacs highlighting using Chris Charles's Tomorrow color scheme" :type github :pkgname "ccharles/Tomorrow-Theme" :depends color-theme :prepare
+                              (progn
+                                (autoload 'color-theme-tomorrow "GNU Emacs/color-theme-tomorrow" "color-theme: tomorrow" t)
+                                (autoload 'color-theme-tomorrow-night "GNU Emacs/color-theme-tomorrow" "color-theme: tomorrow-night" t)
+                                (autoload 'color-theme-tomorrow-night-eighties "GNU Emacs/color-theme-tomorrow" "color-theme: tomorrow-night-eighties" t)
+                                (autoload 'color-theme-tomorrow-night-blue "GNU Emacs/color-theme-tomorrow" "color-theme: tomorrow-night-blue" t)
+                                (autoload 'color-theme-tomorrow-night-bright "GNU Emacs/color-theme-tomorrow" "color-theme: tomorrow-night-bright" t))))
  (css-mode status "installed" recipe
            (:name css-mode :description "Minor mode for CSS" :features css-mode :type elpa))
+ (dash status "installed" recipe
+       (:name dash :description "A modern list api for Emacs. No 'cl required." :type github :pkgname "magnars/dash.el"))
  (el-get status "installed" recipe
          (:name el-get :website "https://github.com/dimitri/el-get#readme" :description "Manage the external elisp bits and pieces you depend upon." :type github :branch "4.stable" :pkgname "dimitri/el-get" :info "." :load "el-get.el"))
  (expand-region status "installed" recipe
                 (:name expand-region :type github :pkgname "magnars/expand-region.el" :description "Expand region increases the selected region by semantic units. Just keep pressing the key until it selects what you want." :website "https://github.com/magnars/expand-region.el#readme" :features expand-region))
+ (flymake status "installed" recipe
+          (:name flymake :description "Continuous syntax checking for Emacs." :type github :pkgname "illusori/emacs-flymake"))
+ (flymake-css status "installed" recipe
+              (:name flymake-css :type github :pkgname "purcell/flymake-css" :description "Flymake support for css using csslint" :website "http://github.com/purcell/flymake-css" :depends
+                     (flymake-easy)
+                     :post-init
+                     (add-hook 'css-mode-hook 'flymake-css-load)))
+ (flymake-easy status "installed" recipe
+               (:name flymake-easy :type github :description "Helpers for easily building flymake checkers" :pkgname "purcell/flymake-easy" :website "http://github.com/purcell/flymake-easy"))
+ (flymake-extension status "installed" recipe
+                    (:name flymake-extension :auto-generated t :type emacswiki :description "Some extension for flymake" :website "https://raw.github.com/emacsmirror/emacswiki.org/master/flymake-extension.el"))
+ (font-lock+ status "installed" recipe
+             (:name font-lock+ :auto-generated t :type emacswiki :description "Enhancements to standard library `font-lock.el'." :website "https://raw.github.com/emacsmirror/emacswiki.org/master/font-lock+.el"))
  (fuzzy status "installed" recipe
         (:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
  (header2 status "installed" recipe
@@ -54,6 +79,8 @@
               :features "ibus"))
  (ido-hacks status "installed" recipe
             (:name ido-hacks :description "Advices for ido-mode." :type github :pkgname "scottjad/ido-hacks" :load "ido-hacks.el"))
+ (ido-ubiquitous status "installed" recipe
+                 (:name ido-ubiquitous :description "Use ido (nearly) everywhere" :type elpa))
  (js2-mode status "installed" recipe
            (:name js2-mode :website "https://github.com/mooz/js2-mode#readme" :description "An improved JavaScript editing mode" :type github :pkgname "mooz/js2-mode" :prepare
                   (autoload 'js2-mode "js2-mode" nil t)))
@@ -126,6 +153,8 @@
  (readline-complete status "installed" recipe
                     (:name readline-complete :description "Offers completions in shell mode" :type github :pkgname "monsanto/readline-complete.el" :depends
                            (auto-complete)))
+ (rfringe status "installed" recipe
+          (:name rfringe :description "display the relative location of the region, in the fringe" :website "http://www.emacswiki.org/emacs/RFringe" :type emacswiki :features "rfringe"))
  (slime status "installed" recipe
         (:name slime :description "Superior Lisp Interaction Mode for Emacs" :type github :autoloads "slime-autoloads" :info "doc" :pkgname "antifuchs/slime" :load-path
                ("." "contrib")
@@ -160,5 +189,6 @@
                                         (file-name-as-directory "yasnippet")
                                         "snippets")))))
                    :compile nil :submodule nil))
+ (yasnippet-config status "required" recipe nil)
  (zencoding-mode status "installed" recipe
                  (:name zencoding-mode :description "Unfold CSS-selector-like expressions to markup" :type github :pkgname "rooney/zencoding" :features zencoding-mode)))
